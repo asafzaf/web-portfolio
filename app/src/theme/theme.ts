@@ -18,6 +18,36 @@ export const lightTheme = createTheme({
       hoverColor: "#213555",
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&:focus": {
+            outline: "none",
+            boxShadow: "none",
+          },
+          "&:focus-visible": {
+            outline: "none",
+            boxShadow: "none",
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          "&:focus": {
+            outline: "none",
+            boxShadow: "none",
+          },
+          "&:focus-visible": {
+            outline: "none",
+            boxShadow: "none",
+          },
+        },
+      },
+    },
+  },
 });
 
 export const darkTheme = createTheme({
@@ -35,6 +65,36 @@ export const darkTheme = createTheme({
       color: "#F5EFE7",
       hoverBackground: "#4A6487",
       hoverColor: "#F5EFE7",
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&:focus": {
+            outline: "none",
+            boxShadow: "none",
+          },
+          "&:focus-visible": {
+            outline: "none",
+            boxShadow: "none",
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          "&:focus": {
+            outline: "none",
+            boxShadow: "none",
+          },
+          "&:focus-visible": {
+            outline: "none",
+            boxShadow: "none",
+          },
+        },
+      },
     },
   },
 });
