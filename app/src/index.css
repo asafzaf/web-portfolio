@@ -49,9 +49,18 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
+  box-shadow: 0 0 0 2px #646cff55;
+}
+
+button:active {
+  background-color: #e0e0e0;
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px 0 #0002;
+  outline: none;
 }
 
 @media (prefers-color-scheme: light) {
