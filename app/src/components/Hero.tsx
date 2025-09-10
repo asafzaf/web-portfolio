@@ -4,6 +4,9 @@ import { Stack, IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from '@mui/icons-material/Instagram';
+import DescriptionIcon from "@mui/icons-material/Description";
+import ArticleIcon from "@mui/icons-material/Article";
+
 
 const Hero = () => {
   const theme = useTheme();
@@ -115,6 +118,13 @@ const Hero = () => {
                 sx={{ color: theme.custom.text, ":hover": { color: theme.custom.button.hoverColor } }}
               >
                 <InstagramIcon />
+              </IconButton>
+              <IconButton
+                component="a"
+                target="_blank"
+                sx={{ color: theme.custom.text, ":hover": { color: theme.custom.button.hoverColor } }}
+              >
+                <DescriptionIcon /><Typography variant="caption" sx={{ ml: 0.5 }}>Resume</Typography>
               </IconButton>
             </Stack>
           </Box>
