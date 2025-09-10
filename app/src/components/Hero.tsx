@@ -1,12 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Stack, IconButton } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import DescriptionIcon from "@mui/icons-material/Description";
-import ArticleIcon from "@mui/icons-material/Article";
-
+import LinksStack from "./LinksStack";
 
 const Hero = () => {
   const theme = useTheme();
@@ -93,41 +87,7 @@ const Hero = () => {
             with interpersonal skills. Motivated with a strong result-focused
             approach, a positive attitude, and dedication for excellence.
           </Typography>
-          <Box sx={{ mt: 2 }}>
-            <Stack direction="row" spacing={2}>
-              <IconButton
-                component="a"
-                href="https://github.com/asafzaf"
-                target="_blank"
-                sx={{ color: theme.custom.text, ":hover": { color: theme.custom.button.hoverColor } }}
-              >
-                <GitHubIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="https://www.linkedin.com/in/asaf-zafrir/"
-                target="_blank"
-                sx={{ color: theme.custom.text, ":hover": { color: theme.custom.button.hoverColor } }}
-              >
-                <LinkedInIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="https://www.instagram.com/asaf_z/"
-                target="_blank"
-                sx={{ color: theme.custom.text, ":hover": { color: theme.custom.button.hoverColor } }}
-              >
-                <InstagramIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                target="_blank"
-                sx={{ color: theme.custom.text, ":hover": { color: theme.custom.button.hoverColor } }}
-              >
-                <DescriptionIcon /><Typography variant="caption" sx={{ ml: 0.5 }}>Resume</Typography>
-              </IconButton>
-            </Stack>
-          </Box>
+          <LinksStack />
         </Box>
       </Box>
     </section>

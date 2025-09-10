@@ -27,6 +27,7 @@ const NavBar = () => {
   };
 
   return (
+    <section>
     <Box
       sx={{
         position: "fixed",
@@ -97,6 +98,7 @@ const NavBar = () => {
         </IconButton>
       </Box>
     </Box>
+    </section>
   );
 };
 
