@@ -14,6 +14,15 @@ declare module "@mui/material/styles" {
         hoverColor: string;
       };
     };
+    absolutColors: {
+      white: string;
+      red: string;
+      green: string;
+      blue: string;
+      yellow: string;
+      orange: string;
+      purple: string;
+    };
   }
 
   interface ThemeOptions {
@@ -27,6 +36,15 @@ declare module "@mui/material/styles" {
         hoverBackground?: string;
         hoverColor?: string;
       };
+    };
+    absolutColors?: {
+      white?: string;
+      red?: string;
+      green?: string;
+      blue?: string;
+      yellow?: string;
+      orange?: string;
+      purple?: string;
     };
   }
 }
