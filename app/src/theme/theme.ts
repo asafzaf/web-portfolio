@@ -15,6 +15,16 @@ const darkPalette = {
   forth: "#EEEEEE",
 };
 
+const absolutColors = {
+  white: "#FFFFFF",
+  red: "#FF4C60",
+  green: "#4CAF50",
+  blue: "#2196F3",
+  yellow: "#FFEB3B",
+  orange: "#FF9800",
+  purple: "#9C27B0",
+};
+
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
@@ -64,6 +74,7 @@ export const lightTheme = createTheme({
       },
     },
   },
+  absolutColors,
 });
 
 export const darkTheme = createTheme({
@@ -115,4 +126,5 @@ export const darkTheme = createTheme({
       },
     },
   },
+  absolutColors,
 });
