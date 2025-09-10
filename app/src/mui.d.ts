@@ -7,6 +7,7 @@ declare module "@mui/material/styles" {
       background: string;
       text: string;
       accent: string;
+      shadow: string;
       button: {
         color: string;
         hoverBackground: string;
@@ -20,6 +21,7 @@ declare module "@mui/material/styles" {
       background?: string;
       text?: string;
       accent?: string;
+      shadow?: string;
       button?: {
         color?: string;
         hoverBackground?: string;

@@ -7,6 +7,7 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
+  Typography,
 } from "@mui/material";
 import { ThemeContext } from "../theme/theme.context";
 import { useTheme } from "@mui/material/styles";
@@ -15,7 +16,7 @@ import SunnyIcon from "@mui/icons-material/Sunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 
 const MainPage = () => {
-    const theme = useTheme();
+  const theme = useTheme();
   const { toggleTheme } = useContext(ThemeContext);
   const isMobile = useMediaQuery("(max-width:600px)");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -30,7 +31,10 @@ const MainPage = () => {
     <Box
       minHeight="100vh"
       minWidth="100vw"
-      sx={{ backgroundColor: theme.custom.background, color: theme.custom.text }}
+      sx={{
+        backgroundColor: theme.custom.background,
+        color: theme.custom.text,
+      }}
     >
       {/* Fixed Navbar */}
       <Box
@@ -96,15 +100,106 @@ const MainPage = () => {
             </Menu>
           </>
         )}
-        {/* Theme IconButton always top right */}
+        {/* Theme IconButton - top right */}
         <Box sx={{ position: "absolute", right: 24 }}>
           <IconButton onClick={toggleTheme} size="large">
             {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
           </IconButton>
         </Box>
       </Box>
-      {/* Main Content with padding to avoid navbar overlap */}
-      <Box sx={{ pt: "80px" }}>{/* ...main content goes here... */}</Box>
+      {/* Main Content */}
+      <Box
+        sx={{
+          pt: "80px",
+          minHeight: `calc(100vh - 80px)`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Stack
+          direction="row"
+          spacing={10}
+          alignItems="flex"
+          sx={{
+            width: { xs: "95vw", sm: 700, md: "95vw" },
+            height: { xs: 300, sm: 400, md: 500 },
+            minHeight: 300,
+            minWidth: 320,
+            backgroundColor: "transparent",
+            borderRadius: 6,
+            boxShadow: 0,
+            px: { xs: 2, sm: 6 },
+            py: { xs: 3, sm: 6 },
+          }}
+        >
+          {/* Profile Photo Circle with floating effect */}
+          <Box
+            sx={{
+              width: 360,
+              height: 360,
+              borderRadius: "50%",
+              overflow: "hidden",
+              backgroundColor: theme.palette.grey[200],
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              boxShadow: theme.custom.shadow,
+              transition: "box-shadow 0.3s",
+            }}
+          >
+            <img
+              src="/portfolio-picture.png"
+              alt="Profile Picture"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </Box>
+          {/* Main Content Box with floating effect */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: 160,
+              boxShadow: theme.custom.shadow,
+              borderRadius: 4,
+              backgroundColor: theme.palette.secondary.main,
+              transition: "box-shadow 0.3s",
+            }}
+          >
+            <Box
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}
+            >
+                <Typography sx={{ color: theme.custom.text }} variant="h2" >
+                    Asaf Zafrir
+                </Typography>
+                <Typography sx={{ color: theme.custom.text }} variant="body1" >
+                    Hello! 👋 <br />
+                    I'm a Software Engineer (B.Sc.) with hands-on experience in full-stack
+                    <br />
+                    development, automation, and system design. Skilled in building
+                    <br />
+                    scalable solutions using modern technologies and engineering
+                    <br />
+                    best practices. A quick learner and a strong team player with
+                    <br />
+                    interpersonal skills. Motivated with a strong result-focused
+                    <br />
+                    approach, a positive attitude, and dedication for excellence.
+                </Typography>
+            </Box>
+          </Box>
+        </Stack>
+      </Box>
     </Box>
   );
 };
