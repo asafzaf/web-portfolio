@@ -117,88 +117,78 @@ const MainPage = () => {
           justifyContent: "center",
         }}
       >
-        <Stack
-          direction="row"
-          spacing={10}
-          alignItems="flex"
+        <Box
           sx={{
-            width: { xs: "95vw", sm: 700, md: "95vw" },
-            height: { xs: 300, sm: 400, md: 500 },
-            minHeight: 300,
-            minWidth: 320,
-            backgroundColor: "transparent",
-            borderRadius: 6,
-            boxShadow: 0,
-            px: { xs: 2, sm: 6 },
-            py: { xs: 3, sm: 6 },
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 4,
           }}
         >
-          {/* Profile Photo Circle with floating effect */}
           <Box
             sx={{
-              width: 360,
-              height: 360,
+              flex: { xs: "0 0 100%", md: "0 0 28%" },
+              aspectRatio: "1 / 1",
               borderRadius: "50%",
               overflow: "hidden",
-              backgroundColor: theme.palette.grey[200],
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
               boxShadow: theme.custom.shadow,
-              transition: "box-shadow 0.3s",
+              transition: "transform 0.3s, box-shadow 0.3s",
+              "&:hover": {
+                transform: "translateY(-10px)",
+                boxShadow: theme.custom.shadow + "90px",
+              },
             }}
           >
             <img
               src="/portfolio-picture.png"
-              alt="Profile Picture"
+              alt="Asaf Zafrir"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </Box>
-          {/* Main Content Box with floating effect */}
           <Box
             sx={{
-              flex: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: 160,
-              boxShadow: theme.custom.shadow,
-              borderRadius: 4,
+              flex: { xs: "0 0 100%", md: "0 0 70%" },
               backgroundColor: theme.palette.secondary.main,
-              transition: "box-shadow 0.3s",
+              p: { xs: 4, md: 5 },
+              borderRadius: 4,
+              boxShadow: theme.custom.shadow,
+              transition: "transform 0.3s, box-shadow 0.3s",
+              "&:hover": {
+                transform: "translateY(-5px)",
+                boxShadow: theme.custom.shadow + "60px",
+              },
             }}
           >
-            <Box
-                sx={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
+            <Typography
+              variant="h2"
+              component="h1"
+              sx={{ mb: 2, fontWeight: "bold", color: theme.custom.text }}
             >
-                <Typography sx={{ color: theme.custom.text }} variant="h2" >
-                    Asaf Zafrir
-                </Typography>
-                <Typography sx={{ color: theme.custom.text }} variant="body1" >
-                    Hello! 👋 <br />
-                    I'm a Software Engineer (B.Sc.) with hands-on experience in full-stack
-                    <br />
-                    development, automation, and system design. Skilled in building
-                    <br />
-                    scalable solutions using modern technologies and engineering
-                    <br />
-                    best practices. A quick learner and a strong team player with
-                    <br />
-                    interpersonal skills. Motivated with a strong result-focused
-                    <br />
-                    approach, a positive attitude, and dedication for excellence.
-                </Typography>
-            </Box>
+              Asaf Zafrir
+            </Typography>
+            <Typography
+              variant="h5"
+              component="h2"
+              sx={{ mb: 3, color: theme.palette.grey[200] }}
+            >
+              Software Engineer | Full Stack Developer
+            </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              sx={{ lineHeight: 1.7, color: theme.custom.text }}
+            >
+              Hello! 👋 I'm a Software Engineer (B.Sc.) with hands-on experience
+              in full-stack development, automation, and system design. Skilled
+              in building scalable solutions using modern technologies and
+              engineering best practices. A quick learner and a strong team
+              player with interpersonal skills. Motivated with a strong
+              result-focused approach, a positive attitude, and dedication for
+              excellence.
+            </Typography>
           </Box>
-        </Stack>
+        </Box>
       </Box>
     </Box>
   );
