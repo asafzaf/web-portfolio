@@ -20,7 +20,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<SupportedLang>("en");
+  const [lang, setLang] = useState<SupportedLang>("he");
 
   const translations: Record<SupportedLang, LanguageData> = { en, he };
 

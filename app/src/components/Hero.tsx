@@ -12,10 +12,14 @@ const Hero = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: {
+            xs: "column",
+            md: data.direction === "rtl" ? "row-reverse" : "row",
+          },
           alignItems: "center",
           justifyContent: "center",
           gap: 4,
+          textAlign: data.direction === "rtl" ? "right" : "left",
         }}
       >
         <Box
@@ -45,13 +49,17 @@ const Hero = () => {
         >
           <img
             src="/portfolio-picture.png"
-            alt="Asaf Zafrir"
+            alt={data.hero.name}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </Box>
         <Box
           sx={{
             flex: { xs: "0 0 100%", md: "0 0 70%" },
+            display: "flex",
+            flexDirection: "column",
+            alignItems: data.direction === "rtl" ? "flex-end" : "flex-start",
+            textAlign: data.direction === "rtl" ? "right" : "left",
             backgroundColor: theme.palette.secondary.main,
             p: { xs: 4, md: 5 },
             borderRadius: 4,
@@ -66,21 +74,36 @@ const Hero = () => {
           <Typography
             variant="h2"
             component="h1"
-            sx={{ mb: 2, fontWeight: "bold", color: theme.custom.text }}
+            sx={{ mb: 2, fontWeight: "bold", color: theme.custom.text,
+               direction: data.direction,
+              textAlign: data.direction === "rtl" ? "right" : "left",
+             }}
           >
             {data.hero.name}
           </Typography>
           <Typography
             variant="h5"
+            
             component="h2"
-            sx={{ mb: 3, fontWeight: "bold", color: theme.custom.text }}
+            sx={{
+              mb: 3,
+              fontWeight: "bold",
+              color: theme.custom.text,
+              direction: data.direction,
+              textAlign: data.direction === "rtl" ? "right" : "left",
+             }}
           >
             {data.hero.title}
           </Typography>
           <Typography
             variant="body1"
             component="p"
-            sx={{ lineHeight: 1.7, color: theme.custom.text }}
+            sx={{
+              lineHeight: 1.7,
+              color: theme.custom.text,
+              direction: data.direction,
+              textAlign: data.direction === "rtl" ? "right" : "left",
+            }}
           >
             {data.hero.description}
           </Typography>
