@@ -10,7 +10,7 @@ const MainPage = () => {
   return (
     <Box
       minHeight="100vh"
-      minWidth="100vw"
+      minWidth="99vw"
       sx={{
         backgroundColor: theme.custom.background,
         color: theme.custom.text,

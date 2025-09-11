@@ -1,16 +1,30 @@
+import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import LinksStack from "./LinksStack";
+import { useLanguage } from "../context/LanguageContext";
 
 const Hero = () => {
   const theme = useTheme();
+  const { data } = useLanguage();
+
+  const alignSx = (dir: "ltr" | "rtl") => ({
+    direction: dir,
+    textAlign: dir === "rtl" ? "right" : "left",
+  });
 
   return (
-    <section style={{ minHeight: "100vh", padding: "5rem 3rem" }}>
+    <section
+      style={{
+        minHeight: "100vh",
+        padding: "5rem 3rem",
+      }}
+    >
       <Box
+        key={data.direction}
         sx={{
+          ...alignSx(data.direction),
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
           justifyContent: "center",
           gap: 4,
@@ -43,13 +57,15 @@ const Hero = () => {
         >
           <img
             src="/portfolio-picture.png"
-            alt="Asaf Zafrir"
+            alt={data.hero.name}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </Box>
         <Box
           sx={{
             flex: { xs: "0 0 100%", md: "0 0 70%" },
+            display: "flex",
+            flexDirection: "column",
             backgroundColor: theme.palette.secondary.main,
             p: { xs: 4, md: 5 },
             borderRadius: 4,
@@ -64,28 +80,37 @@ const Hero = () => {
           <Typography
             variant="h2"
             component="h1"
-            sx={{ mb: 2, fontWeight: "bold", color: theme.custom.text }}
+            sx={{
+              ...alignSx(data.direction),
+              mb: 2,
+              fontWeight: "bold",
+              color: theme.custom.text,
+            }}
           >
-            Asaf Zafrir
+            {data.hero.name}
           </Typography>
           <Typography
             variant="h5"
             component="h2"
-            sx={{ mb: 3, fontWeight: "bold", color: theme.custom.text }}
+            sx={{
+              ...alignSx(data.direction),
+              mb: 3,
+              fontWeight: "bold",
+              color: theme.custom.text,
+            }}
           >
-            Software Engineer | Full Stack Developer
+            {data.hero.title}
           </Typography>
           <Typography
             variant="body1"
             component="p"
-            sx={{ lineHeight: 1.7, color: theme.custom.text }}
+            sx={{
+              ...alignSx(data.direction),
+              lineHeight: 1.7,
+              color: theme.custom.text,
+            }}
           >
-            Hello! 👋 I'm a Software Engineer (B.Sc.) with hands-on experience
-            in full-stack development, automation, and system design. Skilled in
-            building scalable solutions using modern technologies and
-            engineering best practices. A quick learner and a strong team player
-            with interpersonal skills. Motivated with a strong result-focused
-            approach, a positive attitude, and dedication for excellence.
+            {data.hero.description}
           </Typography>
           <LinksStack />
         </Box>
