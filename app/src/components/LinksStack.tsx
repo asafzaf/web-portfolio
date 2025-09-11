@@ -1,5 +1,6 @@
 import { Box, Stack, IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useLanguage } from "../context/LanguageContext";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -7,10 +8,14 @@ import DescriptionIcon from "@mui/icons-material/Description";
 
 const LinksStack = () => {
   const theme = useTheme();
+  const { data } = useLanguage();
 
   return (
-    <Box sx={{ mt: 2 }}>
-      <Stack direction="row" spacing={2}>
+    <Box sx={{ mt: 2, display: "flex" }}>
+      <Stack
+        direction={data.direction === "rtl" ? "row-reverse" : "row"}
+        spacing={2}
+      >
         <IconButton
           component="a"
           href="https://github.com/asafzaf"
@@ -52,10 +57,21 @@ const LinksStack = () => {
             ":hover": { color: theme.custom.button.hoverColor },
           }}
         >
-          <DescriptionIcon />
-          <Typography variant="caption" sx={{ ml: 0.5 }}>
-            Resume
-          </Typography>
+          {data.direction === "rtl" ? (
+            <>
+              <Typography variant="caption" sx={{ ml: 0.5 }}>
+                {data.resume}
+              </Typography>
+              <DescriptionIcon />
+            </>
+          ) : (
+            <>
+              <DescriptionIcon />
+              <Typography variant="caption" sx={{ ml: 0.5 }}>
+                {data.resume}
+              </Typography>
+            </>
+          )}
         </IconButton>
       </Stack>
     </Box>

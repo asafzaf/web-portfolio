@@ -10,5 +10,6 @@ export interface HeroContent {
 export interface LanguageData {
   lang: SupportedLang;
   direction: "ltr" | "rtl";
+  resume: string;
   hero: HeroContent;
 }
