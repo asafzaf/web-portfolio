@@ -4,10 +4,10 @@
   "resume": "קורות חיים",
   "hero": {
     "name": "אסף צפריר",
-  "title": "מהנדס תוכנה | מפתח FullStack",
+    "title": "מהנדס תוכנה | מפתח FullStack",
     "description": "שלום! 👋 אני מהנדס תוכנה (B.Sc.) עם ניסיון מעשי בפיתוח Full Stack, אוטומציה ותכנון מערכות. מיומן בבניית פתרונות סקיילביליים באמצעות טכנולוגיות מודרניות ופרקטיקות הנדסיות. לומד מהר ושחקן צוות חזק עם כישורים בינאישיים. מונע עם גישה חיובית ותשוקה למצוינות."
   },
-    "links": {
+  "links": {
     "github": {
       "label": "מעבר ל GitHub",
       "url": "https://github.com/asafzaf"
