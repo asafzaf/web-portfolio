@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import LinksStack from "./LinksStack";
@@ -7,19 +8,26 @@ const Hero = () => {
   const theme = useTheme();
   const { data } = useLanguage();
 
+  const alignSx = (dir: "ltr" | "rtl") => ({
+    direction: dir,
+    textAlign: dir === "rtl" ? "right" : "left",
+  });
+
   return (
-    <section style={{ minHeight: "100vh", padding: "5rem 3rem" }}>
+    <section
+      style={{
+        minHeight: "100vh",
+        padding: "5rem 3rem",
+      }}
+    >
       <Box
+        key={data.direction}
         sx={{
+          ...alignSx(data.direction),
           display: "flex",
-          flexDirection: {
-            xs: "column",
-            md: data.direction === "rtl" ? "row-reverse" : "row",
-          },
           alignItems: "center",
           justifyContent: "center",
           gap: 4,
-          textAlign: data.direction === "rtl" ? "right" : "left",
         }}
       >
         <Box
@@ -58,8 +66,6 @@ const Hero = () => {
             flex: { xs: "0 0 100%", md: "0 0 70%" },
             display: "flex",
             flexDirection: "column",
-            alignItems: data.direction === "rtl" ? "flex-end" : "flex-start",
-            textAlign: data.direction === "rtl" ? "right" : "left",
             backgroundColor: theme.palette.secondary.main,
             p: { xs: 4, md: 5 },
             borderRadius: 4,
@@ -74,24 +80,24 @@ const Hero = () => {
           <Typography
             variant="h2"
             component="h1"
-            sx={{ mb: 2, fontWeight: "bold", color: theme.custom.text,
-               direction: data.direction,
-              textAlign: data.direction === "rtl" ? "right" : "left",
-             }}
+            sx={{
+              ...alignSx(data.direction),
+              mb: 2,
+              fontWeight: "bold",
+              color: theme.custom.text,
+            }}
           >
             {data.hero.name}
           </Typography>
           <Typography
             variant="h5"
-            
             component="h2"
             sx={{
+              ...alignSx(data.direction),
               mb: 3,
               fontWeight: "bold",
               color: theme.custom.text,
-              direction: data.direction,
-              textAlign: data.direction === "rtl" ? "right" : "left",
-             }}
+            }}
           >
             {data.hero.title}
           </Typography>
@@ -99,10 +105,9 @@ const Hero = () => {
             variant="body1"
             component="p"
             sx={{
+              ...alignSx(data.direction),
               lineHeight: 1.7,
               color: theme.custom.text,
-              direction: data.direction,
-              textAlign: data.direction === "rtl" ? "right" : "left",
             }}
           >
             {data.hero.description}

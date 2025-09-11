@@ -10,70 +10,83 @@ const LinksStack = () => {
   const theme = useTheme();
   const { data } = useLanguage();
 
+  const isRtl = data.direction === "rtl";
+
+  const orderedIcons = (() => {
+    const baseIcons = [
+      { elements: null, icon: <GitHubIcon key='icon-github' />, url: data.links.github.url },
+      { elements: null, icon: <LinkedInIcon key='icon-linkedin' />, url: data.links.linkedin.url },
+      {
+        elements: null,
+        icon: <InstagramIcon key='icon-instagram' />,
+        url: data.links.instagram.url,
+      },
+      {
+        elements: null,
+        icon: <DescriptionIcon key='icon-description' />,
+        url: data.links.resume,
+        text: data.links.resume,
+      },
+    ];
+
+    const icons = isRtl ? [...baseIcons].reverse() : baseIcons;
+
+    return icons.map((item) => {
+      if (item.text) {
+        const elements = isRtl
+          ? [
+              <Typography key="text" variant="caption">
+                {item.text}
+              </Typography>,
+              item.icon,
+            ]
+          : [
+              item.icon,
+              <Typography key="text" variant="caption">
+                {item.text}
+              </Typography>,
+            ];
+        return { ...item, elements };
+      }
+      return item;
+    });
+  })();
+  
   return (
     <Box sx={{ mt: 2, display: "flex" }}>
-      <Stack
-        direction={data.direction === "rtl" ? "row-reverse" : "row"}
-        spacing={2}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: isRtl ? "row-reverse" : "row",
+          gap: 1,
+        }}
       >
-        <IconButton
-          component="a"
-          href={data.links.github.url}
-          target="_blank"
-          sx={{
-            color: theme.custom.text,
-            ":hover": { color: theme.custom.button.hoverColor },
-          }}
-        >
-          <GitHubIcon />
-        </IconButton>
-        <IconButton
-          component="a"
-          href={data.links.linkedin.url}
-          target="_blank"
-          sx={{
-            color: theme.custom.text,
-            ":hover": { color: theme.custom.button.hoverColor },
-          }}
-        >
-          <LinkedInIcon />
-        </IconButton>
-        <IconButton
-          component="a"
-          href={data.links.instagram.url}
-          target="_blank"
-          sx={{
-            color: theme.custom.text,
-            ":hover": { color: theme.custom.button.hoverColor },
-          }}
-        >
-          <InstagramIcon />
-        </IconButton>
-        <IconButton
-          component="a"
-          target="_blank"
-          sx={{
-            color: theme.custom.text,
-            ":hover": { color: theme.custom.button.hoverColor },
-          }}
-        >
-          {data.direction === "rtl" ? (
-            <>
-              <Typography variant="caption" sx={{ ml: 0.5 }}>
-                {data.links.resume}
-              </Typography>
-              <DescriptionIcon />
-            </>
-          ) : (
-            <>
-              <DescriptionIcon />
-              <Typography variant="caption" sx={{ ml: 0.5 }}>
-                {data.links.resume}
-              </Typography>
-            </>
-          )}
-        </IconButton>
-      </Stack>
+        {orderedIcons.map((item, idx) => {
+          return (
+            <IconButton
+              key={idx}
+              component="a"
+              href={item.url}
+              target="_blank"
+              sx={{
+                color: theme.custom.text,
+                ":hover": { color: theme.custom.button.hoverColor },
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  flexDirection: isRtl ? "row-reverse" : "row",
+                  gap: 0.5,
+                }}
+              >
+                {item.elements ? item.elements : item.icon}
+              </Box>
+            </IconButton>
+          );
+        })}
+      </Box>
     </Box>
   );
 };

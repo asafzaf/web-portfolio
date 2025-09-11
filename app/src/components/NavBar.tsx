@@ -14,11 +14,12 @@ import { useLanguage } from "../context/LanguageContext";
 
 import SunnyIcon from "@mui/icons-material/Sunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
+import LanguageIcon from "@mui/icons-material/Language";
 
 const NavBar = () => {
   const theme = useTheme();
   const { toggleTheme } = useContext(ThemeContext);
-  const { data, direction } = useLanguage();
+  const { data, direction, switchLanguage } = useLanguage();
   const isMobile = useMediaQuery("(max-width:600px)");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -26,8 +27,13 @@ const NavBar = () => {
     setAnchorEl(event.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
 
+  const handleChangeLanguage = () => {
+    switchLanguage(data.lang === "en" ? "he" : "en");
+  };
+
   // nav items from language
-  const navItems = direction === "rtl" ? [...data.navItems].reverse() : data.navItems;
+  const navItems =
+    direction === "rtl" ? [...data.navItems].reverse() : data.navItems;
 
   return (
     <Box
@@ -51,7 +57,12 @@ const NavBar = () => {
         <Stack
           direction="row"
           spacing={4}
-          sx={{ flex: 1, justifyContent: "center" }}
+          sx={{
+            flex: 1,
+            justifyContent: "center",
+            flexDirection: direction === "rtl" ? "row-reverse" : "row",
+            textAlign: direction === "rtl" ? "right" : "left",
+          }}
         >
           {navItems.map((item: string) => (
             <Button key={item} sx={theme.custom.button} variant="text">
@@ -90,11 +101,15 @@ const NavBar = () => {
       )}
 
       {/* Theme & Language Buttons */}
-      <Box sx={{ position: "absolute", right: 24, display: "flex", gap: 1 }}>
+      <Box sx={{ position: "absolute", right: 24, display: "flex", direction: "ltr", gap: 1 }}>
         <IconButton onClick={toggleTheme} size="large">
           {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
         </IconButton>
+
         {/* Add your language toggle here */}
+        <IconButton onClick={handleChangeLanguage} size="large">
+          <LanguageIcon />
+        </IconButton>
       </Box>
     </Box>
   );
