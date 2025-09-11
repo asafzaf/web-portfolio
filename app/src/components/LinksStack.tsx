@@ -18,7 +18,7 @@ const LinksStack = () => {
       >
         <IconButton
           component="a"
-          href="https://github.com/asafzaf"
+          href={data.links.github.url}
           target="_blank"
           sx={{
             color: theme.custom.text,
@@ -29,7 +29,7 @@ const LinksStack = () => {
         </IconButton>
         <IconButton
           component="a"
-          href="https://www.linkedin.com/in/asaf-zafrir/"
+          href={data.links.linkedin.url}
           target="_blank"
           sx={{
             color: theme.custom.text,
@@ -40,7 +40,7 @@ const LinksStack = () => {
         </IconButton>
         <IconButton
           component="a"
-          href="https://www.instagram.com/asaf_z/"
+          href={data.links.instagram.url}
           target="_blank"
           sx={{
             color: theme.custom.text,

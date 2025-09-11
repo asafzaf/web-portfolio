@@ -6,5 +6,20 @@
     "name": "Asaf Zafrir",
     "title": "Software Engineer | Full Stack Developer",
     "description": "Hello! 👋 I'm a Software Engineer (B.Sc.) with hands-on experience in full-stack development, automation, and system design. Skilled in building scalable solutions using modern technologies and engineering best practices. A quick learner and a strong team player with interpersonal skills. Motivated with a strong result-focused approach, a positive attitude, and dedication for excellence."
+  },
+  "links": {
+    "github": {
+      "label": "Open GitHub",
+      "url": "https://github.com/asafzaf"
+    },
+    "linkedin": {
+      "label": "Open LinkedIn",
+      "url": "https://www.linkedin.com/in/asaf-zafrir/"
+    },
+    "instagram": {
+      "label": "Open Instagram",
+      "url": "https://www.instagram.com/asaf_z/"
+    },
+    "resume": "Resume"
   }
 }
