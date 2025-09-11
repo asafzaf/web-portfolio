@@ -1,7 +1,7 @@
 {
   "lang": "en",
   "direction": "ltr",
-  "resume": "Resume",
+  "navItems": ["About", "Skills", "Experience", "Contact"],
   "hero": {
     "name": "Asaf Zafrir",
     "title": "Software Engineer | Full Stack Developer",

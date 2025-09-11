@@ -1,7 +1,7 @@
 {
   "lang": "he",
   "direction": "rtl",
-  "resume": "קורות חיים",
+  "navItems": ["אודות", "מיומנויות", "ניסיון", "צור קשר"],
   "hero": {
     "name": "אסף צפריר",
     "title": "מהנדס תוכנה | מפתח FullStack",

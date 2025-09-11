@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ThemeContext } from "../theme/theme.context";
 import { useTheme } from "@mui/material/styles";
+import { useLanguage } from "../context/LanguageContext";
 
 import SunnyIcon from "@mui/icons-material/Sunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
@@ -17,17 +18,18 @@ import BedtimeIcon from "@mui/icons-material/Bedtime";
 const NavBar = () => {
   const theme = useTheme();
   const { toggleTheme } = useContext(ThemeContext);
+  const { data, direction } = useLanguage();
   const isMobile = useMediaQuery("(max-width:600px)");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) =>
     setAnchorEl(event.currentTarget);
-  };
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
+  const handleMenuClose = () => setAnchorEl(null);
+
+  // nav items from language
+  const navItems = direction === "rtl" ? [...data.navItems].reverse() : data.navItems;
 
   return (
-    <section>
     <Box
       sx={{
         position: "fixed",
@@ -51,21 +53,15 @@ const NavBar = () => {
           spacing={4}
           sx={{ flex: 1, justifyContent: "center" }}
         >
-          <Button sx={theme.custom.button} variant="text">
-            About
-          </Button>
-          <Button sx={theme.custom.button} variant="text">
-            Skills
-          </Button>
-          <Button sx={theme.custom.button} variant="text">
-            Experience
-          </Button>
-          <Button sx={theme.custom.button} variant="text">
-            Contact
-          </Button>
+          {navItems.map((item: string) => (
+            <Button key={item} sx={theme.custom.button} variant="text">
+              {item}
+            </Button>
+          ))}
         </Stack>
       )}
-      {/* Mobile Nav: Hamburger */}
+
+      {/* Mobile Nav */}
       {isMobile && (
         <>
           <IconButton
@@ -84,21 +80,23 @@ const NavBar = () => {
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
-            <MenuItem onClick={handleMenuClose}>About</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Skills</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Experience</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
+            {navItems.map((item: string) => (
+              <MenuItem key={item} onClick={handleMenuClose}>
+                {item}
+              </MenuItem>
+            ))}
           </Menu>
         </>
       )}
-      {/* Theme IconButton - top right */}
-      <Box sx={{ position: "absolute", right: 24 }}>
+
+      {/* Theme & Language Buttons */}
+      <Box sx={{ position: "absolute", right: 24, display: "flex", gap: 1 }}>
         <IconButton onClick={toggleTheme} size="large">
           {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
         </IconButton>
+        {/* Add your language toggle here */}
       </Box>
     </Box>
-    </section>
   );
 };
 

@@ -7,6 +7,8 @@ export interface HeroContent {
   description: string;
 }
 
+export type navItems = string[];
+
 export interface linkObject {
   label: string;
   url: string;
@@ -22,7 +24,7 @@ export interface LinksData {
 export interface LanguageData {
   lang: SupportedLang;
   direction: "ltr" | "rtl";
-  resume: string;
+  navItems: navItems;
   hero: HeroContent;
   links: LinksData;
 }

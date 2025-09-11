@@ -60,7 +60,7 @@ const LinksStack = () => {
           {data.direction === "rtl" ? (
             <>
               <Typography variant="caption" sx={{ ml: 0.5 }}>
-                {data.resume}
+                {data.links.resume}
               </Typography>
               <DescriptionIcon />
             </>
@@ -68,7 +68,7 @@ const LinksStack = () => {
             <>
               <DescriptionIcon />
               <Typography variant="caption" sx={{ ml: 0.5 }}>
-                {data.resume}
+                {data.links.resume}
               </Typography>
             </>
           )}
