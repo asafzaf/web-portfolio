@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import LinksStack from "./LinksStack";
+import { useLanguage } from "../context/LanguageContext";
 
 const Hero = () => {
   const theme = useTheme();
+  const { data } = useLanguage();
 
   return (
     <section style={{ minHeight: "100vh", padding: "5rem 3rem" }}>
@@ -66,26 +68,21 @@ const Hero = () => {
             component="h1"
             sx={{ mb: 2, fontWeight: "bold", color: theme.custom.text }}
           >
-            Asaf Zafrir
+            {data.hero.name}
           </Typography>
           <Typography
             variant="h5"
             component="h2"
             sx={{ mb: 3, fontWeight: "bold", color: theme.custom.text }}
           >
-            Software Engineer | Full Stack Developer
+            {data.hero.title}
           </Typography>
           <Typography
             variant="body1"
             component="p"
             sx={{ lineHeight: 1.7, color: theme.custom.text }}
           >
-            Hello! 👋 I'm a Software Engineer (B.Sc.) with hands-on experience
-            in full-stack development, automation, and system design. Skilled in
-            building scalable solutions using modern technologies and
-            engineering best practices. A quick learner and a strong team player
-            with interpersonal skills. Motivated with a strong result-focused
-            approach, a positive attitude, and dedication for excellence.
+            {data.hero.description}
           </Typography>
           <LinksStack />
         </Box>
