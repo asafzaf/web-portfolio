@@ -3,8 +3,15 @@ import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
+import skills from "../data/skills.json";
+
 import CodeIcon from "@mui/icons-material/Code";
 import WebIcon from "@mui/icons-material/Web";
+import StorageIcon from "@mui/icons-material/Storage";
+import BuildIcon from "@mui/icons-material/Build";
+import ComputerIcon from "@mui/icons-material/Computer";
+
+import { Language } from "@mui/icons-material";
 
 const Skills = () => {
   const theme = useTheme();
@@ -12,22 +19,16 @@ const Skills = () => {
 
   const isRtl = data.direction === "rtl";
 
-  const skills = [
-    {
-      label: "JavaScript",
-      icon: <CodeIcon sx={{ color: theme.palette.text.secondary }} />,
-    },
-    {
-      label: "React",
-      icon: <WebIcon sx={{ color: theme.palette.text.secondary }} />,
-    },
-    { label: "Node.js", thumbnail: "/thumbnails/node.png" },
-    { label: "Docker", thumbnail: "/thumbnails/docker.png" },
-    {
-      label: "TypeScript",
-      icon: <CodeIcon sx={{ color: theme.palette.text.secondary }} />,
-    },
-  ];
+  const skillsArray = skills.skills;
+
+  const defaultIcons: Record<string, React.ReactNode> = {
+    Language: <CodeIcon />,
+    frontend: <WebIcon />,
+    backend: <ComputerIcon />,
+    tools: <BuildIcon />,
+    devops: <BuildIcon />,
+    database: <StorageIcon />,
+  };
 
   return (
     <section
@@ -74,13 +75,13 @@ const Skills = () => {
               height: "auto",
             }}
           >
-            {skills.map((skill) => (
+            {skillsArray.map((skill) => (
               <Box
                 key={skill.label}
                 sx={{
                   p: 1,
                   borderRadius: 1,
-                  background: theme.palette.background.paper,
+                  background: theme.custom.background,
                   display: "flex",
                   alignItems: "center",
                   textAlign: "center",
@@ -95,7 +96,16 @@ const Skills = () => {
                   },
                 }}
               >
-                {skill.icon}
+                {skill.avatar ? (
+                  <Box
+                    component="img"
+                    src={`/thumbnails/${skill.avatar}.png`}
+                    alt={skill.label}
+                    sx={{ width: 24, height: 24 }}
+                  />
+                ) : (
+                  defaultIcons[skill.types[0]] || <Language />
+                )}
                 <Typography
                   variant="body2"
                   color={theme.palette.text.secondary}

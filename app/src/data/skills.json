@@ -1,0 +1,44 @@
+{
+  "skills": [
+    {
+      "label": "JavaScript",
+      "avatar": "js",
+      "types": ["language"]
+    },
+    {
+      "label": "React",
+      "avatar": "react",
+      "types": ["library", "framework"]
+    },
+    {
+      "label": "Node.js",
+      "avatar": "nodejs",
+      "types": ["runtime"]
+    },
+    {
+      "label": "Docker",
+      "avatar": "docker",
+      "types": ["container"]
+    },
+    {
+      "label": "TypeScript",
+      "avatar": "ts",
+      "types": ["language"]
+    },
+    {
+      "label": "Python",
+      "avatar": "python",
+      "types": ["language", "backend"]
+    },
+    {
+      "label": "MongoDB",
+      "avatar": "mongo",
+      "types": ["database"]
+    },
+    {
+      "label": "PostgreSQL",
+      "avatar": "postgresql",
+      "types": ["database"]
+    }
+  ]
+}
