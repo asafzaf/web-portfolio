@@ -30,6 +30,7 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
         alt={skill.label}
         sx={{ width: 24, height: 24 }}
         onError={() => setError(true)}
+        loading="lazy"
       />
     );
   }
