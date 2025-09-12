@@ -3,6 +3,7 @@ import { useTheme } from "@mui/material/styles";
 
 import Hero from "../components/Hero";
 import NavBar from "../components/NavBar";
+import Skills from "../components/Skills";
 
 const MainPage = () => {
   const theme = useTheme();
@@ -20,13 +21,15 @@ const MainPage = () => {
       <Box
         sx={{
           pt: "80px",
-          minHeight: `calc(100vh - 80px)`,
+          minHeight: `calc(95vh - 80px)`,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flexDirection: "column",
         }}
       >
         <Hero />
+        <Skills />
       </Box>
     </Box>
   );

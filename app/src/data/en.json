@@ -7,6 +7,10 @@
     "title": "Software Engineer | Full Stack Developer",
     "description": "Hello! 👋 I'm a Software Engineer (B.Sc.) with hands-on experience in full-stack development, automation, and system design. Skilled in building scalable solutions using modern technologies and engineering best practices. A quick learner and a strong team player with interpersonal skills. Motivated with a strong result-focused approach, a positive attitude, and dedication for excellence."
   },
+  "skills": {
+    "title": "Skills",
+    "description": "Proficient in a wide range of technologies and tools, including but not limited to:"
+  },
   "links": {
     "github": {
       "label": "Open GitHub",
