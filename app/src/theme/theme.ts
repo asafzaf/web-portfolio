@@ -31,7 +31,7 @@ export const lightTheme = createTheme({
     primary: { main: lightPalette.forth },
     secondary: { main: lightPalette.third },
     background: { default: lightPalette.second },
-    text: { primary: lightPalette.second },
+    text: { primary: lightPalette.second, secondary: lightPalette.third },
   },
   custom: {
     background: lightPalette.first,
@@ -83,7 +83,7 @@ export const darkTheme = createTheme({
     primary: { main: darkPalette.forth },
     secondary: { main: darkPalette.third },
     background: { default: darkPalette.first },
-    text: { primary: darkPalette.second },
+    text: { primary: darkPalette.second , secondary: darkPalette.third },
   },
   custom: {
     background: darkPalette.first,
