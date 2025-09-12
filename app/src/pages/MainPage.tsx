@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
@@ -6,6 +7,19 @@ import NavBar from "../components/NavBar";
 import Skills from "../components/Skills";
 
 const MainPage = () => {
+  const refs = {
+    hero: useRef<HTMLDivElement | null>(null),
+    skills: useRef<HTMLDivElement | null>(null),
+    links: useRef<HTMLDivElement | null>(null),
+  };
+
+  const handleScrollTo = (section: keyof typeof refs) => {
+    refs[section].current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   const theme = useTheme();
 
   return (
@@ -17,7 +31,7 @@ const MainPage = () => {
         color: theme.custom.text,
       }}
     >
-      <NavBar />
+      <NavBar onNavigate={handleScrollTo} />
       <Box
         sx={{
           pt: "80px",
@@ -28,8 +42,12 @@ const MainPage = () => {
           flexDirection: "column",
         }}
       >
-        <Hero />
-        <Skills />
+        <div ref={refs.hero}>
+          <Hero />
+        </div>
+        <div ref={refs.skills}>
+          <Skills />
+        </div>
       </Box>
     </Box>
   );

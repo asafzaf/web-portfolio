@@ -16,7 +16,11 @@ import SunnyIcon from "@mui/icons-material/Sunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import LanguageIcon from "@mui/icons-material/Language";
 
-const NavBar = () => {
+interface NavbarProps {
+  onNavigate: (section: "hero" | "skills" | "links") => void;
+}
+
+const NavBar = ({ onNavigate }: NavbarProps) => {
   const theme = useTheme();
   const { toggleTheme } = useContext(ThemeContext);
   const { data, direction, switchLanguage } = useLanguage();
@@ -31,9 +35,21 @@ const NavBar = () => {
     switchLanguage(data.lang === "en" ? "he" : "en");
   };
 
+  const handleNavigate = (navLabel: string) => {
+    const selectionId = data.navItems.find(
+      (item) => item.label === navLabel
+    )?.id;
+    if (selectionId) {
+      onNavigate(selectionId as "hero" | "skills" | "links");
+    }
+    handleMenuClose();
+  };
+
   // nav items from language
   const navItems =
-    direction === "rtl" ? [...data.navItems].reverse() : data.navItems;
+    direction === "rtl"
+      ? [...data.navItems.map((item) => item.label)].reverse()
+      : data.navItems.map((item) => item.label);
 
   return (
     <Box
@@ -65,7 +81,12 @@ const NavBar = () => {
           }}
         >
           {navItems.map((item: string) => (
-            <Button key={item} sx={theme.custom.button} variant="text">
+            <Button
+              key={item}
+              sx={theme.custom.button}
+              variant="text"
+              onClick={() => handleNavigate(item)}
+            >
               {item}
             </Button>
           ))}
@@ -92,7 +113,7 @@ const NavBar = () => {
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
             {navItems.map((item: string) => (
-              <MenuItem key={item} onClick={handleMenuClose}>
+              <MenuItem key={item} onClick={() => handleNavigate(item)}>
                 {item}
               </MenuItem>
             ))}
@@ -101,7 +122,15 @@ const NavBar = () => {
       )}
 
       {/* Theme & Language Buttons */}
-      <Box sx={{ position: "absolute", right: 24, display: "flex", direction: "ltr", gap: 1 }}>
+      <Box
+        sx={{
+          position: "absolute",
+          right: 24,
+          display: "flex",
+          direction: "ltr",
+          gap: 1,
+        }}
+      >
         <IconButton onClick={toggleTheme} size="large">
           {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
         </IconButton>

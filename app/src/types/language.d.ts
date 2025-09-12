@@ -1,7 +1,10 @@
 // types/language.d.ts
 export type SupportedLang = "en" | "he";
 
-export type navItems = string[];
+export interface NavItem {
+  label: string;
+  id: string;
+}[];
 
 export interface HeroContent {
   name: string;
@@ -29,7 +32,7 @@ export interface LinksData {
 export interface LanguageData {
   lang: SupportedLang;
   direction: "ltr" | "rtl";
-  navItems: navItems;
+  navItems: navItem[];
   hero: HeroContent;
   skills: SkillsContent;
   links: LinksData;

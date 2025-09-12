@@ -1,7 +1,21 @@
 {
   "lang": "en",
   "direction": "ltr",
-  "navItems": ["About", "Skills", "Experience", "Contact"],
+  "navItems": [
+    {
+      "label": "About",
+      "id": "hero"
+    },
+    { "label": "Skills", "id": "skills" },
+    {
+      "label": "Experience",
+      "id": "experience"
+    },
+    {
+      "label": "Contact",
+      "id": "contact"
+    }
+  ],
   "hero": {
     "name": "Asaf Zafrir",
     "title": "Software Engineer | Full Stack Developer",

@@ -1,7 +1,21 @@
 {
   "lang": "he",
   "direction": "rtl",
-  "navItems": ["אודות", "מיומנויות", "ניסיון", "צור קשר"],
+  "navItems": [
+    {
+      "label": "אודות",
+      "id": "hero"
+    },
+    { "label": "מיומנויות", "id": "skills" },
+    {
+      "label": "ניסיון",
+      "id": "experience"
+    },
+    {
+      "label": "צור קשר",
+      "id": "contact"
+    }
+  ],
   "hero": {
     "name": "אסף צפריר",
     "title": "מהנדס תוכנה | מפתח FullStack",
