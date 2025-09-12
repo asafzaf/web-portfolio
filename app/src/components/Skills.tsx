@@ -3,6 +3,7 @@ import { Box, Typography, Paper } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
+import type { Skill } from "../types/skill";
 import skills from "../data/skills.json";
 
 import CodeIcon from "@mui/icons-material/Code";
@@ -11,7 +12,34 @@ import StorageIcon from "@mui/icons-material/Storage";
 import BuildIcon from "@mui/icons-material/Build";
 import ComputerIcon from "@mui/icons-material/Computer";
 
-import { Language } from "@mui/icons-material";
+const defaultIcons: Record<string, React.ReactNode> = {
+  Language: <CodeIcon />,
+  frontend: <WebIcon />,
+  backend: <ComputerIcon />,
+  tools: <BuildIcon />,
+  devops: <BuildIcon />,
+  database: <StorageIcon />,
+};
+
+const SkillIcon = ({ skill }: { skill: Skill }) => {
+  const [error, setError] = React.useState(false);
+
+  if (skill.avatar && !error) {
+    return (
+      <Box
+        component="img"
+        src={`/thumbnails/${skill.avatar}.png`}
+        alt={skill.label}
+        sx={{ width: 24, height: 24 }}
+        onError={() => setError(true)}
+      />
+    );
+  }
+
+  return (
+    <>{defaultIcons[skill.types[0]] ?? <CodeIcon sx={{ fontSize: 24 }} />}</>
+  );
+};
 
 const Skills = () => {
   const theme = useTheme();
@@ -20,15 +48,6 @@ const Skills = () => {
   const isRtl = data.direction === "rtl";
 
   const skillsArray = skills.skills;
-
-  const defaultIcons: Record<string, React.ReactNode> = {
-    Language: <CodeIcon />,
-    frontend: <WebIcon />,
-    backend: <ComputerIcon />,
-    tools: <BuildIcon />,
-    devops: <BuildIcon />,
-    database: <StorageIcon />,
-  };
 
   return (
     <section
@@ -96,16 +115,7 @@ const Skills = () => {
                   },
                 }}
               >
-                {skill.avatar ? (
-                  <Box
-                    component="img"
-                    src={`/thumbnails/${skill.avatar}.png`}
-                    alt={skill.label}
-                    sx={{ width: 24, height: 24 }}
-                  />
-                ) : (
-                  defaultIcons[skill.types[0]] || <Language />
-                )}
+                <SkillIcon skill={skill} />
                 <Typography
                   variant="body2"
                   color={theme.palette.text.secondary}
