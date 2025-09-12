@@ -98,10 +98,9 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
         <>
           <IconButton
             edge="start"
-            color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
-            sx={{ ml: 1 }}
+            sx={{ ml: 1, color: theme.custom.button.color }}
           >
             <span style={{ fontSize: 28 }}>&#9776;</span>
           </IconButton>
@@ -113,7 +112,7 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
             {navItems.map((item: string) => (
-              <MenuItem key={item} onClick={() => handleNavigate(item)}>
+              <MenuItem key={item} onClick={() => handleNavigate(item)} sx={{ color: theme.custom.button.color }}>
                 {item}
               </MenuItem>
             ))}

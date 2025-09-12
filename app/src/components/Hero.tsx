@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import LinksStack from "./LinksStack";
@@ -25,6 +24,7 @@ const Hero = () => {
         sx={{
           ...alignSx(data.direction),
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
           justifyContent: "center",
           gap: 4,
