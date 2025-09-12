@@ -41,6 +41,38 @@ const SkillIcon = ({ skill }: { skill: Skill }) => {
   );
 };
 
+const SkillItem = ({ skill }: { skill: Skill }) => {
+  const theme = useTheme();
+
+  return (
+    <Box
+      key={skill.label}
+      sx={{
+        p: 1,
+        borderRadius: 1,
+        background: theme.custom.background,
+        display: "flex",
+        alignItems: "center",
+        textAlign: "center",
+        gap: 1,
+        minWidth: 120,
+        mb: 1,
+        boxShadow: theme.custom.shadow,
+        transition: "transform 0.3s, box-shadow 0.3s",
+        "&:hover": {
+          transform: "translateY(-5px)",
+          boxShadow: theme.custom.shadow + "60px",
+        },
+      }}
+    >
+      <SkillIcon skill={skill} />
+      <Typography variant="body2" color={theme.palette.text.secondary}>
+        {skill.label}
+      </Typography>
+    </Box>
+  );
+};
+
 const Skills = () => {
   const theme = useTheme();
   const { data } = useLanguage();
@@ -95,34 +127,7 @@ const Skills = () => {
             }}
           >
             {skillsArray.map((skill) => (
-              <Box
-                key={skill.label}
-                sx={{
-                  p: 1,
-                  borderRadius: 1,
-                  background: theme.custom.background,
-                  display: "flex",
-                  alignItems: "center",
-                  textAlign: "center",
-                  gap: 1,
-                  minWidth: 120,
-                  mb: 1,
-                  boxShadow: theme.custom.shadow,
-                  transition: "transform 0.3s, box-shadow 0.3s",
-                  "&:hover": {
-                    transform: "translateY(-5px)",
-                    boxShadow: theme.custom.shadow + "60px",
-                  },
-                }}
-              >
-                <SkillIcon skill={skill} />
-                <Typography
-                  variant="body2"
-                  color={theme.palette.text.secondary}
-                >
-                  {skill.label}
-                </Typography>
-              </Box>
+              <SkillItem key={skill.label} skill={skill} />
             ))}
           </Paper>
         </Box>
