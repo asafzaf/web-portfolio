@@ -1,4 +1,41 @@
 {
+  "filters": {
+    "Full Stack": [
+      "MERN",
+      "backend",
+      "frontend",
+      "database",
+      "language",
+      "framework",
+      "library",
+      "runtime"
+    ],
+    "DevOps": [
+      "devops",
+      "container",
+      "cloud",
+      "infrastructure",
+      "web server",
+      "reverse proxy"
+    ],
+    "Tools & Others": [
+      "version control",
+      "scripting",
+      "shell",
+      "markup",
+      "style",
+      "api",
+      "tool",
+      "package manager",
+      "routing",
+      "hardware",
+      "iot",
+      "ide",
+      "build tool",
+      "automation"
+    ],
+    "Hobbies": ["hobby", "sport", "design"]
+  },
   "skills": [
     {
       "label": "Node.js",
@@ -20,7 +57,7 @@
       "avatar": "typescript",
       "types": ["language", "frontend", "MERN"]
     },
-        {
+    {
       "label": "Express.js",
       "avatar": "express",
       "types": ["framework", "backend", "MERN"]
@@ -40,7 +77,7 @@
       "avatar": "github",
       "types": ["version control"]
     },
-        {
+    {
       "label": "Linux",
       "avatar": "linux",
       "types": ["operating system"]

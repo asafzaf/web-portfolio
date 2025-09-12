@@ -37,7 +37,7 @@ export const lightTheme = createTheme({
     background: lightPalette.first,
     text: lightPalette.second,
     accent: lightPalette.forth,
-    shadow: "0 8px 32px 0 rgba(217, 234, 253, 0.18)",
+    shadow: "0 8px 32px 0 rgba(217, 234, 253, 0.43)",
     button: {
       color: lightPalette.forth,
       hoverBackground: lightPalette.third,

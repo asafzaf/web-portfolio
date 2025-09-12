@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <section
       style={{
-        minHeight: "90vh",
+        minHeight: "85vh",
         padding: "5rem 3rem",
       }}
     >
