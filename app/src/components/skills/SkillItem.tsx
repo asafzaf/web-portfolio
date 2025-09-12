@@ -53,7 +53,6 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
         alignItems: "center",
         textAlign: "center",
         gap: 1,
-        minWidth: 120,
         mb: 1,
         boxShadow: theme.custom.shadow,
         transition: "transform 0.3s, box-shadow 0.3s",

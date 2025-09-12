@@ -4,8 +4,10 @@ import {
   Button,
   IconButton,
   Box,
-  Menu,
-  MenuItem,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
   useMediaQuery,
 } from "@mui/material";
 import { ThemeContext } from "../theme/theme.context";
@@ -25,14 +27,14 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
   const { toggleTheme } = useContext(ThemeContext);
   const { data, direction, switchLanguage } = useLanguage();
   const isMobile = useMediaQuery("(max-width:600px)");
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) =>
-    setAnchorEl(event.currentTarget);
-  const handleMenuClose = () => setAnchorEl(null);
+  const handleMenuOpen = () => setMenuOpen(true);
+  const handleMenuClose = () => setMenuOpen(false);
 
   const handleChangeLanguage = () => {
     switchLanguage(data.lang === "en" ? "he" : "en");
+    handleMenuClose();
   };
 
   const handleNavigate = (navLabel: string) => {
@@ -46,10 +48,11 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
   };
 
   // nav items from language
-  const navItems =
-    direction === "rtl"
-      ? [...data.navItems.map((item) => item.label)].reverse()
-      : data.navItems.map((item) => item.label);
+  const navItems = isMobile
+    ? data.navItems.map((item) => item.label)
+    : direction === "rtl"
+    ? [...data.navItems.map((item) => item.label)].reverse()
+    : data.navItems.map((item) => item.label);
 
   return (
     <Box
@@ -66,6 +69,7 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
         alignItems: "center",
         height: "64px",
         px: 2,
+        overflowX: "hidden",
       }}
     >
       {/* Desktop Nav */}
@@ -100,23 +104,44 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
             edge="start"
             aria-label="menu"
             onClick={handleMenuOpen}
-            sx={{ ml: 1, color: theme.custom.button.color }}
+            sx={{
+              position: "absolute",
+              left: 16, // always left
+              color: theme.custom.button.color,
+            }}
           >
             <span style={{ fontSize: 28 }}>&#9776;</span>
           </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
+          <Drawer
+            anchor="top"
+            open={menuOpen}
             onClose={handleMenuClose}
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            transformOrigin={{ vertical: "top", horizontal: "left" }}
+            slotProps={{
+              paper: {
+                sx: {
+                  width: "100vw",
+                  mt: "64px", // push below navbar
+                  borderRadius: 0,
+                  backgroundColor: theme.custom.background,
+                  color: theme.custom.button.color,
+                  overflowX: "hidden",
+                },
+              },
+            }}
           >
-            {navItems.map((item: string) => (
-              <MenuItem key={item} onClick={() => handleNavigate(item)} sx={{ color: theme.custom.button.color }}>
-                {item}
-              </MenuItem>
-            ))}
-          </Menu>
+            <List>
+              {navItems.map((item: string) => (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton
+                    sx={{ color: theme.custom.button.color }}
+                    onClick={() => handleNavigate(item)}
+                  >
+                    {item}
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Drawer>
         </>
       )}
 
@@ -133,8 +158,6 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
         <IconButton onClick={toggleTheme} size="large">
           {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
         </IconButton>
-
-        {/* Add your language toggle here */}
         <IconButton onClick={handleChangeLanguage} size="large">
           <LanguageIcon />
         </IconButton>

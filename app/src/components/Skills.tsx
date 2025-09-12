@@ -3,10 +3,7 @@ import {
   Box,
   Typography,
   Paper,
-  Chip,
-  Popover,
   Stack,
-  Button,
   ToggleButtonGroup,
   ToggleButton,
 } from "@mui/material";
@@ -58,12 +55,15 @@ const Skills = () => {
       style={{
         minHeight: "90vh",
         padding: "5rem 3rem",
+        maxWidth: "100vw",
+        overflowX: "hidden",
       }}
     >
       <Box
         sx={{
           alignItems: "center",
           textAlign: "center",
+          px: { xs: 2, md: 10 },
         }}
       >
         <Box sx={{ mb: 4 }}>
@@ -83,69 +83,84 @@ const Skills = () => {
             flex: { xs: "0 0 100%", md: "0 0 40%" },
           }}
         >
-            <Box flexDirection={isRtl ? "row-reverse" : "row"} mb={2}>
+          <Box flexDirection={isRtl ? "row-reverse" : "row"} mb={2}>
             <Stack direction="row" flexWrap="wrap" justifyContent="center">
-              <ToggleButtonGroup
-              color="primary"
-              value={filters}
-              onChange={handleFormat}
-              aria-label="text formatting"
-              exclusive={false}
-              sx={{
-                gap: 1,
-                '& .MuiToggleButton-root': {
-                borderRadius: 2,
-                px: 3,
-                py: 1,
-                fontWeight: 600,
-                fontSize: '1rem',
-                border: 'none',
-                boxShadow: 1,
-                backgroundColor: theme.palette.background.paper,
-                color: theme.palette.text.secondary,
-                transition: 'background 0.2s, color 0.2s',
-                '&.Mui-selected': {
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.primary.contrastText,
-                  boxShadow: 3,
-                },
-                '&:hover': {
-                  backgroundColor: theme.palette.action.hover,
-                },
-                },
-              }}
-              >
-              {Object.entries(skills.filters).map(([category, tags]) => (
-                <ToggleButton
-                key={category}
-                value={category}
-                aria-label={category}
+                <ToggleButtonGroup
+                color="primary"
+                value={filters}
+                onChange={handleFormat}
+                aria-label="text formatting"
+                exclusive={false}
+                sx={{
+                  gap: { xs: 0.5, md: 1 },
+                  flexWrap: "wrap",
+                  justifyContent: { xs: "center", md: "flex-start" },
+                  width: { xs: "100%", md: "auto" },
+                  "& .MuiToggleButton-root": {
+                  borderRadius: 2,
+                  px: { xs: 1.5, md: 3 },
+                  py: { xs: 0.5, md: 1 },
+                  fontWeight: 600,
+                  fontSize: { xs: "0.9rem", md: "1rem" },
+                  border: "none",
+                  boxShadow: 1,
+                  backgroundColor: theme.palette.background.paper,
+                  color: theme.palette.text.secondary,
+                  transition: "background 0.2s, color 0.2s",
+                  "&.Mui-selected": {
+                    backgroundColor: theme.palette.primary.main,
+                    color: theme.palette.primary.contrastText,
+                    boxShadow: 3,
+                  },
+                  "&:hover": {
+                    backgroundColor: theme.palette.action.hover,
+                  },
+                  margin: { xs: "2px 0", md: "0" },
+                  width: { xs: "100%", sm: "auto" },
+                  },
+                }}
                 >
-                {category}
-                </ToggleButton>
-              ))}
-              </ToggleButtonGroup>
+                {Object.entries(skills.filters).map(([category, tags]) => (
+                  <ToggleButton
+                  key={category}
+                  value={category}
+                  aria-label={category}
+                  >
+                  {category}
+                  </ToggleButton>
+                ))}
+                </ToggleButtonGroup>
             </Stack>
           </Box>
           <Paper
             elevation={3}
             sx={{
-              p: 3,
+              p: { xs: 2, md: 5 },
               display: "flex",
+              flexDirection: "row",
               borderRadius: 4,
               flexWrap: "wrap",
               gap: 2,
               background: theme.palette.secondary.main,
-              justifyContent: isRtl ? "flex-end" : "flex-start",
               width: "100%",
-              minWidth: "80%",
-              minHeight: "60%",
-              height: "auto",
+              alignItems: "flex-start",
+              justifyItems: "flex-start",
+              minHeight: "300px",
+              justifyContent: "flex-start",
             }}
           >
-            {filteredSkills.map((skill) => (
-              <SkillItem key={skill.label} skill={skill} />
-            ))}
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 2,
+                alignItems: "flex-start",
+              }}
+            >
+              {filteredSkills.map((skill) => (
+                <SkillItem key={skill.label} skill={skill} />
+              ))}
+            </Box>
           </Paper>
         </Box>
       </Box>

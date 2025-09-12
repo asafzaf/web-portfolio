@@ -25,13 +25,13 @@ const MainPage = () => {
   return (
     <Box
       minHeight="100vh"
-      minWidth="99vw"
+      width="100vw"
       sx={{
         backgroundColor: theme.custom.background,
         color: theme.custom.text,
+        overflowX: "hidden",
       }}
     >
-      <NavBar onNavigate={handleScrollTo} />
       <Box
         sx={{
           pt: "80px",
@@ -42,6 +42,7 @@ const MainPage = () => {
           flexDirection: "column",
         }}
       >
+        <NavBar onNavigate={handleScrollTo} />
         <div ref={refs.hero}>
           <Hero />
         </div>
