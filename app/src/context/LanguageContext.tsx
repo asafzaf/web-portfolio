@@ -1,5 +1,5 @@
 // context/LanguageContext.tsx
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { type ReactNode } from "react";
 import enRaw from "../data/en.json";
 import heRaw from "../data/he.json";

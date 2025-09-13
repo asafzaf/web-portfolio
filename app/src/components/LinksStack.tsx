@@ -1,4 +1,4 @@
-import { Box, Stack, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 import GitHubIcon from "@mui/icons-material/GitHub";

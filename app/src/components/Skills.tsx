@@ -27,7 +27,7 @@ const Skills = () => {
   const [filteredSkills, setFilteredSkills] = useState(skillsArray);
 
   const handleFormat = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     newFilters: string[]
   ) => {
     setFilters(newFilters);
@@ -120,7 +120,7 @@ const Skills = () => {
                   },
                 }}
                 >
-                {Object.entries(skills.filters).map(([category, tags]) => (
+                {Object.entries(skills.filters).map(([category, _tags]) => (
                   <ToggleButton
                   key={category}
                   value={category}
