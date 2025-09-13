@@ -4,8 +4,10 @@ import {
   Button,
   IconButton,
   Box,
-  Menu,
-  MenuItem,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
   useMediaQuery,
 } from "@mui/material";
 import { ThemeContext } from "../theme/theme.context";
@@ -16,24 +18,41 @@ import SunnyIcon from "@mui/icons-material/Sunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import LanguageIcon from "@mui/icons-material/Language";
 
-const NavBar = () => {
+interface NavbarProps {
+  onNavigate: (section: "hero" | "skills" | "links") => void;
+}
+
+const NavBar = ({ onNavigate }: NavbarProps) => {
   const theme = useTheme();
   const { toggleTheme } = useContext(ThemeContext);
   const { data, direction, switchLanguage } = useLanguage();
   const isMobile = useMediaQuery("(max-width:600px)");
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) =>
-    setAnchorEl(event.currentTarget);
-  const handleMenuClose = () => setAnchorEl(null);
+  const handleMenuOpen = () => setMenuOpen(true);
+  const handleMenuClose = () => setMenuOpen(false);
 
   const handleChangeLanguage = () => {
     switchLanguage(data.lang === "en" ? "he" : "en");
+    handleMenuClose();
+  };
+
+  const handleNavigate = (navLabel: string) => {
+    const selectionId = data.navItems.find(
+      (item) => item.label === navLabel
+    )?.id;
+    if (selectionId) {
+      onNavigate(selectionId as "hero" | "skills" | "links");
+    }
+    handleMenuClose();
   };
 
   // nav items from language
-  const navItems =
-    direction === "rtl" ? [...data.navItems].reverse() : data.navItems;
+  const navItems = isMobile
+    ? data.navItems.map((item) => item.label)
+    : direction === "rtl"
+    ? [...data.navItems.map((item) => item.label)].reverse()
+    : data.navItems.map((item) => item.label);
 
   return (
     <Box
@@ -50,6 +69,7 @@ const NavBar = () => {
         alignItems: "center",
         height: "64px",
         px: 2,
+        overflowX: "hidden",
       }}
     >
       {/* Desktop Nav */}
@@ -65,7 +85,12 @@ const NavBar = () => {
           }}
         >
           {navItems.map((item: string) => (
-            <Button key={item} sx={theme.custom.button} variant="text">
+            <Button
+              key={item}
+              sx={theme.custom.button}
+              variant="text"
+              onClick={() => handleNavigate(item)}
+            >
               {item}
             </Button>
           ))}
@@ -77,36 +102,62 @@ const NavBar = () => {
         <>
           <IconButton
             edge="start"
-            color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
-            sx={{ ml: 1 }}
+            sx={{
+              position: "absolute",
+              left: 16, // always left
+              color: theme.custom.button.color,
+            }}
           >
             <span style={{ fontSize: 28 }}>&#9776;</span>
           </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
+          <Drawer
+            anchor="top"
+            open={menuOpen}
             onClose={handleMenuClose}
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            transformOrigin={{ vertical: "top", horizontal: "left" }}
+            slotProps={{
+              paper: {
+                sx: {
+                  width: "100vw",
+                  mt: "64px", // push below navbar
+                  borderRadius: 0,
+                  backgroundColor: theme.custom.background,
+                  color: theme.custom.button.color,
+                  overflowX: "hidden",
+                },
+              },
+            }}
           >
-            {navItems.map((item: string) => (
-              <MenuItem key={item} onClick={handleMenuClose}>
-                {item}
-              </MenuItem>
-            ))}
-          </Menu>
+            <List>
+              {navItems.map((item: string) => (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton
+                    sx={{ color: theme.custom.button.color }}
+                    onClick={() => handleNavigate(item)}
+                  >
+                    {item}
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Drawer>
         </>
       )}
 
       {/* Theme & Language Buttons */}
-      <Box sx={{ position: "absolute", right: 24, display: "flex", direction: "ltr", gap: 1 }}>
+      <Box
+        sx={{
+          position: "absolute",
+          right: 24,
+          display: "flex",
+          direction: "ltr",
+          gap: 1,
+        }}
+      >
         <IconButton onClick={toggleTheme} size="large">
           {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
         </IconButton>
-
-        {/* Add your language toggle here */}
         <IconButton onClick={handleChangeLanguage} size="large">
           <LanguageIcon />
         </IconButton>

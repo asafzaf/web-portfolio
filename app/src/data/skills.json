@@ -1,0 +1,256 @@
+{
+  "filters": {
+    "Full Stack": [
+      "MERN",
+      "backend",
+      "frontend",
+      "database",
+      "language",
+      "framework",
+      "library",
+      "runtime"
+    ],
+    "DevOps": [
+      "devops",
+      "container",
+      "cloud",
+      "infrastructure",
+      "web server",
+      "reverse proxy"
+    ],
+    "Tools & Others": [
+      "version control",
+      "scripting",
+      "shell",
+      "markup",
+      "style",
+      "api",
+      "tool",
+      "package manager",
+      "routing",
+      "hardware",
+      "iot",
+      "ide",
+      "build tool",
+      "automation"
+    ],
+    "Hobbies": ["hobby", "sport", "design"]
+  },
+  "skills": [
+    {
+      "label": "Node.js",
+      "avatar": "nodejs",
+      "types": ["runtime", "backend", "MERN"]
+    },
+    {
+      "label": "React",
+      "avatar": "react",
+      "types": ["library", "framework", "frontend", "MERN"]
+    },
+    {
+      "label": "Docker",
+      "avatar": "docker",
+      "types": ["container", "devops"]
+    },
+    {
+      "label": "TypeScript",
+      "avatar": "typescript",
+      "types": ["language", "frontend", "MERN"]
+    },
+    {
+      "label": "Express.js",
+      "avatar": "express",
+      "types": ["framework", "backend", "MERN"]
+    },
+    {
+      "label": "MongoDB",
+      "avatar": "mongo",
+      "types": ["database", "MERN"]
+    },
+    {
+      "label": "Python",
+      "avatar": "python",
+      "types": ["language", "backend"]
+    },
+    {
+      "label": "GitHub",
+      "avatar": "github",
+      "types": ["version control"]
+    },
+    {
+      "label": "Linux",
+      "avatar": "linux",
+      "types": ["operating system"]
+    },
+    {
+      "label": "bash",
+      "avatar": "terminal",
+      "types": ["scripting", "shell"]
+    },
+    {
+      "label": "PostgreSQL",
+      "avatar": "postgresql",
+      "types": ["database"]
+    },
+    {
+      "label": "MySQL",
+      "avatar": "mysql",
+      "types": ["database"]
+    },
+    {
+      "label": "HTML5",
+      "avatar": "html-5",
+      "types": ["markup"]
+    },
+    {
+      "label": "CSS3",
+      "avatar": "css-3",
+      "types": ["style"]
+    },
+    {
+      "label": "JavaScript",
+      "avatar": "js",
+      "types": ["language", "backend", "frontend", "MERN"]
+    },
+    {
+      "label": "Git",
+      "avatar": "git",
+      "types": ["version control"]
+    },
+    {
+      "label": "C/C++",
+      "avatar": "c++",
+      "types": ["language"]
+    },
+    {
+      "label": "PHP",
+      "avatar": "php2",
+      "types": ["language"]
+    },
+    {
+      "label": "Firebase",
+      "avatar": "firebase",
+      "types": ["backend", "cloud"]
+    },
+    {
+      "label": "AWS-EC2",
+      "avatar": "aws-ec2",
+      "types": ["cloud", "infrastructure"]
+    },
+    {
+      "label": "Bitbucket",
+      "avatar": "bitbucket",
+      "types": ["version control"]
+    },
+    {
+      "label": "Jira",
+      "avatar": "jira",
+      "types": ["project management"]
+    },
+    {
+      "label": "Figma",
+      "avatar": "figma",
+      "types": ["design"]
+    },
+    {
+      "label": "Expo",
+      "avatar": "expo",
+      "types": ["framework", "mobile"]
+    },
+    {
+      "label": "Flutter",
+      "avatar": "flutter",
+      "types": ["framework", "mobile"]
+    },
+    {
+      "label": "Dart",
+      "avatar": "dart",
+      "types": ["language"]
+    },
+    {
+      "label": "Material-UI",
+      "avatar": "material-ui",
+      "types": ["library", "style"]
+    },
+    {
+      "label": "Drive API",
+      "avatar": "google-drive",
+      "types": ["api", "cloud"]
+    },
+    {
+      "label": "Jira API",
+      "avatar": "jira",
+      "types": ["api", "project management"]
+    },
+    {
+      "label": "Slack API",
+      "avatar": "slack",
+      "types": ["api", "communication"]
+    },
+    {
+      "label": "Postman",
+      "avatar": "postman",
+      "types": ["api", "tool"]
+    },
+    {
+      "label": "npm",
+      "avatar": "npm",
+      "types": ["package manager", "tool"]
+    },
+    {
+      "label": "react-router",
+      "avatar": "react-router",
+      "types": ["library", "routing"]
+    },
+    {
+      "label": "Salesforce API",
+      "avatar": "salesforce",
+      "types": ["api", "crm"]
+    },
+    {
+      "label": "Raspberry Pi",
+      "avatar": "raspberry-pi",
+      "types": ["hardware", "iot"]
+    },
+    {
+      "label": "ubuntu",
+      "avatar": "ubuntu",
+      "types": ["operating system"]
+    },
+    {
+      "label": "Visual Studio Code",
+      "avatar": "visual-studio-code",
+      "types": ["ide", "tool"]
+    },
+    {
+      "label": "Visual Studio",
+      "avatar": "visual-studio",
+      "types": ["ide", "tool"]
+    },
+    {
+      "label": "Nginx",
+      "avatar": "nginx",
+      "types": ["web server", "reverse proxy"]
+    },
+    {
+      "label": "ViteJS",
+      "avatar": "vitejs",
+      "types": ["build tool", "frontend"]
+    },
+    {
+      "label": "Zapier",
+      "avatar": "zapier",
+      "types": ["automation", "tool"]
+    },
+    {
+      "label": "Tennis",
+      "avatar": "tennis-ball",
+      "types": ["hobby", "sport"]
+    },
+    {
+      "label": "Gym",
+      "avatar": "gym",
+      "types": ["hobby", "sport"]
+    }
+  ]
+}

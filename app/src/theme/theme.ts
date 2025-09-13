@@ -31,13 +31,13 @@ export const lightTheme = createTheme({
     primary: { main: lightPalette.forth },
     secondary: { main: lightPalette.third },
     background: { default: lightPalette.second },
-    text: { primary: lightPalette.second },
+    text: { primary: lightPalette.second, secondary: lightPalette.third },
   },
   custom: {
     background: lightPalette.first,
     text: lightPalette.second,
     accent: lightPalette.forth,
-    shadow: "0 8px 32px 0 rgba(217, 234, 253, 0.18)",
+    shadow: "0 8px 32px 0 rgba(217, 234, 253, 0.43)",
     button: {
       color: lightPalette.forth,
       hoverBackground: lightPalette.third,
@@ -83,7 +83,7 @@ export const darkTheme = createTheme({
     primary: { main: darkPalette.forth },
     secondary: { main: darkPalette.third },
     background: { default: darkPalette.first },
-    text: { primary: darkPalette.second },
+    text: { primary: darkPalette.second , secondary: darkPalette.third },
   },
   custom: {
     background: darkPalette.first,
