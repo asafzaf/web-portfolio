@@ -35,4 +35,4 @@ dist-ssr
 
 # local 
 
-/app/public/thumbnails/*
+# /app/public/thumbnails/*
