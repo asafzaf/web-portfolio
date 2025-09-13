@@ -1,0 +1,32 @@
+name: Check GitHub Pages URL
+
+# Run manually or on schedule
+on:
+  schedule:
+    - cron: '0 * * * *' # every hour
+  workflow_dispatch:
+
+jobs:
+  check_url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if URL is available
+        id: check
+        run: |
+          URL="https://asafzaf.github.io/web-portfolio/"
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" $URL)
+          echo "HTTP Status: $STATUS"
+          if [ "$STATUS" -ne 200 ]; then
+            echo "status=down" >> $GITHUB_OUTPUT
+            exit 1
+          else
+            echo "status=up" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create GitHub Issue if down
+        if: steps.check.outputs.status == 'down'
+        uses: peter-evans/create-issue-from-file@v6
+        with:
+          title: "GitHub Pages site is down!"
+          content: |
+            The URL [https://asafzaf.github.io/web-portfolio/](https://asafzaf.github.io/web-portfolio/) is not reachable.
