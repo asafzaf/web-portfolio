@@ -1,6 +1,7 @@
 import { Box, IconButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
+import { useDownloadAsset } from "../hooks/useDownloadAsset";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -10,21 +11,31 @@ const LinksStack = () => {
   const theme = useTheme();
   const { data } = useLanguage();
 
+  const downloadResume = useDownloadAsset("docs/Asaf Zafrir - CV.pdf", "Asaf Zafrir - CV.pdf");
+
   const isRtl = data.direction === "rtl";
 
   const orderedIcons = (() => {
     const baseIcons = [
-      { elements: null, icon: <GitHubIcon key='icon-github' />, url: data.links.github.url },
-      { elements: null, icon: <LinkedInIcon key='icon-linkedin' />, url: data.links.linkedin.url },
       {
         elements: null,
-        icon: <InstagramIcon key='icon-instagram' />,
+        icon: <GitHubIcon key="icon-github" />,
+        url: data.links.github.url,
+      },
+      {
+        elements: null,
+        icon: <LinkedInIcon key="icon-linkedin" />,
+        url: data.links.linkedin.url,
+      },
+      {
+        elements: null,
+        icon: <InstagramIcon key="icon-instagram" />,
         url: data.links.instagram.url,
       },
       {
         elements: null,
-        icon: <DescriptionIcon key='icon-description' />,
-        url: data.links.resume,
+        icon: <DescriptionIcon key="icon-description" />,
+        download: downloadResume,
         text: data.links.resume,
       },
     ];
@@ -51,7 +62,7 @@ const LinksStack = () => {
       return item;
     });
   })();
-  
+
   return (
     <Box sx={{ mt: 2, display: "flex" }}>
       <Box
@@ -65,9 +76,10 @@ const LinksStack = () => {
           return (
             <IconButton
               key={idx}
-              component="a"
-              href={item.url}
-              target="_blank"
+              component={item.download ? "button" : "a"}
+              onClick={item.download ? item.download : undefined}
+              href={!item.download ? item.url : undefined}
+              target={!item.download ? "_blank" : undefined}
               sx={{
                 color: theme.custom.text,
                 ":hover": { color: theme.custom.button.hoverColor },
