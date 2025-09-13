@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useAsset } from "../../hooks/useAsset";
 
 import type { Skill } from "../../types/skill";
 
@@ -20,16 +21,19 @@ const defaultIcons: Record<string, React.ReactNode> = {
 };
 
 const SkillIcon = ({ skill }: { skill: Skill }) => {
-  const [error, setError] = React.useState(false);
+  const { src, onError } = useAsset(
+    `/thumbnails/${skill.avatar}.png`,
+    `/thumbnails/fallback.png`
+  );
 
-  if (skill.avatar && !error) {
+  if (skill.avatar) {
     return (
       <Box
         component="img"
-        src={`/thumbnails/${skill.avatar}.png`}
+        src={src}
         alt={skill.label}
         sx={{ width: 24, height: 24 }}
-        onError={() => setError(true)}
+        onError={onError}
         loading="lazy"
       />
     );
