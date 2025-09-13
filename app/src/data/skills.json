@@ -83,6 +83,11 @@
       "types": ["operating system"]
     },
     {
+      "label": "Nginx",
+      "avatar": "nginx",
+      "types": ["web server", "reverse proxy"]
+    },
+    {
       "label": "bash",
       "avatar": "terminal",
       "types": ["scripting", "shell"]
@@ -116,6 +121,16 @@
       "label": "Git",
       "avatar": "git",
       "types": ["version control"]
+    },
+    {
+      "label": "Zabbix",
+      "avatar": "zabbix",
+      "types": ["monitoring", "devops"]
+    },
+    {
+      "label": "cachet",
+      "avatar": "cachet",
+      "types": ["monitoring", "devops"]
     },
     {
       "label": "C/C++",
@@ -226,11 +241,6 @@
       "label": "Visual Studio",
       "avatar": "visual-studio",
       "types": ["ide", "tool"]
-    },
-    {
-      "label": "Nginx",
-      "avatar": "nginx",
-      "types": ["web server", "reverse proxy"]
     },
     {
       "label": "ViteJS",
