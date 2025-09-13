@@ -8,11 +8,11 @@
     },
     { "label": "מיומנויות", "id": "skills" },
     {
-      "label": "ניסיון",
+      "label": "ניסיון (בפיתוח)",
       "id": "experience"
     },
     {
-      "label": "צור קשר",
+      "label": "צור קשר (בפיתוח)",
       "id": "contact"
     }
   ],

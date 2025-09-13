@@ -8,11 +8,11 @@
     },
     { "label": "Skills", "id": "skills" },
     {
-      "label": "Experience",
+      "label": "Experience (Dev)",
       "id": "experience"
     },
     {
-      "label": "Contact",
+      "label": "Contact (Dev)",
       "id": "contact"
     }
   ],
