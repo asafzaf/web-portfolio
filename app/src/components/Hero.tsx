@@ -2,10 +2,16 @@ import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import LinksStack from "./LinksStack";
 import { useLanguage } from "../context/LanguageContext";
+import { useAsset } from "../hooks/useAsset";
 
 const Hero = () => {
   const theme = useTheme();
   const { data } = useLanguage();
+
+  const { src, onError } = useAsset(
+    "/portfolio-picture.png",
+    "/fallback-image.png"
+  );
 
   const alignSx = (dir: "ltr" | "rtl") => ({
     direction: dir,
@@ -56,9 +62,10 @@ const Hero = () => {
           }}
         >
           <img
-            src="/portfolio-picture.png"
+            src={src}
             alt={data.hero.name}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            onError={onError}
           />
         </Box>
         <Box
