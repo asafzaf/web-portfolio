@@ -173,6 +173,21 @@
       "types": ["framework", "mobile"]
     },
     {
+      "label": "Selenium",
+      "avatar": "selenium",
+      "types": ["automation", "tool"]
+    },
+    {
+      "label": "FastAPI",
+      "avatar": "fastapi",
+      "types": ["framework", "backend"]
+    },
+    {
+      "label": "React Native",
+      "avatar": "react-native",
+      "types": ["framework", "mobile"]
+    },
+    {
       "label": "Flutter",
       "avatar": "flutter",
       "types": ["framework", "mobile"]
@@ -256,6 +271,11 @@
       "label": "Tennis",
       "avatar": "tennis-ball",
       "types": ["hobby", "sport"]
+    },
+    {
+      "label": "Photography",
+      "avatar": "photographer",
+      "types": ["hobby", "design"]
     },
     {
       "label": "Gym",

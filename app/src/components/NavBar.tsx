@@ -89,6 +89,7 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
               key={item}
               sx={theme.custom.button}
               variant="text"
+              disabled={item.includes("(Dev)") || item.includes("(בפיתוח)")}
               onClick={() => handleNavigate(item)}
             >
               {item}
