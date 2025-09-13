@@ -11,7 +11,13 @@ const LinksStack = () => {
   const theme = useTheme();
   const { data } = useLanguage();
 
-  const downloadResume = useDownloadAsset("docs/Asaf Zafrir - CV.pdf", "Asaf Zafrir - CV.pdf");
+  const fileName =
+    data.lang === "en" ? "Asaf Zafrir - CV.pdf" : "אסף צפריר - קורות חיים.pdf";
+
+  const downloadResume = useDownloadAsset(
+    "docs/Asaf Zafrir - CV.pdf",
+    fileName
+  );
 
   const isRtl = data.direction === "rtl";
 
