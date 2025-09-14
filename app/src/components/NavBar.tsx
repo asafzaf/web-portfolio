@@ -19,7 +19,9 @@ import BedtimeIcon from "@mui/icons-material/Bedtime";
 import LanguageIcon from "@mui/icons-material/Language";
 
 interface NavbarProps {
-  onNavigate: (section: "hero" | "skills" | "links") => void;
+  onNavigate: (
+    section: "hero" | "skills" | "projects" | "experience" | "links"
+  ) => void;
 }
 
 const NavBar = ({ onNavigate }: NavbarProps) => {
@@ -42,7 +44,9 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
       (item) => item.label === navLabel
     )?.id;
     if (selectionId) {
-      onNavigate(selectionId as "hero" | "skills" | "links");
+      onNavigate(
+        selectionId as "hero" | "skills" | "projects" | "experience" | "links"
+      );
     }
     handleMenuClose();
   };
