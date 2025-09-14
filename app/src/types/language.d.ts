@@ -4,7 +4,8 @@ export type SupportedLang = "en" | "he";
 export interface NavItem {
   label: string;
   id: string;
-}[];
+}
+[];
 
 export interface HeroContent {
   name: string;
@@ -27,6 +28,18 @@ export interface LinksData {
   linkedin: linkObject;
   instagram: linkObject;
   resume: string;
+}
+
+interface Project {
+  name: string;
+  shortDesc: string;
+  description: string;
+  gitRepo: string;
+  jiraLink: string;
+  serviceUrl: string;
+  screenshots: string[];
+  thumbnail: string;
+  tech: string[];
 }
 
 export interface LanguageData {
