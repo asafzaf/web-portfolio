@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-} from "@mui/material";
+// import { useState } from "react";
+import { Box, Typography, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
 import projects from "../data/projects.json";
-import { useAsset } from "../hooks/useAsset";
+import { ProjectCard } from "./project/projectCard";
 
 const Projects = () => {
   const theme = useTheme();
   const { data } = useLanguage();
   const isRtl = data.direction === "rtl";
 
-  const [filters, setFilters] = useState<string[]>([]);
+  //   const [filters, setFilters] = useState<string[]>([]);
 
   const projectsArray = projects.projects;
 
@@ -57,39 +50,18 @@ const Projects = () => {
           }}
         >
           <Grid container spacing={2}>
-            {projectsArray.map((project) => (
-              <Grid item xs={12} sm={12} md={3} key={project.title}>
-                <Card
-                  sx={{
-                    cursor: "pointer",
-                    height: 300,
-                    width: "calc(100% / 1 - 16px)",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    height="180"
-                    object-fit="cover"
-                    // image={useAsset(project.image)}
-                  />
-                  <CardContent>
-                    <Typography variant="h6">{project.title}</Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2, // 👈 clamp to 2 lines
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                      }}
-                    >
-                      {project.shortDesc}
-                    </Typography>
-                  </CardContent>
-                </Card>
+            {projectsArray.map((project, index) => (
+              <Grid
+                size={{ xs: 12, sm: 12, md: 4 }}
+                key={project.title || "project-" + index}
+                component="div"
+              >
+                <ProjectCard
+                  name={project.title}
+                  shortDesc={project.shortDesc}
+                  picture={project.image}
+                  onClick={() => console.log("Project clicked:", project.title)}
+                />
               </Grid>
             ))}
           </Grid>

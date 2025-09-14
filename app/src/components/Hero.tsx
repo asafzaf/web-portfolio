@@ -9,8 +9,8 @@ const Hero = () => {
   const { data } = useLanguage();
 
   const { src, onError } = useAsset(
-    "/portfolio-picture.png",
-    "/fallback-image.png"
+    "portfolio-picture.png",
+    "fallback-image.png"
   );
 
   const alignSx = (dir: "ltr" | "rtl") => ({
