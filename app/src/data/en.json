@@ -39,5 +39,9 @@
       "url": "https://www.instagram.com/asaf_z/"
     },
     "resume": "Resume"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A showcase of my recent work and projects, highlighting my skills and expertise in software development"
   }
 }
