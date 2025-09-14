@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Typography, Grid, Modal, CardMedia, Button } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
