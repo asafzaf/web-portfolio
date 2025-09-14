@@ -1,4 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import type { ProjectCardProps } from "../../types/project";
+import { useTheme } from "@mui/material/styles";
 import { usePicture } from "../../hooks/usePicture";
 
 export const ProjectCard = ({
@@ -7,7 +9,12 @@ export const ProjectCard = ({
   picture,
   onClick,
 }: ProjectCardProps) => {
-  const { src, onError } = usePicture(`${picture}`, "jpg", "/fallback.png");
+  const theme = useTheme();
+  const { src, onError } = usePicture(
+    picture.name,
+    picture.ext,
+    "/fallback.png"
+  );
 
   return (
     <Card
@@ -17,19 +24,36 @@ export const ProjectCard = ({
         height: 300,
         display: "flex",
         flexDirection: "column",
+        background: theme.palette.secondary.main,
       }}
     >
       <CardMedia
         component="img"
         image={src}
+        alt={picture.alt}
         onError={onError}
-        sx={{ height: 180, objectFit: "cover" }}
+        sx={{ height: picture.height || 180, objectFit: "cover" }}
       />
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography variant="h6" noWrap>
+        <Typography
+          variant="h6"
+          sx={{ color: theme.palette.text.primary, fontWeight: "bold" }}
+          noWrap
+        >
           {name}
         </Typography>
-        <Typography variant="body2" noWrap>
+        <Typography
+          variant="body2"
+          sx={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            color: theme.palette.text.primary,
+          }}
+          noWrap
+        >
           {shortDesc}
         </Typography>
       </CardContent>

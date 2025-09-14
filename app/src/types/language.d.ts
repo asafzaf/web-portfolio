@@ -23,6 +23,14 @@ export interface linkObject {
   url: string;
 }
 
+export interface Picture {
+  name: string;
+  ext: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
 export interface LinksData {
   github: linkObject;
   linkedin: linkObject;
@@ -39,6 +47,8 @@ export interface Project {
   name: string;
   shortDesc: string;
   description: string;
+  mainPicture: Picture;
+  pictures: Picture[];
   gitRepo: string;
   jiraLink: string;
   serviceUrl: string;
