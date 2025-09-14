@@ -30,7 +30,12 @@ export interface LinksData {
   resume: string;
 }
 
-interface Project {
+export interface ProjectsContent {
+  title: string;
+  description: string;
+}
+
+export interface Project {
   name: string;
   shortDesc: string;
   description: string;
@@ -49,4 +54,5 @@ export interface LanguageData {
   hero: HeroContent;
   skills: SkillsContent;
   links: LinksData;
+  projects: ProjectsContent;
 }
