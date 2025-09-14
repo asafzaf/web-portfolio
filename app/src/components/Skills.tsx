@@ -125,6 +125,7 @@ const Skills = () => {
                   key={category}
                   value={category}
                   aria-label={category}
+                  sx={{ boxShadow: theme.custom.shadow }}
                   >
                   {category}
                   </ToggleButton>
@@ -142,6 +143,7 @@ const Skills = () => {
               flexWrap: "wrap",
               gap: 2,
               background: theme.palette.secondary.main,
+              boxShadow: theme.custom.shadow,
               width: "100%",
               alignItems: "flex-start",
               justifyItems: "flex-start",

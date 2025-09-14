@@ -1,10 +1,11 @@
-// import { useState } from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { useState } from "react";
+import { Box, Typography, Grid, Modal, CardMedia, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
 import projects from "../data/projects.json";
-import { ProjectCard } from "./project/projectCard";
+import ProjectCard from "./projects/ProjectCard";
+import ProjectModal from "./projects/ProjectModal";
 
 const Projects = () => {
   const theme = useTheme();
@@ -14,6 +15,18 @@ const Projects = () => {
   //   const [filters, setFilters] = useState<string[]>([]);
 
   const projectsArray = projects.projects;
+
+  const handleOpen = (project: (typeof projects.projects)[0]) => {
+    setSelectedProject(project);
+  };
+
+  const handleClose = () => {
+    setSelectedProject(null);
+  };
+
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects.projects)[0] | null
+  >(null);
 
   return (
     <section
@@ -60,13 +73,14 @@ const Projects = () => {
                   name={project.title}
                   shortDesc={project.shortDesc}
                   picture={project.image}
-                  onClick={() => console.log("Project clicked:", project.title)}
+                  onClick={() => handleOpen(project)}
                 />
               </Grid>
             ))}
           </Grid>
         </Box>
       </Box>
+      <ProjectModal project={selectedProject} onClose={handleClose} />
     </section>
   );
 };

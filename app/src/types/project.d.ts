@@ -6,3 +6,8 @@ export interface ProjectCardProps {
   picture: Picture;
   onClick: () => void;
 }
+
+export interface ProjectModalProps {
+  project: Project | null;
+  onClose: () => void;
+}

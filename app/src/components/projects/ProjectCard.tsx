@@ -3,7 +3,7 @@ import type { ProjectCardProps } from "../../types/project";
 import { useTheme } from "@mui/material/styles";
 import { usePicture } from "../../hooks/usePicture";
 
-export const ProjectCard = ({
+const ProjectCard = ({
   name,
   shortDesc,
   picture,
@@ -24,7 +24,9 @@ export const ProjectCard = ({
         height: 300,
         display: "flex",
         flexDirection: "column",
+        borderRadius: 2,
         background: theme.palette.secondary.main,
+        boxShadow: theme.custom.shadow,
       }}
     >
       <CardMedia
@@ -60,3 +62,5 @@ export const ProjectCard = ({
     </Card>
   );
 };
+
+export default ProjectCard;
