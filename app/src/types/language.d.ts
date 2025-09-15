@@ -4,7 +4,8 @@ export type SupportedLang = "en" | "he";
 export interface NavItem {
   label: string;
   id: string;
-}[];
+}
+[];
 
 export interface HeroContent {
   name: string;
@@ -22,11 +23,35 @@ export interface linkObject {
   url: string;
 }
 
+export interface Picture {
+  name: string;
+  ext: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
 export interface LinksData {
   github: linkObject;
   linkedin: linkObject;
   instagram: linkObject;
   resume: string;
+}
+
+export interface ProjectsContent {
+  title: string;
+  description: string;
+}
+
+export interface Project {
+  title: string;
+  shortDesc: string;
+  description: string;
+  date: string;
+  image: Picture;
+  gallery: Picture[];
+  categories: string[];
+  links: linkObject[];
 }
 
 export interface LanguageData {
@@ -36,4 +61,5 @@ export interface LanguageData {
   hero: HeroContent;
   skills: SkillsContent;
   links: LinksData;
+  projects: ProjectsContent;
 }

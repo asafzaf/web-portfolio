@@ -22,8 +22,8 @@ const defaultIcons: Record<string, React.ReactNode> = {
 
 const SkillIcon = ({ skill }: { skill: Skill }) => {
   const { src, onError } = useAsset(
-    `/thumbnails/${skill.avatar}.png`,
-    `/thumbnails/fallback.png`
+    `thumbnails/${skill.avatar}.png`,
+    `thumbnails/fallback.png`
   );
 
   if (skill.avatar) {
