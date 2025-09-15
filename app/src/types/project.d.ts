@@ -1,9 +1,9 @@
-import type { Picture } from "./language";
+import type { Picture, Project } from "./language";
 
 export interface ProjectCardProps {
   name: string;
   shortDesc: string;
-  picture: Picture;
+  image: Picture;
   onClick: () => void;
 }
 

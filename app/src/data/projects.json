@@ -5,12 +5,34 @@
       "title": "Portfolio Website",
       "shortDesc": "A personal portfolio website to showcase my projects and skills.",
       "description": "A fully responsive portfolio website built with React and Material-UI, featuring sections for about me, skills, projects, and contact information.",
+      "date": "2023-01",
       "image": {
         "name": "sample-project-1",
         "ext": "jpg",
         "alt": "Portfolio Website Screenshot"
       },
-      "link": "https://myportfolio.com",
+      "gallery": [
+        {
+          "name": "sample-project-2",
+          "ext": "jpg",
+          "alt": "Portfolio Website Screenshot 1"
+        },
+        {
+          "name": "sample-project-3",
+          "ext": "jpg",
+          "alt": "Portfolio Website Screenshot 2"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/myportfolio"
+        },
+        {
+          "label": "Live Demo",
+          "url": "https://myportfolio.com"
+        }
+      ],
       "categories": ["Web Development", "React"]
     },
     {
@@ -18,12 +40,34 @@
       "title": "E-commerce Platform",
       "shortDesc": "An online platform for buying and selling products.",
       "description": "A scalable e-commerce platform developed using Node.js and MongoDB, with features like user authentication, product management, and payment integration.",
+      "date": "2023-02",
       "image": {
         "name": "sample-project-2",
         "ext": "jpg",
         "alt": "E-commerce Platform Screenshot"
       },
-      "link": "https://myecommerce.com",
+      "gallery": [
+        {
+          "name": "sample-project-1",
+          "ext": "jpg",
+          "alt": "E-commerce Platform Screenshot 1"
+        },
+        {
+          "name": "sample-project-3",
+          "ext": "jpg",
+          "alt": "E-commerce Platform Screenshot 2"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/my-ecommerce-platform"
+        },
+        {
+          "label": "Live Demo",
+          "url": "https://myecommerce.com"
+        }
+      ],
       "categories": ["Web Development", "Node.js", "MongoDB"]
     },
     {
@@ -31,12 +75,34 @@
       "title": "Mobile Game",
       "shortDesc": "A fun and engaging mobile game developed using Unity.",
       "description": "A 2D mobile game created with Unity, featuring multiple levels, character customization, and in-app purchases.",
+      "date": "2023-03",
       "image": {
         "name": "sample-project-3",
         "ext": "jpg",
         "alt": "Mobile Game Screenshot"
       },
-      "link": "https://mymobilegame.com",
+      "gallery": [
+        {
+          "name": "sample-project-1",
+          "ext": "jpg",
+          "alt": "Mobile Game Screenshot 1"
+        },
+        {
+          "name": "sample-project-2",
+          "ext": "jpg",
+          "alt": "Mobile Game Screenshot 2"
+        }
+      ],
+      "links": [
+        {
+          "label": "App Store",
+          "url": "https://appstore.com/mygame"
+        },
+        {
+          "label": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=mygame"
+        }
+      ],
       "categories": ["Game Development", "Unity"]
     }
   ]

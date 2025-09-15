@@ -6,6 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import projects from "../data/projects.json";
 import ProjectCard from "./projects/ProjectCard";
 import ProjectModal from "./projects/ProjectModal";
+import type { Project } from "../types/language";
 
 const Projects = () => {
   const theme = useTheme();
@@ -16,7 +17,7 @@ const Projects = () => {
 
   const projectsArray = projects.projects;
 
-  const handleOpen = (project: (typeof projects.projects)[0]) => {
+  const handleOpen = (project: Project) => {
     setSelectedProject(project);
   };
 
@@ -25,7 +26,7 @@ const Projects = () => {
   };
 
   const [selectedProject, setSelectedProject] = useState<
-    (typeof projects.projects)[0] | null
+    Project | null
   >(null);
 
   return (
@@ -72,7 +73,7 @@ const Projects = () => {
                 <ProjectCard
                   name={project.title}
                   shortDesc={project.shortDesc}
-                  picture={project.image}
+                  image={project.image}
                   onClick={() => handleOpen(project)}
                 />
               </Grid>

@@ -3,18 +3,9 @@ import type { ProjectCardProps } from "../../types/project";
 import { useTheme } from "@mui/material/styles";
 import { usePicture } from "../../hooks/usePicture";
 
-const ProjectCard = ({
-  name,
-  shortDesc,
-  picture,
-  onClick,
-}: ProjectCardProps) => {
+const ProjectCard = ({ name, shortDesc, image, onClick }: ProjectCardProps) => {
   const theme = useTheme();
-  const { src, onError } = usePicture(
-    picture.name,
-    picture.ext,
-    "/fallback.png"
-  );
+  const { src, onError } = usePicture(image.name, image.ext, "/fallback.png");
 
   return (
     <Card
@@ -27,14 +18,19 @@ const ProjectCard = ({
         borderRadius: 2,
         background: theme.palette.secondary.main,
         boxShadow: theme.custom.shadow,
+        transition: "transform 0.3s, box-shadow 0.3s",
+        "&:hover": {
+          transform: "translateY(-5px)",
+          boxShadow: theme.custom.shadow + "60px",
+        },
       }}
     >
       <CardMedia
         component="img"
         image={src}
-        alt={picture.alt}
+        alt={image.alt}
         onError={onError}
-        sx={{ height: picture.height || 180, objectFit: "cover" }}
+        sx={{ height: image.height || 180, objectFit: "cover" }}
       />
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography

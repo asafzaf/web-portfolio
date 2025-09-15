@@ -44,17 +44,14 @@ export interface ProjectsContent {
 }
 
 export interface Project {
-  name: string;
+  title: string;
   shortDesc: string;
   description: string;
-  mainPicture: Picture;
-  pictures: Picture[];
-  gitRepo: string;
-  jiraLink: string;
-  serviceUrl: string;
-  screenshots: string[];
-  thumbnail: string;
-  tech: string[];
+  date: string;
+  image: Picture;
+  gallery: Picture[];
+  categories: string[];
+  links: linkObject[];
 }
 
 export interface LanguageData {
