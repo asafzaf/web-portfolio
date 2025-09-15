@@ -3,22 +3,14 @@ import {
   Box,
   Grid,
   Typography,
-  CardMedia,
   Button,
-  CircularProgress,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { usePicture } from "../../hooks/usePicture";
 import type { ProjectModalProps } from "../../types/project";
 import HorizontalGallery from "../general/HorizontalGallery";
 
 const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const theme = useTheme();
-
-  const imageName = project?.image?.name ?? "";
-  const imageExt = project?.image?.ext ?? "";
-
-  const { src, loading } = usePicture(imageName, imageExt, "/fallback.png");
 
   const galleryImages = project
     ? [
@@ -73,21 +65,17 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             minHeight: 300,
           }}
         >
-          {loading ? (
-            <CircularProgress color="inherit" />
-          ) : (
-            <Box
-              sx={{
-                mb: 2,
-                overflowY: "auto", // vertical scroll
-                overflowX: "hidden", // prevent horizontal scroll
-              }}
-            >
-              {galleryImages.length > 0 && (
-                <HorizontalGallery images={galleryImages} />
-              )}
-            </Box>
-          )}
+          <Box
+            sx={{
+              mb: 2,
+              overflowY: "auto", // vertical scroll
+              overflowX: "hidden", // prevent horizontal scroll
+            }}
+          >
+            {galleryImages.length > 0 && (
+              <HorizontalGallery images={galleryImages} />
+            )}
+          </Box>
         </Box>
 
         {/* Description, Date, Categories */}
