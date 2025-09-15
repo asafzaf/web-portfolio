@@ -13,6 +13,7 @@ const MainPage = () => {
     skills: useRef<HTMLDivElement | null>(null),
     links: useRef<HTMLDivElement | null>(null),
     projects: useRef<HTMLDivElement | null>(null),
+    experience: useRef<HTMLDivElement | null>(null),
   };
 
   const handleScrollTo = (section: keyof typeof refs) => {
