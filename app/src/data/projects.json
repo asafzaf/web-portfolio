@@ -2,108 +2,335 @@
   "projects": [
     {
       "id": 1,
-      "title": "Portfolio Website",
-      "shortDesc": "A personal portfolio website to showcase my projects and skills.",
-      "description": "A fully responsive portfolio website built with React and Material-UI, featuring sections for about me, skills, projects, and contact information.",
-      "date": "2023-01",
+      "title": "Good News",
+      "shortDesc": "Stay informed with AI-powered news summaries.",
+      "description": "A Service which scrapes news articles from various sources, summarizes them using AI, and delivers the summaries to users via a Telegram bot. Built with Node.js, Express, MongoDB, and integrates with Gemini for summarization.",
+      "date": "2025-07",
       "image": {
-        "name": "sample-project-1",
+        "name": "good-news-logo",
         "ext": "jpg",
-        "alt": "Portfolio Website Screenshot"
+        "alt": "Good News logo"
       },
       "gallery": [
         {
-          "name": "sample-project-2",
+          "name": "good-news-arch",
           "ext": "jpg",
-          "alt": "Portfolio Website Screenshot 1"
+          "alt": "Good News architecture"
         },
         {
-          "name": "sample-project-3",
+          "name": "good-news-chat",
           "ext": "jpg",
-          "alt": "Portfolio Website Screenshot 2"
+          "alt": "Good News internal slack"
         }
       ],
       "links": [
         {
           "label": "GitHub",
-          "url": "https://github.com/myportfolio"
+          "url": "https://github.com/asafzaf/GoodNews"
         },
         {
-          "label": "Live Demo",
-          "url": "https://myportfolio.com"
+          "label": "Telegram channel - English",
+          "url": " https://t.me/goodnews_eng"
+        },
+        {
+          "label": "Telegram channel - Hebrew",
+          "url": "https://t.me/goodnews_il"
         }
       ],
-      "categories": ["Web Development", "React"]
+      "categories": [
+        "Web Development",
+        "Node.js",
+        "React",
+        "Express",
+        "MongoDB",
+        "Prompt Engineering",
+        "API Integration"
+      ]
     },
     {
       "id": 2,
-      "title": "E-commerce Platform",
-      "shortDesc": "An online platform for buying and selling products.",
-      "description": "A scalable e-commerce platform developed using Node.js and MongoDB, with features like user authentication, product management, and payment integration.",
-      "date": "2023-02",
+      "title": "Smart Chat",
+      "shortDesc": "An AI chat platform integrating multiple AI services.",
+      "description": "Smart-Chat is an innovative conversational AI platform that orchestrates responses from multiple AI services, delivering high-quality, personalized interactions in real-time. Built with a robust Node.js architecture, it seamlessly integrates various AI SDKs, manages multi-platform evaluations, and supports dynamic chat sessions. Developed as part of a Software Engineering B.Sc. Final Project.",
+      "date": "2025-06",
       "image": {
-        "name": "sample-project-2",
+        "name": "smart-chat-logo",
         "ext": "jpg",
-        "alt": "E-commerce Platform Screenshot"
+        "alt": "Smart Chat logo"
       },
       "gallery": [
         {
-          "name": "sample-project-1",
+          "name": "smart-chat-team",
           "ext": "jpg",
-          "alt": "E-commerce Platform Screenshot 1"
+          "alt": "Smart Chat team"
         },
         {
-          "name": "sample-project-3",
-          "ext": "jpg",
-          "alt": "E-commerce Platform Screenshot 2"
+          "name": "smart-chat-presentation",
+          "ext": "JPG",
+          "alt": "Smart Chat presentation"
         }
       ],
       "links": [
         {
-          "label": "GitHub",
-          "url": "https://github.com/my-ecommerce-platform"
+          "label": "GitHub - Backend",
+          "url": "https://github.com/asafzaf/SmartChat"
         },
         {
-          "label": "Live Demo",
-          "url": "https://myecommerce.com"
+          "label": "GitHub - Frontend",
+          "url": "https://github.com/asafzaf/SmartChatFront"
         }
       ],
-      "categories": ["Web Development", "Node.js", "MongoDB"]
+      "categories": [
+        "Web Development",
+        "Node.js",
+        "React",
+        "Express",
+        "MongoDB",
+        "Prompt Engineering",
+        "API Integration"
+      ]
     },
     {
       "id": 3,
-      "title": "Mobile Game",
-      "shortDesc": "A fun and engaging mobile game developed using Unity.",
-      "description": "A 2D mobile game created with Unity, featuring multiple levels, character customization, and in-app purchases.",
-      "date": "2023-03",
+      "title": "Cookie",
+      "shortDesc": "Manage your groceries and shopping list with friends easily, and shop together with fun!",
+      "description": "A mobile app that helps families and friends manage their groceries and shopping lists together. Group by departments and remember history of purchases. Built with React-Native, Node.js, Express, and MongoDB.",
+      "date": "2025-01",
       "image": {
-        "name": "sample-project-3",
-        "ext": "jpg",
-        "alt": "Mobile Game Screenshot"
+        "name": "cookie-icon",
+        "ext": "png",
+        "alt": "Cookie icon"
       },
       "gallery": [
         {
-          "name": "sample-project-1",
+          "name": "cookie-home",
           "ext": "jpg",
-          "alt": "Mobile Game Screenshot 1"
+          "alt": "Cookie home screen"
         },
         {
-          "name": "sample-project-2",
+          "name": "cookie-handle",
           "ext": "jpg",
-          "alt": "Mobile Game Screenshot 2"
+          "alt": "Cookie handle screen"
+        },
+        {
+          "name": "cookie-buy-items",
+          "ext": "jpg",
+          "alt": "Cookie buy items screen"
+        },
+        {
+          "name": "cookie-home-heb",
+          "ext": "jpg",
+          "alt": "Cookie home screen - Hebrew"
         }
       ],
       "links": [
         {
-          "label": "App Store",
-          "url": "https://appstore.com/mygame"
+          "label": "GitHub - Backend",
+          "url": "https://github.com/asafzaf/Cookie_back"
         },
         {
-          "label": "Google Play",
-          "url": "https://play.google.com/store/apps/details?id=mygame"
+          "label": "GitHub - Frontend",
+          "url": "https://github.com/asafzaf/cookie"
+        },
+        {
+          "label": "GitHub - Admin Panel",
+          "url": "https://github.com/asafzaf/cookie-admin-app"
         }
       ],
-      "categories": ["Game Development", "Unity"]
+      "categories": [
+        "Mobile Development",
+        "IOS",
+        "Android",
+        "React Native",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Wiki-Song",
+      "shortDesc": "When microservices meet music.",
+      "description": "This project is about creating a local development for scraping and manage data via API using Docker Compose for Data Pipeline. The environment includes multiple services that interact with each other to scrape data from a website, process it, and store it in PostgreSQL database.",
+      "date": "2024-12",
+      "image": {
+        "name": "wiki-song",
+        "ext": "png",
+        "alt": "Wiki-Song"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/wiki-song"
+        }
+      ],
+      "categories": [
+        "Web Development",
+        "Python",
+        "SQL",
+        "Selenium",
+        "Web-Scraper"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Web SQLI attack",
+      "shortDesc": "A simple website to demonstrate SQLI attack.",
+      "description": "An 3rd year project for security course. A simple website and Python tool to demonstrate SQLI attack and how to prevent it. Built with HTML, JS, CSS and Python.",
+      "date": "2024-22",
+      "image": {
+        "name": "web-attack",
+        "ext": "png",
+        "alt": "Web SQLI attack"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/websqliattack"
+        }
+      ],
+      "categories": [
+        "Web Development",
+        "Python",
+        "SQL",
+        "Selenium",
+        "Web-Scraper"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Fixit",
+      "shortDesc": "Have you ever struggled mapping the gaps in construction at work, school, or home?",
+      "description": "Have you ever struggled mapping the gaps in construction at work, school, or home? A Good practice for mobile development. An implementation of Express server which connected to mongo and a React-Native.",
+      "date": "2024-03",
+      "image": {
+        "name": "fixit-logo-1",
+        "ext": "jpg",
+        "alt": "Fixit logo"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub - Frontend",
+          "url": "https://github.com/asafzaf/Fixit"
+        },
+        {
+          "label": "GitHub - Backend",
+          "url": "https://github.com/asafzaf/fixit-server "
+        }
+      ],
+      "categories": [
+        "React Native",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "React Native"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Donation App",
+      "shortDesc": "An app for managing donations.",
+      "description": "A Good practice for full-stack implement and postman collection documentation. An implementation of Express server which connected to mongo and a React-App.",
+      "date": "2024-02",
+      "image": {
+        "name": "donation-box",
+        "ext": "jpg",
+        "alt": "Donation box"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "Website - Backend",
+          "url": "https://github.com/asafzaf/Donations-Express"
+        },
+        {
+          "label": "GitHub - Frontend",
+          "url": "https://github.com/asafzaf/Donations-App"
+        },
+        {
+          "label": "Postman Collection",
+          "url": "https://documenter.getpostman.com/view/31102943/2s9Yyzbx4j"
+        }
+      ],
+      "categories": [
+        "Web Development",
+        "Node.js",
+        "React",
+        "MongoDB",
+        "Express",
+        "Postman"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Medigment",
+      "shortDesc": "An easy way to manage medications in your daily routine.",
+      "description": "The final project of Web & Cloud course. An app which handles medication management and supply. Great practice and learning about writing SRS & SDD, plan diagrams and build the idea in PHP, JS and our design.",
+      "date": "2023-07",
+      "image": {
+        "name": "medigment",
+        "ext": "jpg",
+        "alt": "Medigment screen"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "Website",
+          "url": "http://se.shenkar.ac.il/students/2022-2023/web1/dev_204/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/Medigment"
+        }
+      ],
+      "categories": ["Web Development", "PHP", "JavaScript", "MySQL"]
+    },
+    {
+      "id": 9,
+      "title": "Book Store",
+      "shortDesc": "An app for searching and filtering books.",
+      "description": "Book store app where you can filter or search for books and read a descriptions about it. A project in Web & Cloud course.",
+      "date": "2023-06",
+      "image": {
+        "name": "bookstore",
+        "ext": "jpg",
+        "alt": "Book Store screen"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "Website",
+          "url": "http://se.shenkar.ac.il/students/2022-2023/web1/dev_93/exercises/ex5/index.php"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/BooksSite"
+        }
+      ],
+      "categories": ["Web Development", "PHP", "JavaScript", "MySQL"]
+    },
+    {
+      "id": 10,
+      "title": "Meals App",
+      "shortDesc": "Recipes app for the best meals.",
+      "description": "Recipes app for the best meals. Created by Flutter to IOS & Android (native) from Udemy Flutter & dart course.",
+      "date": "2023-03",
+      "image": {
+        "name": "mealsapp",
+        "ext": "jpg",
+        "alt": "Meals App screen"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/Meals-app"
+        }
+      ],
+      "categories": ["Mobile Development", "Flutter", "Dart"]
     }
   ]
 }

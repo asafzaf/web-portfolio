@@ -50,7 +50,6 @@ const ProjectCard = ({ name, shortDesc, image, onClick }: ProjectCardProps) => {
             textOverflow: "ellipsis",
             color: theme.palette.text.primary,
           }}
-          noWrap
         >
           {shortDesc}
         </Typography>
