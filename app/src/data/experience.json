@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Work",
+    "items": [
+      {
+        "period": "May 2024 - Present",
+        "company": "JFrog",
+        "role": "Support Tools Software Engineer Student",
+        "category": null,
+        "points": [
+          "**Engineered and maintained end-to-end systems** using MERN stack (TypeScript, Docker, NodeJS, React, MUI)",
+          "**Designed automation workflows** integrating with **external applications**, reducing manual tasks and improving efficiency (Python)",
+          "**Applied software engineering principles** to ensure maintainability, scalability, and robustness of solutions",
+          "**Collaborated in Agile teams** actively contributing to planning, sprint execution, and CI/CD processes"
+        ]
+      },
+      {
+        "period": "December 2021 - May 2024",
+        "company": "SmartWay Solutions",
+        "role": "Software & Processes Documentation",
+        "category": null,
+        "points": [
+          "Produced clear, detailed documentation for complex processes and mission-critical systems",
+          "Managed projects requiring **fast self-learning** and application of new technical knowledge"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Education",
+    "items": [
+      {
+        "period": "October 2021 - August 2025 | GPA: 86",
+        "company": "Shenkar School of Engineering & Design",
+        "role": "Software Engineering (BSc)",
+        "category": null,
+        "points": [
+          "**Final Project: SmartChat** - AI-powered conversational platform for software engineering queries with multi-model integration and personalized responses",
+          "**Internship at Innogration Technologies (STEP Shenkar Program)** - Full-Stack Developer (Jul 2023 - May 2024)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Military Service",
+    "items": [
+      {
+        "period": "July 2018 - October 2021",
+        "company": "Research Department",
+        "role": "Research Team Leader (Captain)",
+        "category": null,
+        "points": [
+          "**Experience in leading complex tasks**, manage a team and create harmony in the whole process",
+          "**Development of thinking methodologies** for solving problems and implementing them in tasks"
+        ]
+      },
+      {
+        "period": "October 2017 - July 2018",
+        "company": "Intelligence Corps",
+        "role": "Team Commander in Combat Officer Course",
+        "category": null,
+        "points": [
+          "**Experience in personal training** and leading a training process",
+          "**Experience in building exercises** and scenarios to challenge trainees"
+        ]
+      },
+      {
+        "period": "October 2015 — October 2017",
+        "company": "Paratroopers Brigade",
+        "role": "Intelligence Officer",
+        "category": null,
+        "points": [
+          "**Operation in extreme and stressful situations** & using creativity when solving problems and streamlining processes within the framework"
+        ]
+      }
+    ]
+  }
+]
