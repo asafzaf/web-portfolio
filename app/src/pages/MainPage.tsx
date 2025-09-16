@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import NavBar from "../components/NavBar";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
+import Experience from "../components/Experience";
 
 const MainPage = () => {
   const refs = {
@@ -55,6 +56,11 @@ const MainPage = () => {
         <div ref={refs.projects}>
           <Projects />
         </div>
+        <div ref={refs.experience}>
+
+        <Experience />
+        </div>
+        
       </Box>
     </Box>
   );
