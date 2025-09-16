@@ -8,6 +8,13 @@ import {
 import { useTheme } from "@mui/material/styles";
 import data from "../data/experience.json";
 
+const renderBold = (text: string) => {
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+  );
+};
+
 const Experience = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -21,9 +28,16 @@ const Experience = () => {
         overflowX: "hidden",
       }}
     >
-      <Box sx={{ py: 6 }}>
+      <Box sx={{ py: 6, alignItems: "center", textAlign: "center" }}>
+        <Typography
+          variant="h2"
+          color={theme.palette.secondary.main}
+          gutterBottom
+        >
+          Experience
+        </Typography>
         {data.map((section, sectionIdx) => (
-          <Box key={sectionIdx} sx={{ mb: 8 }}>
+          <Box key={sectionIdx} sx={{ mb: 8, alignItems: "flex-start", textAlign: "start" }}>
             {/* Section Title */}
             <Typography
               variant="h4"
@@ -94,7 +108,14 @@ const Experience = () => {
                   }}
                 >
                   <CardContent>
-                    <Typography variant="h6" sx={{ fontWeight: "bold", color: theme.palette.text.secondary, mb: 1 }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: "bold",
+                        color: theme.palette.text.secondary,
+                        mb: 1,
+                      }}
+                    >
                       {item.role}
                     </Typography>
 
@@ -105,7 +126,7 @@ const Experience = () => {
                           variant="body1"
                           sx={{ mb: 0.5, color: theme.palette.text.secondary }}
                         >
-                          • {point}
+                          • {renderBold(point)}
                         </Typography>
                       ))}
                   </CardContent>
