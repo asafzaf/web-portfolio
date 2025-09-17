@@ -7,7 +7,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import DescriptionIcon from "@mui/icons-material/Description";
 
-const LinksStack = () => {
+interface LinksStackProps {
+  customColor?: string | null;
+}
+
+const LinksStack = ({ customColor = null }: LinksStackProps) => {
   const theme = useTheme();
   const { data } = useLanguage();
 
@@ -20,6 +24,8 @@ const LinksStack = () => {
   );
 
   const isRtl = data.direction === "rtl";
+
+  const color = customColor ? customColor : theme.custom.text;
 
   const orderedIcons = (() => {
     const baseIcons = [
@@ -87,7 +93,7 @@ const LinksStack = () => {
               href={!item.download ? item.url : undefined}
               target={!item.download ? "_blank" : undefined}
               sx={{
-                color: theme.custom.text,
+                color: color,
                 ":hover": { color: theme.custom.button.hoverColor },
               }}
             >
