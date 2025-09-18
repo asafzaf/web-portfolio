@@ -7,6 +7,7 @@ import NavBar from "../components/NavBar";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Experience from "../components/Experience";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 const MainPage = () => {
@@ -16,6 +17,7 @@ const MainPage = () => {
     links: useRef<HTMLDivElement | null>(null),
     projects: useRef<HTMLDivElement | null>(null),
     experience: useRef<HTMLDivElement | null>(null),
+    contact: useRef<HTMLDivElement | null>(null),
   };
 
   const handleScrollTo = (section: keyof typeof refs) => {
@@ -59,6 +61,9 @@ const MainPage = () => {
         </div>
         <div ref={refs.experience}>
           <Experience />
+        </div>
+        <div ref={refs.contact}>
+          <Contact />
         </div>
         <Footer />
       </Box>
