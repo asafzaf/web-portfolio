@@ -16,7 +16,7 @@
       "id": "experience"
     },
     {
-      "label": "Contact (Dev)",
+      "label": "Contact",
       "id": "contact"
     }
   ],
@@ -47,5 +47,19 @@
   "projects": {
     "title": "Projects",
     "description": "A showcase of my recent work and projects, highlighting my skills and expertise in software development"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "I'm always open to new opportunities and collaborations. If you have any questions, proposals, or just want to say hi, feel free to reach out!",
+    "email": "asaf.zafrir@gmail.com",
+    "emailButton": "Email me",
+    "referToForm": "Or use the form to send me a message directly",
+    "form": {
+      "full_name": "Full Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "contactFormUrl": ""
+    }
   }
 }

@@ -54,6 +54,26 @@ export interface Project {
   links: linkObject[];
 }
 
+export interface ContactForm {
+  full_name: string;
+  email: string;
+  message: string;
+  send: string;
+  url: string;
+  contactFormUrl: string;
+  successMessage: string;
+  errorMessage: string;
+}
+
+export interface ContactContent {
+  title: string;
+  description: string;
+  email: string;
+  emailButton: string;
+  referToForm?: string;
+  form?: ContactForm;
+}
+
 export interface LanguageData {
   lang: SupportedLang;
   direction: "ltr" | "rtl";
@@ -62,4 +82,5 @@ export interface LanguageData {
   skills: SkillsContent;
   links: LinksData;
   projects: ProjectsContent;
+  contact: ContactContent;
 }
