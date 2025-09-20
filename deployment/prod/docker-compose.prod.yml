@@ -12,6 +12,8 @@ services:
       - ../../core:/usr/src/app
     environment:
       - NODE_ENV=production
+      - PORT=${BACKEND_PORT}
+      - ORIGIN=${FRONTEND_URL}
     command: npm run start
 
   mongo:
