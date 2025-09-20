@@ -12,17 +12,6 @@ services:
       - NODE_ENV=production
       - PORT=${BACKEND_PORT}
       - ORIGIN=${FRONTEND_URL}
-
-  mongo:
-    image: mongo:latest
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    networks:
-      - default
-    volumes:
-      - mongo-data:/data/db
-
   ngrok:
     image: ngrok/ngrok:latest
     container_name: ngrok
@@ -31,9 +20,6 @@ services:
     command: http --url=${NGROK_URL} core:${BACKEND_PORT}
     environment:
       - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
-
-volumes:
-  mongo-data:
 
 networks:
   default:
