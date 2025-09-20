@@ -1,4 +1,4 @@
-import { Schema, Model, model, Document } from "mongoose";
+import { Schema, Document, Model, model } from "mongoose";
 
 export interface IContact extends Document {
   full_name: string;
@@ -29,32 +29,22 @@ const ContactSchema = new Schema<IContact, IContactModel>(
   { timestamps: { createdAt: "createdAt" } }
 );
 
-ContactSchema.statics.createContact = async function (
-  this: IContactModel,
-  contactDTO: IContactDTO
-): Promise<IContact> {
+ContactSchema.statics.createContact = async function (contactDTO: IContactDTO) {
   const contact = new this(contactDTO);
   return contact.save();
 };
 
-ContactSchema.statics.getAllContacts = function (
-  this: IContactModel
-): Promise<IContact[]> {
+ContactSchema.statics.getAllContacts = function () {
   return this.find().sort({ createdAt: -1 }).exec();
 };
 
-ContactSchema.statics.getContactById = function (
-  this: IContactModel,
-  id: string
-): Promise<IContact | null> {
+ContactSchema.statics.getContactById = function (id: string) {
   return this.findById(id).exec();
 };
 
-ContactSchema.statics.deleteContactById = function (
-  this: IContactModel,
-  id: string
-): Promise<IContact | null> {
+ContactSchema.statics.deleteContactById = function (id: string) {
   return this.findByIdAndDelete(id).exec();
 };
 
-export default model<IContact, IContactModel>("Contact", ContactSchema);
+const Contact = model<IContact, IContactModel>("Contact", ContactSchema);
+export default Contact;
