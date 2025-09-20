@@ -1,0 +1,32 @@
+version: "3"
+services:
+  core:
+    build:
+      context: ../../core
+      target: prod # use the "prod" stage
+    ports:
+      - "3000:3000"
+    networks:
+      - default
+    volumes:
+      - ../../core:/usr/src/app
+    environment:
+      - NODE_ENV=production
+    command: npm run start
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - default
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+
+networks:
+  default:
+    driver: bridge
