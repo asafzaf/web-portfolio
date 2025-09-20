@@ -34,8 +34,9 @@ const Contact = () => {
         setSubmissionSuccess(true);
         setFormData({ full_name: "", email: "", message: "" });
       },
-      onError: (error) => {
+      onError: (error: any) => {
         setSubmissionError("Failed to submit the form. Please try again.");
+        console.error("Contact form submission error:", error);
       },
     });
   };
