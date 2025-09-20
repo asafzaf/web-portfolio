@@ -11,6 +11,12 @@ STACK_DIR="deployment/$ENV"
 COMPOSE_FILE="$STACK_DIR/docker-compose.$ENV.yml"
 
 function run_stack() {
+    if [ "$ENV" == "prod" ]; then
+        echo "Starting the production stack..."
+    else
+        echo "Starting the development stack..."
+    fi
+    docker-compose -f "$COMPOSE_FILE" build --no-cache
     docker-compose -f "$COMPOSE_FILE" up -d
 }
 
@@ -19,6 +25,12 @@ function restart_stack() {
 }
 
 function stop_stack() {
+    if [ "$ENV" == "prod" ]; then
+        echo "Stopping the production stack..."
+        docker-compose -f "$COMPOSE_FILE" down -v
+    else
+        echo "Stopping the development stack..."
+    fi
     docker-compose -f "$COMPOSE_FILE" down
 }
 
