@@ -2,7 +2,7 @@ FROM node:20-alpine AS base
 WORKDIR /usr/src/app
 COPY package*.json ./
 
-# Install ALL deps for build
+# Install ALL deps (needed for build)
 RUN npm install
 
 # --------------------
@@ -13,25 +13,18 @@ COPY . .
 CMD ["npm", "run", "dev"]
 
 # --------------------
-# Build stage
-FROM base AS build
-COPY . .
-RUN npm run build
-
-# --------------------
 # Production stage
-FROM node:20-alpine AS prod
+FROM base AS prod
 WORKDIR /usr/src/app
 ENV NODE_ENV=production
 
-# Copy only prod deps
-COPY package*.json ./
-RUN npm install --only=production
+# Copy all source
+COPY . .
 
-# Copy compiled output from build stage
-COPY --from=build /usr/src/app/dist ./dist
+# Build TypeScript
+RUN npm run build
 
-# If you need other assets (config, views, etc.) copy them too
-COPY --from=build /usr/src/app/secrets ./secrets
+# Install only production deps (removes dev deps)
+RUN npm ci --only=production
 
 CMD ["node", "dist/server.js"]
