@@ -12,6 +12,7 @@ CMD ["npm", "run", "dev"]
 # Production stage (runs compiled JS)
 FROM base AS prod
 ENV NODE_ENV=production
+RUN npm ci --only=production
 COPY . .
 RUN npm run build
-CMD ["npm", "start"]
+CMD ["node", "dist/server.js"]

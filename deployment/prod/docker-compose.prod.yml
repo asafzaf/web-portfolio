@@ -8,13 +8,10 @@ services:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     networks:
       - default
-    volumes:
-      - ../../core:/usr/src/app
     environment:
       - NODE_ENV=production
       - PORT=${BACKEND_PORT}
       - ORIGIN=${FRONTEND_URL}
-    command: npm run start
 
   mongo:
     image: mongo:latest
@@ -27,11 +24,11 @@ services:
       - mongo-data:/data/db
 
   ngrok:
-    image: wernight/ngrok
+    image: ngrok/ngrok:latest
     container_name: ngrok
     depends_on:
       - core
-    command: ngrok http --url=${NGROK_URL} core:3001 --log=stdout
+    command: http --url=${NGROK_URL} core:${BACKEND_PORT}
     environment:
       - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
 
