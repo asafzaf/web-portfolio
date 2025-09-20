@@ -1,4 +1,4 @@
-import { Schema, Model, model } from "mongoose";
+import { Schema, Model, model, Document } from "mongoose";
 
 export interface IContact extends Document {
   full_name: string;
@@ -20,7 +20,7 @@ interface IContactModel extends Model<IContact> {
   deleteContactById(id: string): Promise<IContact | null>;
 }
 
-const ContactSchema: Schema<IContact, IContactModel> = new Schema(
+const ContactSchema = new Schema<IContact, IContactModel>(
   {
     full_name: { type: String, required: true },
     email: { type: String, required: true },
