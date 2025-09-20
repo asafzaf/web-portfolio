@@ -34,7 +34,6 @@ ContactSchema.statics.createContact = async function (
   contactDTO: IContactDTO
 ): Promise<IContact> {
   const contact = new this(contactDTO);
-  console.log("Creating contact:", contact);
   return contact.save();
 };
 
