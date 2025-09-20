@@ -9,9 +9,9 @@
     "rootDir": ".",
     "strict": true,
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
-    "emitDeclarationOnly": true,
-    "declaration": true
+    "declaration": true,
+    "noEmit": true,            
+    "allowImportingTsExtensions": true
   },
   "include": ["src", "server.ts"]
 }
