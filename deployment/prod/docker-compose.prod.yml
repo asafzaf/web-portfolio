@@ -31,7 +31,7 @@ services:
     container_name: ngrok
     depends_on:
       - core
-    command: ngrok http --url=${BACKEND_URL} core:3001 --log=stdout
+    command: ngrok http --url=${NGROK_URL} core:3001 --log=stdout
 
 volumes:
   mongo-data:
