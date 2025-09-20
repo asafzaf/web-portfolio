@@ -7,9 +7,6 @@ services:
       - ../../app:/app
     networks:
       - default
-    secrets:
-      - target: ./secrets/mongo-creds.json
-        source: mongo-creds-file
     ports:
       - "5173:5173"
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
@@ -27,6 +24,9 @@ services:
       - "3000:3000"
     volumes:
       - ../../core:/usr/src/app
+    secrets:
+      - target: ./secrets/mongo-creds.json
+        source: mongo-creds-file
     networks:
       - default
     environment:

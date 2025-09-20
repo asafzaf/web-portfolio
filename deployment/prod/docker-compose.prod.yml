@@ -39,3 +39,7 @@ volumes:
 networks:
   default:
     driver: bridge
+
+secrets:
+  mongo-creds-file:
+    file: ../../core/secrets/mongo-creds.json
