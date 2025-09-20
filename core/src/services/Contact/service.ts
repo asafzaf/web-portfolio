@@ -6,7 +6,6 @@ export class ContactService implements IContactService {
   constructor() {}
 
   async createContact(contactDTO: IContactDTO): Promise<IContact> {
-    console.log("Creating contact with data:", contactDTO);
     return Contact.createContact(contactDTO);
   }
   async getAllContacts(): Promise<IContact[]> {

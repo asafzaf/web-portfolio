@@ -11,7 +11,6 @@ export class ContactController {
     email: string;
     message: string;
   }) {
-    console.log("Creating contact with data:", contactDTO);
     return this.contactService.createContact(contactDTO);
   }
 
