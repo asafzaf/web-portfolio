@@ -26,7 +26,7 @@ RUN npm ci --only=production
 COPY . .
 
 # Build TypeScript
-RUN npm npx tsc
+RUN npx tsc
 
 EXPOSE 3001
 
