@@ -22,11 +22,7 @@ COPY package*.json ./
 
 RUN npm ci --only=production
 
-# Copy all source
-COPY . .
-
-# Build TypeScript
-RUN npx tsc
+COPY --from=builder /usr/src/app/core/dist ./dist
 
 EXPOSE 3001
 
