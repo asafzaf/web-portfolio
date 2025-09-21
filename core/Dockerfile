@@ -1,29 +1,33 @@
+# --------------------
+# Base stage (dependencies)
 FROM node:20-alpine AS base
 WORKDIR /usr/src/app/core
 COPY package*.json ./
-
-# Install ALL deps (needed for build)
 RUN npm install
 
 # --------------------
-# Development stage
-FROM base AS dev
+# Builder stage (compile TypeScript)
+FROM base AS builder
 WORKDIR /usr/src/app/core
-COPY . ..
-CMD ["npm", "run", "dev"]
+COPY . .
+RUN npm run build    # runs "tsc" via package.json script
 
 # --------------------
 # Production stage
-FROM base AS prod
+FROM node:20-alpine AS prod
 WORKDIR /usr/src/app/core
-ENV NODE_ENV=production
-
 COPY package*.json ./
-
 RUN npm ci --only=production
 
+# Copy compiled JS from builder
 COPY --from=builder /usr/src/app/core/dist ./dist
 
 EXPOSE 3001
-
 CMD ["node", "dist/server.js"]
+
+# --------------------
+# Development stage (optional)
+FROM base AS dev
+WORKDIR /usr/src/app/core
+COPY . .
+CMD ["npm", "run", "dev"]
