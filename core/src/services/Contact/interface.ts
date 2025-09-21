@@ -1,4 +1,4 @@
-import { IContact, IContactDTO } from "../../models/Contact.ts";
+import { IContact, IContactDTO } from "../../models/Contact";
 
 export interface IContactService {
   createContact(contactDTO: IContactDTO): Promise<IContact>;

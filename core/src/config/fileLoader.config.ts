@@ -1,12 +1,8 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
 export function loadEnvFile(envFilePath: string): Record<string, string> {
   const envConfig: Record<string, string> = {};
-
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
 
   const absolutePath = path.resolve(__dirname, envFilePath);
 

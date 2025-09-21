@@ -1,11 +1,11 @@
 import express from "express";
 import morgan from "morgan";
-import logger from "./src/utils/logger.ts";
+import logger from "./utils/logger";
 import cors from "cors";
-import { connectToMongo } from "./src/db/mongo.ts";
-import { getInstance } from "./src/config/app.config.ts";
+import { connectToMongo } from "./db/mongo";
+import { getInstance } from "./config/app.config";
 
-import router from "./src/routes/index.ts";
+import router from "./routes/index";
 
 const app = express();
 const PORT = process.env.PORT || 5000;

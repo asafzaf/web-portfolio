@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "target": "es2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist",
-    "rootDir": ".",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "declaration": true,
-    "noEmit": true,            
-    "allowImportingTsExtensions": true
+    "types": ["node", "express"]
   },
-  "include": ["src", "server.ts"]
+  "include": ["src/**/*", "src/server.ts"]
 }

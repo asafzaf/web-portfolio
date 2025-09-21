@@ -1,4 +1,4 @@
-import { loadEnvFile } from "./fileLoader.config.js";
+import { loadEnvFile } from "./fileLoader.config";
 
 export interface mongoEnv {
   mongo_uri: string;

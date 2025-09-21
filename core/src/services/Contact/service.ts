@@ -1,6 +1,6 @@
-import Contact, { IContact, IContactDTO } from "../../models/Contact.ts";
+import Contact, { IContact, IContactDTO } from "../../models/Contact";
 
-import { IContactService, IContactServiceFactory } from "./interface.ts";
+import { IContactService, IContactServiceFactory } from "./interface";
 
 export class ContactService implements IContactService {
   constructor() {}

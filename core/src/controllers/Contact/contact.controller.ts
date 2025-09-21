@@ -1,4 +1,4 @@
-import { ContactService } from "../../services/Contact/service.ts";
+import { ContactService } from "../../services/Contact/service";
 
 export class ContactController {
   private contactService: ContactService;

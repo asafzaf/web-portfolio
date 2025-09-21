@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import ContactRoutes from "./contactRoutes.ts";
+import ContactRoutes from "./contactRoutes";
 
 const router = Router();
 

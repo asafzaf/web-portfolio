@@ -18,12 +18,13 @@ services:
 
   core:
     build:
-      context: ../../core
+      context: ../..
+      dockerfile: core/Dockerfile
       target: dev # use the "dev" stage
     ports:
       - "3000:3000"
     volumes:
-      - ../../core:/usr/src/app
+      - ../../core:/usr/src/app/core
     secrets:
       - target: ./secrets/mongo-creds.json
         source: mongo-creds-file
@@ -33,7 +34,6 @@ services:
       - NODE_ENV=development
       - PORT=${BACKEND_PORT}
       - ORIGIN=${FRONTEND_URL}
-    command: npm run dev
 
   mongo:
     image: mongo:latest
