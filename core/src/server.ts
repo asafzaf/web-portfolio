@@ -36,9 +36,12 @@ app.use(
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Accept"],
+    optionsSuccessStatus: 204,
   })
 );
 app.use(express.json());
+
+app.options("*", cors());
 
 app.get("/", (req, res) => {
   res.send("Hello from the server!");
