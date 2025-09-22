@@ -1,5 +1,4 @@
-import { Box, CircularProgress } from "@mui/material";
-import { usePicture } from "../../hooks/usePicture";
+import { Box } from "@mui/material";
 import GalleryImage from "./GalleryImage";
 
 interface HorizontalGalleryProps {
