@@ -1,6 +1,7 @@
 // GalleryImage.tsx
 import { CardMedia } from "@mui/material";
 import { usePicture } from "../../hooks/usePicture";
+import { useGalleryModal } from "./GalleryModalContext";
 
 type GalleryImageProps = {
   name: string;
@@ -10,6 +11,7 @@ type GalleryImageProps = {
 
 const GalleryImage = ({ name, ext, alt }: GalleryImageProps) => {
   const { src, onError } = usePicture(name, ext, "/fallback.png");
+  const { openModal } = useGalleryModal();
 
   return (
     <CardMedia
@@ -18,11 +20,14 @@ const GalleryImage = ({ name, ext, alt }: GalleryImageProps) => {
       alt={alt}
       onError={onError}
       sx={{
-        width: 100,
-        height: 100,
+        height: 300,
+        flexShrink: 0,
+        borderRadius: 2,
+        scrollSnapAlign: "start",
         objectFit: "cover",
-        borderRadius: 1,
+        cursor: "pointer",
       }}
+      onClick={() => openModal(src)}
     />
   );
 };

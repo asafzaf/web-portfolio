@@ -1,5 +1,6 @@
 import { Box, CircularProgress } from "@mui/material";
 import { usePicture } from "../../hooks/usePicture";
+import GalleryImage from "./GalleryImage";
 
 interface HorizontalGalleryProps {
   images: { name: string; ext: string; alt?: string }[];
@@ -18,29 +19,9 @@ const HorizontalGallery = ({ images }: HorizontalGalleryProps) => {
         "&::-webkit-scrollbar": { display: "none" },
       }}
     >
-      {images.map((img, idx) => {
-        const { src, loading } = usePicture(img.name, img.ext, "/fallback.png");
-
-        if (!src) return null;
-
-        return loading ? (
-          <CircularProgress key={idx} />
-        ) : (
-          <Box
-            key={idx}
-            component="img"
-            src={src}
-            alt={img.alt}
-            sx={{
-              height: 300,
-              flexShrink: 0,
-              borderRadius: 2,
-              scrollSnapAlign: "start",
-              objectFit: "cover",
-            }}
-          />
-        );
-      })}
+      {images.map((img, idx) => (
+        <GalleryImage key={idx} name={img.name} ext={img.ext} alt={img.alt} />
+      ))}
     </Box>
   );
 };
