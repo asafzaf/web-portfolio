@@ -25,15 +25,14 @@ services:
       - "3000:3000"
     volumes:
       - ../../core:/usr/src/app/core
-    secrets:
-      - target: ./secrets/mongo-creds.json
-        source: mongo-creds-file
     networks:
       - default
     environment:
       - NODE_ENV=development
       - PORT=${BACKEND_PORT}
       - ORIGIN=${FRONTEND_URL}
+      - MONGO_URI=${MONGO_URI}
+      - MONGO_DB_NAME=${MONGO_DB_NAME}
 
   mongo:
     image: mongo:latest
@@ -51,7 +50,3 @@ volumes:
 networks:
   default:
     driver: bridge
-
-secrets:
-  mongo-creds-file:
-    file: ../../core/secrets/mongo-creds.json

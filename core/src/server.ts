@@ -9,11 +9,15 @@ import router from "./routes/index";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const envConfig = getInstance();
 
-getInstance();
+logger.info(`Environment: ${envConfig.getEnvState()}`);
+
 connectToMongo();
 
-app.use(morgan("dev"));
+app.use(morgan(
+  envConfig.getEnvState() === "development" ? "dev" : "combined"
+));
 
 app.use(
   cors({

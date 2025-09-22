@@ -17,7 +17,7 @@ RUN npm run build    # runs "tsc" via package.json script
 FROM node:20-alpine AS prod
 WORKDIR /usr/src/app/core
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm install --production
 
 # Copy compiled JS from builder
 COPY --from=builder /usr/src/app/core/dist ./dist

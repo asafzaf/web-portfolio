@@ -2,8 +2,8 @@ version: "3"
 services:
   core:
     build:
-      context: ../..
-      dockerfile: core/Dockerfile
+      context: ../../core
+      dockerfile: Dockerfile
       target: prod # use the "prod" stage
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
@@ -13,6 +13,9 @@ services:
       - NODE_ENV=production
       - PORT=${BACKEND_PORT}
       - ORIGIN=${FRONTEND_URL}
+      - MONGO_URI=${MONGO_URI}
+      - MONGO_DB_NAME=${MONGO_DB_NAME}
+
   ngrok:
     image: ngrok/ngrok:latest
     container_name: ngrok
@@ -25,7 +28,3 @@ services:
 networks:
   default:
     driver: bridge
-
-secrets:
-  mongo-creds-file:
-    file: ../../core/secrets/mongo-creds.json
