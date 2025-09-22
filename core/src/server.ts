@@ -6,6 +6,7 @@ import { connectToMongo } from "./db/mongo";
 import { getInstance } from "./config/app.config";
 
 import router from "./routes/index";
+import { initProviders } from "./providers";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -42,6 +43,8 @@ app.use(
 );
 
 app.use(express.json());
+
+initProviders();
 
 app.get("/", (req, res) => {
   res.send("Hello from the server!");
