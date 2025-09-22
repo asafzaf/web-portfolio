@@ -40,6 +40,7 @@ app.use(
     optionsSuccessStatus: 204,
   })
 );
+
 app.use(express.json());
 
 app.options("*", cors());
@@ -49,6 +50,18 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", router);
+
+app.use(
+  (
+    err: any,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction
+  ) => {
+    logger.error(err.stack);
+    res.status(500).send("Something broke!");
+  }
+);
 
 app.listen(PORT, () => {
   logger.info(`Server is running on http://localhost:${PORT}`);
