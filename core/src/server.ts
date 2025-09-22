@@ -15,13 +15,14 @@ logger.info(`Environment: ${envConfig.getEnvState()}`);
 
 connectToMongo();
 
-app.use(morgan(
-  envConfig.getEnvState() === "development" ? "dev" : "combined"
-));
+app.use(morgan(envConfig.getEnvState() === "development" ? "dev" : "combined"));
 
 app.use(
   cors({
-    origin: process.env.ORIGIN || "http://localhost:5173",
+    origin: process.env.ORIGIN || [
+      "http://localhost:5173",
+      "https://asafzaf.github.io",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
