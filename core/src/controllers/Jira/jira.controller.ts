@@ -1,26 +1,31 @@
-import { JiraProvider } from "../../providers/JiraProvider";
+import { IJiraService } from "../../services/Jira/interface";
+import { JiraService } from "../../services/Jira/service";
+import { Request, Response, NextFunction } from "express";
 
 export class JiraController {
-  private jiraProvider: JiraProvider;
+  private jiraService: IJiraService;
+
   constructor() {
-    this.jiraProvider = new JiraProvider();
+    this.jiraService = new JiraService();
   }
 
-  async getProjects(req: any, res: any) {
+  async getProjects(req: Request, res: Response, next: NextFunction) {
     try {
-      const projects = await this.jiraProvider.listProjects();
+      console.log("Fetching projects...");
+      const projects = await this.jiraService.getAllProjects();
       res.status(200).json(projects);
     } catch (error) {
-      res.status(500).json({ error: "Failed to retrieve projects" });
+      next(error);
     }
   }
 
-  async getIssues(req: any, res: any) {
+  async getProjectIssues(req: Request, res: Response, next: NextFunction) {
     try {
-      const issues = await this.jiraProvider.listIssues();
+      const projectKey = req.params.key;
+      const issues = await this.jiraService.getIssuesByProjectKey(projectKey);
       res.status(200).json(issues);
     } catch (error) {
-      res.status(500).json({ error: "Failed to retrieve issues" });
+      next(error);
     }
   }
 }

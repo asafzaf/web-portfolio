@@ -1,11 +1,15 @@
 import { Router } from "express";
-import { JiraController } from "../controllers/Jira/jira.controller";
 
-const jiraController = new JiraController();
+import { JiraController } from "../controllers/Jira/jira.controller";
 
 const router = Router();
 
-router.get("/projects", jiraController.getProjects);
-router.get("/issues", jiraController.getIssues);
+const jiraController = new JiraController();
+
+router.get("/projects", jiraController.getProjects.bind(jiraController));
+router.get(
+  "/issues/:key",
+  jiraController.getProjectIssues.bind(jiraController)
+);
 
 export default router;
