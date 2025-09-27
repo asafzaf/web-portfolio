@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ "$#" -ne 2 ]]; then
-    echo "Usage: $0 {run|restart|stop} {prod|dev}"
+    echo "Usage: $0 {start|restart|stop} {prod|dev}"
     exit 1
 fi
 
@@ -10,7 +10,7 @@ ENV="$2"
 STACK_DIR="deployment/$ENV"
 COMPOSE_FILE="$STACK_DIR/docker-compose.$ENV.yml"
 
-function run_stack() {
+function start_stack() {
     if [ "$ENV" == "prod" ]; then
         echo "Starting the production stack..."
     else
@@ -35,8 +35,8 @@ function stop_stack() {
 }
 
 case "$1" in
-    run)
-        run_stack
+    start)
+        start_stack
         ;;
     restart)
         restart_stack
@@ -45,7 +45,10 @@ case "$1" in
         stop_stack
         ;;
     *)
-        echo "Usage: $0 {run|restart|stop}"
-        exit 1
-        ;;
+        echo "Usage: $0 {start|restart|stop}"
+    exit 1
+    ;;
 esac
+
+# Keep terminal open until user presses enter
+read -p "Press enter to exit..."

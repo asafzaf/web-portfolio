@@ -2,10 +2,12 @@ import express from "express";
 import morgan from "morgan";
 import logger from "./utils/logger";
 import cors from "cors";
+import "./external-services/providers";
 import { connectToMongo } from "./db/mongo";
 import { getInstance } from "./config/app.config";
 
 import router from "./routes/index";
+import { ProviderRegistry } from "./external-services/providers/registry";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,15 +17,14 @@ logger.info(`Environment: ${envConfig.getEnvState()}`);
 
 connectToMongo();
 
+// Middleware
 app.use(morgan(envConfig.getEnvState() === "development" ? "dev" : "combined"));
-
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
   "https://asafzaf.github.io",
   "https://unslender-madeleine-sicklily.ngrok-free.app",
 ];
-
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -40,7 +41,6 @@ app.use(
     optionsSuccessStatus: 204,
   })
 );
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -62,5 +62,15 @@ app.use(
 );
 
 app.listen(PORT, () => {
-  logger.info(`Server is running on http://localhost:${PORT}`);
+  try {
+    logger.info(`Server is running on http://localhost:${PORT}`);
+    const registry = ProviderRegistry.getInstance();
+    const providers = registry.getAllProviders();
+    logger.info(
+      `Registered providers: ${providers.map((p) => p.name).join(", ")}`
+    );
+  } catch (error: any) {
+    logger.error("Error during server startup:", error);
+    process.exit(1);
+  }
 });

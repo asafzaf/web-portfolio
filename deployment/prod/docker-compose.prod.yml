@@ -15,6 +15,10 @@ services:
       - ORIGIN=${FRONTEND_URL}
       - MONGO_URI=${MONGO_URI}
       - MONGO_DB_NAME=${MONGO_DB_NAME}
+      - JIRA_TOKEN_NAME=${JIRA_TOKEN_NAME}
+      - JIRA_EMAIL=${JIRA_EMAIL}
+      - JIRA_DOMAIN=${JIRA_DOMAIN}
+      - JIRA_TOKEN=${JIRA_TOKEN}
 
   ngrok:
     image: ngrok/ngrok:latest
