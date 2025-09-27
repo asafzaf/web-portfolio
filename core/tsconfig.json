@@ -5,14 +5,18 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+  "outDir": "./dist",
+  "rootDir": "../",
     "strict": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "declaration": true,
-    "types": ["node", "express"]
+    "types": ["node", "express"],
+    "baseUrl": "./",
+    "paths": {
+      "types/*": ["../types/*"]
+    }
   },
-  "include": ["src/**/*", "src/server.ts"]
+  "include": ["src/**/*", "src/server.ts", "../types/**/*.ts"],
 }
