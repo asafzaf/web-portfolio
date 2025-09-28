@@ -1,4 +1,6 @@
 import { Typography, Box, Paper, useTheme } from "@mui/material";
+import { useJira } from "../../hooks/useJiraApi";
+import { useEffect, useState } from "react";
 
 interface JiraIssue {
   id: string;
@@ -23,6 +25,22 @@ const issues: JiraIssue[] = [
 
 export default function JiraStepper() {
   const theme = useTheme();
+  const [issues, setIssues] = useState<JiraIssue[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const { useGetProjectIssues } = useJira();
+
+  const getProjectIssues = useGetProjectIssues;
+
+  useEffect(() => {
+    setLoading(true);
+    getProjectIssues.mutate("WP", {
+      onSuccess: (data) => {
+        setIssues(data.data);
+        setLoading(false);
+      },
+    });
+  }, []);
 
   return (
     <Box sx={{ maxWidth: "100%", margin: "0 auto" }}>
@@ -44,51 +62,61 @@ export default function JiraStepper() {
           py: 2,
         }}
       >
-        {issues.map((issue) => (
-          <Paper
-            key={issue.id}
-            sx={{
-              minWidth: 220,
-              maxWidth: 260,
-              p: 2,
-              flex: "0 0 auto",
-              border: "2px solid #1976d2",
-              borderRadius: 2,
-              boxShadow: 3,
-              backgroundColor:
-                issue.status === "Done"
-                  ? "#acfdb2ff"
-                  : issue.status === "In Progress"
-                  ? "#fef58aff"
-                  : "#ffb571ff",
-            }}
-          >
-            <Typography
-              variant="subtitle1"
-              color={theme.palette.secondary.main}
-              fontWeight={600}
-              gutterBottom
-            >
-              {issue.title}
-            </Typography>
-            <Typography
-              variant="body2"
-              color={theme.palette.secondary.main}
-              sx={{ mb: 1 }}
-            >
-              Status: <b>{issue.status}</b>
-            </Typography>
-            {issue.doneDate && (
-              <Typography
-                variant="body2"
-                fontWeight={600}
-                color={theme.palette.success.main}
+        {loading
+          ? null
+          : issues.map((issue) => (
+              <Paper
+                key={issue.id}
+                sx={{
+                  minWidth: 220,
+                  maxWidth: 260,
+                  p: 2,
+                  flex: "0 0 auto",
+                  border: "2px solid #1976d2",
+                  borderRadius: 2,
+                  boxShadow: 3,
+                  backgroundColor:
+                    issue.fields.status.name === "Done"
+                      ? "#acfdb2ff"
+                      : issue.fields.status.name === "In Progress"
+                      ? "#fef58aff"
+                      : "#ffb571ff",
+                }}
               >
-                Done at: {issue.doneDate}
-              </Typography>
-            )}
-          </Paper>
-        ))}
+                <Typography
+                  variant="h6"
+                  color={theme.palette.secondary.main}
+                  fontWeight={600}
+                  gutterBottom
+                >
+                  {issue.key}
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  color={theme.palette.secondary.main}
+                  fontWeight={600}
+                  gutterBottom
+                >
+                  {issue.fields.summary}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color={theme.palette.secondary.main}
+                  sx={{ mb: 1 }}
+                >
+                  Status: <b>{issue.fields.status.name}</b>
+                </Typography>
+                {issue.fields.doneDate && (
+                  <Typography
+                    variant="body2"
+                    fontWeight={600}
+                    color={theme.palette.success.main}
+                  >
+                    {/* Done at: {issue.fields.doneDate} */}
+                  </Typography>
+                )}
+              </Paper>
+            ))}
       </Box>
       <Paper
         square
