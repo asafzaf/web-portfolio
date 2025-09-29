@@ -93,6 +93,15 @@ export default function JiraStepper() {
             </Typography>
           ) : loading ? (
             <CircularProgress></CircularProgress>
+          ) : issues.length > 0 ? (
+            <Typography
+              variant="h6"
+              color={theme.palette.secondary.main}
+              fontWeight={600}
+              gutterBottom
+            >
+              No Issues Found
+            </Typography>
           ) : (
             issues.map((issue) => (
               <Paper
