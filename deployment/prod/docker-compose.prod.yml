@@ -2,8 +2,8 @@ version: "3"
 services:
   core:
     build:
-      context: ../../core
-      dockerfile: Dockerfile
+      context: ../..
+      dockerfile: core/Dockerfile
       target: prod # use the "prod" stage
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
