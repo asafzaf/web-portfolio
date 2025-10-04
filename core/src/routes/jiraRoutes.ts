@@ -6,8 +6,8 @@ const router = Router();
 
 const jiraController = new JiraController();
 
-router.get("/projects", jiraController.getProjects.bind(jiraController));
-router.get(
+router.post("/projects", jiraController.getProjects.bind(jiraController));
+router.post(
   "/issues/:key",
   jiraController.getProjectIssues.bind(jiraController)
 );
