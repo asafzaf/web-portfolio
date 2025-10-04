@@ -22,6 +22,7 @@ export class JiraController {
   async getProjectIssues(req: Request, res: Response, next: NextFunction) {
     try {
       const projectKey = req.params.key;
+      console.log(`Fetching issues for project: ${projectKey}`);
       const issues = await this.jiraService.getIssuesByProjectKey(projectKey);
       res.status(200).json(issues);
     } catch (error) {

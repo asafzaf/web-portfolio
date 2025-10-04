@@ -1,6 +1,6 @@
 import { ProviderRegistry } from "../../external-services/providers/registry";
 import { JiraProvider } from "../../external-services/providers/JiraProvider";
-import { IJiraService } from "./interface";
+import { IIssue, IJiraService, IProject } from "./interface";
 
 export class JiraService implements IJiraService {
   private jiraProvider: JiraProvider;
@@ -9,7 +9,7 @@ export class JiraService implements IJiraService {
     this.jiraProvider = registry.getProvider<JiraProvider>("jira");
   }
 
-  async getAllProjects() {
+  async getAllProjects(): Promise<IProject[]> {
     try {
       const projects = await this.jiraProvider.listProjects();
       return projects;
@@ -19,7 +19,7 @@ export class JiraService implements IJiraService {
     }
   }
 
-  async getIssuesByProjectKey(key: string) {
+  async getIssuesByProjectKey(key: string): Promise<IIssue[]> {
     try {
       const issues = await this.jiraProvider.listIssuesByProjectKey(key);
       return issues;

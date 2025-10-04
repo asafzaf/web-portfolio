@@ -12,7 +12,7 @@ export interface IIssue {
 
 export interface IJiraService {
   getAllProjects(): Promise<IProject[]>;
-  getIssuesByProjectKey(id: string): Promise<IIssue[]>;
+  getIssuesByProjectKey(key: string): Promise<IIssue[]>;
 }
 
 export interface IJiraServiceFactory {

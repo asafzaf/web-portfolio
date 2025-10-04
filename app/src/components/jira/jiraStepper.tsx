@@ -35,6 +35,7 @@ export default function JiraStepper() {
       try {
         setLoading(true);
         const issuesResponse = await getProjectIssues.mutateAsync(key);
+        console.log("Issues response:", issuesResponse.data);
         if (issuesResponse) setIssues(issuesResponse.data);
       } catch (error) {
         setError(true);
@@ -80,6 +81,8 @@ export default function JiraStepper() {
             overflowX: "auto",
             gap: 2,
             py: 2,
+            scrollBehavior: "smooth",
+            scrollSnapType: "x mandatory",
           }}
         >
           {error ? (
@@ -93,6 +96,15 @@ export default function JiraStepper() {
             </Typography>
           ) : loading ? (
             <CircularProgress></CircularProgress>
+          ) : issues.length === 0 ? (
+            <Typography
+              variant="h6"
+              color={theme.palette.secondary.main}
+              fontWeight={600}
+              gutterBottom
+            >
+              No Issues Found
+            </Typography>
           ) : (
             issues.map((issue) => (
               <Paper
@@ -156,7 +168,12 @@ export default function JiraStepper() {
           color={theme.palette.secondary.main}
           sx={{ p: 2, mt: 2, background: theme.custom.background }}
         >
-          <Typography variant="body2" color={theme.palette.secondary.main}>
+          <Typography
+            variant="h6"
+            fontWeight={"bold"}
+            align="center"
+            color={theme.palette.secondary.main}
+          >
             Total Issues: {issues.length}
           </Typography>
         </Paper>
