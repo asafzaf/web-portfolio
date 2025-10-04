@@ -5,7 +5,7 @@ import {
   useTheme,
   CircularProgress,
 } from "@mui/material";
-import { useJira } from "../../hooks/useJiraApi";
+import { useJiraApi } from "../../hooks/useJiraApi";
 import { useEffect, useState } from "react";
 import { generateDateFormatter } from "../../utils/date.formater";
 
@@ -22,29 +22,12 @@ interface JiraIssue {
 
 export default function JiraStepper() {
   const theme = useTheme();
-  const [issues, setIssues] = useState<JiraIssue[]>([]);
+  // const [issues, setIssues] = useState<JiraIssue[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<boolean>(false);
 
-  const { useGetProjectIssues } = useJira();
+  const { useGetProjectIssues } = useJiraApi();
 
-  const getProjectIssues = useGetProjectIssues;
-
-  useEffect(() => {
-    const fetchIssues = async (key: string) => {
-      try {
-        setLoading(true);
-        const issuesResponse = await getProjectIssues.mutateAsync(key);
-        if (issuesResponse.data && Array.isArray(issuesResponse.data)) setIssues(issuesResponse.data);
-      } catch (error) {
-        setIssues([]);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchIssues("WP");
-  }, []);
+  const { data: issues, isLoading, isError, error } = useGetProjectIssues("WP");
 
   return (
     <section
@@ -94,9 +77,9 @@ export default function JiraStepper() {
             >
               Error loading Jira Issues
             </Typography>
-          ) : loading ? (
+          ) : isLoading ? (
             <CircularProgress></CircularProgress>
-          ) : issues.length === 0 ? (
+          ) : issues?.length === 0 ? (
             <Typography
               variant="h6"
               color={theme.palette.secondary.main}
@@ -106,7 +89,7 @@ export default function JiraStepper() {
               No Issues Found
             </Typography>
           ) : (
-            issues.map((issue) => (
+            issues?.map((issue) => (
               <Paper
                 key={issue.key}
                 sx={{
@@ -174,7 +157,7 @@ export default function JiraStepper() {
             align="center"
             color={theme.palette.secondary.main}
           >
-            Total Issues: {issues.length}
+            Total Issues: {issues?.length}
           </Typography>
         </Paper>
       </Box>
