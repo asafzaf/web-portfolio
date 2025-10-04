@@ -35,8 +35,7 @@ export default function JiraStepper() {
       try {
         setLoading(true);
         const issuesResponse = await getProjectIssues.mutateAsync(key);
-        console.log("Issues response:", issuesResponse.data);
-        if (issuesResponse) setIssues(issuesResponse.data);
+        if (issuesResponse.data) setIssues(issuesResponse.data);
       } catch (error) {
         setError(true);
       } finally {
