@@ -33,11 +33,23 @@ export class JiraClient {
     }
   }
 
-  async getIssues(jql: string, maxResults = 50) {
+  async getIssues(jql: string, maxResults = 50, pageToken?: string | null) {
     try {
-      const response = await this.client.get("/search", {
-        params: { jql, maxResults },
-      });
+      const bodyData = {
+        jql: jql,
+        fields: [
+          "summary",
+          "status",
+          "assignee",
+          "reporter",
+          "created",
+          "updated",
+          "resolutiondate"
+        ],
+        maxResults: maxResults,
+        nextPageToken: pageToken,
+      };
+      const response = await this.client.post("/search/jql", bodyData);
       return response.data.issues;
     } catch (error: any) {
       logger.error("Error in JiraClient getIssues:", error);
