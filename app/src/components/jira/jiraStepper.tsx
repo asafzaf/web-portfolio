@@ -6,25 +6,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useJiraApi } from "../../hooks/useJiraApi";
-import { useEffect, useState } from "react";
 import { generateDateFormatter } from "../../utils/date.formater";
-
-interface JiraIssue {
-  key: string;
-  fields: {
-    summary: string;
-    status: {
-      name: string;
-    };
-    resolutiondate: string | null;
-  };
-}
 
 export default function JiraStepper() {
   const theme = useTheme();
-  // const [issues, setIssues] = useState<JiraIssue[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
   const { useGetProjectIssues } = useJiraApi();
 
   const { data: issues, isLoading, isError, error } = useGetProjectIssues("WP");
@@ -68,14 +53,14 @@ export default function JiraStepper() {
             scrollSnapType: "x mandatory",
           }}
         >
-          {error ? (
+          {isError ? (
             <Typography
               variant="h6"
               color={theme.palette.secondary.main}
               fontWeight={600}
               gutterBottom
             >
-              Error loading Jira Issues
+              {error.message || "Error loading Jira Issues"}
             </Typography>
           ) : isLoading ? (
             <CircularProgress></CircularProgress>
