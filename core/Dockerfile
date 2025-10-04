@@ -25,7 +25,7 @@ RUN npm install --production
 COPY --from=builder /usr/src/app/core/dist ./dist
 
 EXPOSE 3001
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/core/src/server.js"]
 
 # --------------------
 # Development stage (improved)
