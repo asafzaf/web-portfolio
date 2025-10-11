@@ -61,5 +61,43 @@
       "send": "שלח הודעה",
       "contactFormUrl": ""
     }
+  },
+  "infoModal": {
+    "close": "סגור",
+    "title": "מידע על האתר שלי",
+    "content": "האתר נבנה באמצעות React ו-Material-UI (MUI) בצד הלקוח, ומספק ממשק משתמש מודרני ורגיש למכשירים שונים. האתר מתארח ב-GitHub Pages, מה שמבטיח גישה מהירה ואמינה. קוד המקור זמין ב-GitHub, ומאפשר שקיפות ושיתוף פעולה. אתם מוזמנים לעיין בקוד ולהשתתף בפיתוח אם תרצו! באתר קיימת אפשרות למצב כהה (Dark Mode), המשפרת את חוויית המשתמש ומאפשרת מעבר בין מצב בהיר לכהה בהתאם להעדפת המשתמש. הפרויקטים המוצגים באתר נשלפים מחשבון ה-Jira שלי באמצעות Jira REST API. גישה דינמית זו מבטיחה שמידע הפרויקטים יהיה תמיד מעודכן וישקף באופן מדויק את עבודתי. האתר מותאם באופן מלא למכשירים שונים, ומציע חוויית שימוש מיטבית על גבי מחשבים שולחניים, טאבלטים וטלפונים ניידים. ניתן לשנות את שפת האתר בין אנגלית לעברית, כך שהוא מתאים לקהל רחב יותר. תודה שביקרתם באתר הפורטפוליו שלי! אם יש לכם שאלות או תרצו ליצור קשר, אשמח לשמוע מכם.",
+    "linksTitle": "קישורים",
+    "links": [
+      {
+        "title": "GitHub Repository",
+        "description": "שימוש בספריית אחסון קוד מקור וגרסאות באמצעות GitHub.",
+        "url": "https://github.com/asafzaf/web-portfolio"
+      },
+      {
+        "title": "Color Hunt",
+        "description": "פלטות הצבעים בשימוש באתר זה נלקחו מ-Color Hunt.",
+        "url": "https://colorhunt.co"
+      },
+      {
+        "title": "Material-UI (MUI)",
+        "description": "למדו עוד על Material-UI, ספריית רכיבי React המשמשת לבניית ממשק המשתמש.",
+        "url": "https://mui.com/"
+      },
+      {
+        "title": "Figma",
+        "description": "עיינו בקובץ העיצוב של Figma עבור אתר זה.",
+        "url": "https://www.figma.com/board/0YuMvnjF3BL8dMnHbMPJNG/Untitled?node-id=0-1&t=rQfA05NfXmyFEtKS-1"
+      },
+      {
+        "title": "GitHub Pages",
+        "description": "למדו עוד על GitHub Pages, שירות האירוח המשמש עבור אתר זה.",
+        "url": "https://pages.github.com/"
+      },
+      {
+        "title": "Jira REST API",
+        "description": "למדו עוד על ה-Jira REST API המשמש לאיסוף נתוני פרויקטים.",
+        "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/"
+      }
+    ]
   }
 }
