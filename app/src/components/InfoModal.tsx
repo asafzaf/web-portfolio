@@ -1,7 +1,7 @@
 import { Modal, Box, Button, useTheme, Typography } from "@mui/material";
 import HorizontalGallery from "./general/HorizontalGallery";
 import { useLanguage } from "../context/LanguageContext";
-import { Link } from "react-router";
+import LinksList from "./info/linksList";
 
 interface InfoModalProps {
   open: boolean;
@@ -56,58 +56,10 @@ const InfoModal = ({ open, onClose }: InfoModalProps) => {
           {data.infoModal.content}
         </Typography>
         <Box sx={{ mt: 2 }} />
-        <Box sx={{ mt: 2 }}>
-          <Typography
-            variant="h5"
-            color={theme.palette.secondary.main}
-            fontWeight={"bold"}
-            component="h2"
-          >
-            Links
-          </Typography>
-          {data.infoModal.links?.map(
-            (
-              link: { title: string; description: string; url: string },
-              idx: number
-            ) => (
-              <Box key={idx} sx={{ mt: 2 }}>
-                <Link
-                  to={link.url}
-                  style={{ textDecoration: "none" }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Box
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-around"
-                    mb={1}
-                  >
-                    <img
-                      src={`https://www.google.com/s2/favicons?domain=${
-                        new URL(link.url).hostname
-                      }&sz=32`}
-                      alt={`${link.title} favicon`}
-                      style={{ verticalAlign: "middle", marginRight: 8 }}
-                    />
-                    <Typography
-                      variant="h6"
-                      color={theme.palette.secondary.main}
-                    >
-                      {link.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color={theme.palette.text.secondary}
-                    >
-                      {link.description}
-                    </Typography>
-                  </Box>
-                </Link>
-              </Box>
-            )
-          )}
-        </Box>
+        <LinksList
+          title={data.infoModal.linksTitle || "Links"}
+          links={data.infoModal.links || []}
+        />
         <Box sx={{ mt: 2 }}>
           <Button variant="contained" onClick={onClose}>
             {data.infoModal.close}

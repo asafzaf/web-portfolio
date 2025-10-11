@@ -78,6 +78,7 @@ export interface InfoModalContent {
   close: string;
   title: string;
   content: string;
+  linksTitle?: string;
   links?: infoModalLink[];
 }
 
