@@ -42,9 +42,9 @@ const InfoModal = ({ open, onClose }: InfoModalProps) => {
         <HorizontalGallery
           images={[
             {
-              name: "good-news-arch",
+              name: "web-portfolio-first-design",
               ext: "png",
-              alt: "A screenshot of the Good News Arch project page",
+              alt: "A screenshot of the web portfolio first design in Figma",
             },
           ]}
         />
