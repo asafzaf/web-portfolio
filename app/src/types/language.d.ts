@@ -74,6 +74,19 @@ export interface ContactContent {
   form?: ContactForm;
 }
 
+export interface InfoModalContent {
+  close: string;
+  title: string;
+  content: string;
+  links?: infoModalLink[];
+}
+
+export interface infoModalLink {
+  title: string;
+  description: string;
+  url: string;
+}
+
 export interface LanguageData {
   lang: SupportedLang;
   direction: "ltr" | "rtl";
@@ -83,4 +96,5 @@ export interface LanguageData {
   links: LinksData;
   projects: ProjectsContent;
   contact: ContactContent;
+  infoModal: InfoModalContent;
 }

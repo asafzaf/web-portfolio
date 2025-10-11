@@ -61,5 +61,17 @@
       "send": "Send Message",
       "contactFormUrl": ""
     }
+  },
+  "infoModal": {
+    "close": "Close",
+    "title": "About My Site",
+    "content": "This website is built using React and Material-UI (MUI) for the frontend, providing a responsive and modern user interface. The site is hosted on GitHub Pages, ensuring reliable and fast access.\nThe source code is available on GitHub, allowing for transparency and collaboration. Feel free to explore the codebase and contribute if you'd like!\n\nThe site features a dark mode toggle, enhancing user experience by allowing users to switch between light and dark themes based on their preference.\nThe projects showcased on this site are fetched from my Jira account using the Jira REST API. This dynamic approach ensures that the project information is always up-to-date and accurately reflects my work.\nThe site is fully responsive, ensuring optimal viewing and interaction across a wide range of devices, from desktops to mobile phones.\nThe language can be changed between English and Hebrew, catering to a broader audience.\nThank you for visiting my portfolio site! If you have any questions or would like to get in touch, please feel free to contact me.",
+    "links": [
+      {
+        "title": "GitHub Repository",
+        "description": "Explore the source code of this website on GitHub.",
+        "url": "https://github.com/asafzaf"
+      }
+    ]
   }
 }

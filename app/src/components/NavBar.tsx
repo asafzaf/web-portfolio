@@ -8,6 +8,7 @@ import {
   List,
   ListItem,
   ListItemButton,
+  Modal,
   useMediaQuery,
 } from "@mui/material";
 import { ThemeContext } from "../theme/theme.context";
@@ -17,6 +18,8 @@ import { useLanguage } from "../context/LanguageContext";
 import SunnyIcon from "@mui/icons-material/Sunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import LanguageIcon from "@mui/icons-material/Language";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import InfoModal from "./InfoModal";
 
 interface NavbarProps {
   onNavigate: (
@@ -30,9 +33,13 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
   const { data, direction, switchLanguage } = useLanguage();
   const isMobile = useMediaQuery("(max-width:600px)");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
 
   const handleMenuOpen = () => setMenuOpen(true);
   const handleMenuClose = () => setMenuOpen(false);
+
+  const handleInfoOpen = () => setInfoOpen(true);
+  const handleInfoClose = () => setInfoOpen(false);
 
   const handleChangeLanguage = () => {
     switchLanguage(data.lang === "en" ? "he" : "en");
@@ -160,6 +167,9 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
           gap: 1,
         }}
       >
+        <IconButton onClick={handleInfoOpen} size="large">
+          <HelpOutlineIcon />
+        </IconButton>
         <IconButton onClick={toggleTheme} size="large">
           {theme.palette.mode === "light" ? <BedtimeIcon /> : <SunnyIcon />}
         </IconButton>
@@ -167,6 +177,7 @@ const NavBar = ({ onNavigate }: NavbarProps) => {
           <LanguageIcon />
         </IconButton>
       </Box>
+      <InfoModal open={infoOpen} onClose={handleInfoClose} />
     </Box>
   );
 };
