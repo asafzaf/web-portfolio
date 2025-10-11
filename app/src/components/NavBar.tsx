@@ -8,7 +8,6 @@ import {
   List,
   ListItem,
   ListItemButton,
-  Modal,
   useMediaQuery,
 } from "@mui/material";
 import { ThemeContext } from "../theme/theme.context";
