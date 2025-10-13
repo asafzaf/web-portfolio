@@ -1,15 +1,9 @@
-import {
-  Modal,
-  Box,
-  Grid,
-  Typography,
-  Button,
-} from "@mui/material";
+import { Modal, Box, Grid, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import type { ProjectModalProps } from "../../types/project";
 import HorizontalGallery from "../general/HorizontalGallery";
 
-const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
+const ProjectModal = ({ project, savedWords, onClose }: ProjectModalProps) => {
   const theme = useTheme();
 
   const galleryImages = project
@@ -96,7 +90,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 color={theme.palette.text.secondary}
                 sx={{ mb: 1 }}
               >
-                <strong>Date:</strong> {project.date}
+                <strong>{savedWords.date}:</strong> {project.date}
               </Typography>
             )}
             {project.categories?.length > 0 && (
@@ -105,7 +99,8 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 color={theme.palette.text.secondary}
                 sx={{ mb: 3 }}
               >
-                <strong>Categories:</strong> {project.categories.join(", ")}
+                <strong>{savedWords.categories}:</strong>{" "}
+                {project.categories.join(", ")}
               </Typography>
             )}
             {}
@@ -116,7 +111,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               color={theme.palette.text.secondary}
               gutterBottom
             >
-              Links
+              {savedWords.links}
             </Typography>
             <Box display={"flex"} flexDirection="column" gap={1}>
               {project.links && project.links.length > 0 ? (
@@ -136,7 +131,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                   variant="body2"
                   color={theme.palette.text.secondary}
                 >
-                  No links available
+                  {savedWords.noLinks}
                 </Typography>
               )}
             </Box>
@@ -149,7 +144,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           sx={{ ...theme.custom.button, mt: 2 }}
           onClick={onClose}
         >
-          Close
+          {savedWords.close}
         </Button>
       </Box>
     </Modal>

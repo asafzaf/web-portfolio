@@ -6,7 +6,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import data from "../data/experience.json";
+import { useLanguage } from "../context/LanguageContext";
 
 const renderBold = (text: string) => {
   const parts = text.split(/\*\*(.*?)\*\*/g);
@@ -17,6 +17,7 @@ const renderBold = (text: string) => {
 
 const Experience = () => {
   const theme = useTheme();
+  const { experienceData: data } = useLanguage();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
@@ -34,9 +35,9 @@ const Experience = () => {
           color={theme.palette.secondary.main}
           gutterBottom
         >
-          Experience
+          {data.title}
         </Typography>
-        {data.map((section, sectionIdx) => (
+        {data.items.map((section: any, sectionIdx: any) => (
           <Box key={sectionIdx} sx={{ mb: 8, alignItems: "flex-start", textAlign: "start" }}>
             {/* Section Title */}
             <Typography
@@ -54,7 +55,7 @@ const Experience = () => {
             </Typography>
 
             {/* Items */}
-            {section.items.map((item, idx) => (
+            {section.items.map((item: any, idx: any) => (
               <Card
                 key={idx}
                 sx={{

@@ -1,0 +1,81 @@
+{
+  "title": "Experience",
+  "items":
+  [
+  {
+    "title": "Work",
+    "items": [
+      {
+        "period": "May 2024 - Present",
+        "company": "JFrog",
+        "role": "Full-Stack Developer",
+        "category": null,
+        "points": [
+          "**Developed and maintained end-to-end systems** using the MERN stack (TypeScript, Docker, Node.js, React, MUI)",
+          "**Designed and implemented automation workflows** integrating with **external applications**, reducing manual work and increasing efficiency (Python)",
+          "**Applied software engineering best practices** to ensure scalability, maintainability, and reliability of solutions",
+          "**Collaborated within Agile teams**, actively contributing to planning, sprint execution, and CI/CD processes"
+        ]
+      },
+      {
+        "period": "December 2021 - May 2024",
+        "company": "SmartWay Solutions",
+        "role": "Software & Process Documentation Specialist",
+        "category": null,
+        "points": [
+          "Created clear and comprehensive documentation for complex systems and mission-critical processes",
+          "Led projects requiring **rapid self-learning** and adaptation of new technical knowledge"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Education",
+    "items": [
+      {
+        "period": "October 2021 - August 2025 | GPA: 86",
+        "company": "Shenkar College of Engineering, Design and Art",
+        "role": "B.Sc. in Software Engineering",
+        "category": null,
+        "points": [
+          "**Final Project: SmartChat** – an AI-powered conversational platform for software engineering queries, featuring multi-model integration and personalized responses",
+          "**Internship at Innogration Technologies (STEP Shenkar Program)** – Full-Stack Developer (Jul 2023 – May 2024)"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Military Service",
+    "items": [
+      {
+        "period": "July 2018 - October 2021",
+        "company": "Research Department",
+        "role": "Research Team Leader (Captain)",
+        "category": null,
+        "points": [
+          "**Led a multidisciplinary research team**, overseeing complex analytical projects and ensuring operational excellence",
+          "**Developed structured thinking methodologies** for effective problem-solving and implementation within research tasks"
+        ]
+      },
+      {
+        "period": "October 2017 - July 2018",
+        "company": "Intelligence Corps",
+        "role": "Team Commander, Combat Officer Training Course",
+        "category": null,
+        "points": [
+          "**Trained and mentored cadets** through intensive leadership and tactical programs",
+          "**Designed and conducted simulation exercises** and operational scenarios to enhance trainee performance"
+        ]
+      },
+      {
+        "period": "October 2015 - October 2017",
+        "company": "Paratroopers Brigade",
+        "role": "Intelligence Officer",
+        "category": null,
+        "points": [
+          "**Operated effectively in high-pressure environments**, leveraging creativity to solve complex problems and optimize operational processes"
+        ]
+      }
+    ]
+  }
+]}

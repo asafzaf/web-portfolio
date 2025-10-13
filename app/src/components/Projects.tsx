@@ -3,19 +3,19 @@ import { Box, Typography, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
-import projects from "../data/projects.json";
 import ProjectCard from "./projects/ProjectCard";
 import ProjectModal from "./projects/ProjectModal";
 import type { Project } from "../types/language";
 
 const Projects = () => {
   const theme = useTheme();
-  const { data } = useLanguage();
+  const { data, projectsData } = useLanguage();
   const isRtl = data.direction === "rtl";
 
   //   const [filters, setFilters] = useState<string[]>([]);
 
-  const projectsArray = projects.projects;
+  const projectsArray = projectsData.projects;
+  const savedWords = projectsData.savedWords;
 
   const handleOpen = (project: Project) => {
     setSelectedProject(project);
@@ -25,9 +25,7 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
-  const [selectedProject, setSelectedProject] = useState<
-    Project | null
-  >(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section
@@ -64,7 +62,7 @@ const Projects = () => {
           }}
         >
           <Grid container spacing={2}>
-            {projectsArray.map((project, index) => (
+            {projectsArray.map((project: any, index: any) => (
               <Grid
                 size={{ xs: 12, sm: 12, md: 4 }}
                 key={project.title || "project-" + index}
@@ -81,7 +79,11 @@ const Projects = () => {
           </Grid>
         </Box>
       </Box>
-      <ProjectModal project={selectedProject} onClose={handleClose} />
+      <ProjectModal
+        project={selectedProject}
+        savedWords={savedWords}
+        onClose={handleClose}
+      />
     </section>
   );
 };

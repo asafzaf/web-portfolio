@@ -1,4 +1,5 @@
 {
+  "title": "Projects",
   "projects": [
     {
       "id": 1,
@@ -30,7 +31,7 @@
         },
         {
           "label": "Telegram channel - English",
-          "url": " https://t.me/goodnews_eng"
+          "url": "https://t.me/goodnews_eng"
         },
         {
           "label": "Telegram channel - Hebrew",
@@ -332,5 +333,14 @@
       ],
       "categories": ["Mobile Development", "Flutter", "Dart"]
     }
-  ]
+  ],
+  "savedWords": {
+    "date": "Date",
+    "categories": "Categories",
+    "links": "Links",
+    "close": "Close",
+    "noLinks": "No links available.",
+    "gallery": "Gallery",
+    "noGallery": "No images available."
+  }
 }
