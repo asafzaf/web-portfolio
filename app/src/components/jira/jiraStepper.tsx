@@ -7,9 +7,11 @@ import {
 } from "@mui/material";
 import { useJiraApi } from "../../hooks/useJiraApi";
 import { generateDateFormatter } from "../../utils/date.formater";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function JiraStepper() {
   const theme = useTheme();
+  const { jiraData } = useLanguage();
   const { useGetProjectIssues } = useJiraApi();
 
   const { data: issues, isLoading, isError, error } = useGetProjectIssues("WP");
@@ -31,7 +33,7 @@ export default function JiraStepper() {
           gutterBottom
           sx={{ mt: 4 }}
         >
-          This project managed by using Jira
+          {jiraData.title}
         </Typography>
         <Typography
           variant="h6"
@@ -40,7 +42,7 @@ export default function JiraStepper() {
           gutterBottom
           sx={{ mt: 4 }}
         >
-          Issues Overview
+          {jiraData.overview}
         </Typography>
         <Box
           sx={{
@@ -142,7 +144,7 @@ export default function JiraStepper() {
             align="center"
             color={theme.palette.secondary.main}
           >
-            Total Issues: {issues?.length}
+            {jiraData.totalIssues}: {issues?.length}
           </Typography>
         </Paper>
       </Box>

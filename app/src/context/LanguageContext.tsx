@@ -13,6 +13,9 @@ import projectHeRaw from "../data/he/projects.he.json";
 
 import skillsRaw from "../data/skills.json";
 
+import jiraEnRaw from "../data/en/jira.en.json";
+import jiraHeRaw from "../data/he/jira.he.json";
+
 const en = enRaw as LanguageData;
 const he = heRaw as LanguageData;
 
@@ -23,6 +26,7 @@ interface LanguageContextType {
   experienceData: any;
   projectsData: any;
   skillsData: any;
+  jiraData: any;
   switchLanguage: (lang: SupportedLang) => void;
 }
 
@@ -43,6 +47,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     he: projectHeRaw,
   };
 
+  const jiraData: Record<SupportedLang, any> = {
+    en: jiraEnRaw,
+    he: jiraHeRaw,
+  };
+
   const switchLanguage = (newLang: SupportedLang) => {
     setLang(newLang);
     document.dir = translations[newLang].direction;
@@ -57,6 +66,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         experienceData: experienceData[lang],
         projectsData: projectsData[lang],
         skillsData: skillsRaw,
+        jiraData: jiraData[lang],
         switchLanguage,
       }}
     >
