@@ -1,8 +1,8 @@
 // context/LanguageContext.tsx
 import { createContext, useContext, useState } from "react";
 import { type ReactNode } from "react";
-import enRaw from "../data/en.json";
-import heRaw from "../data/he.json";
+import enRaw from "../data/en/general.en.json";
+import heRaw from "../data/he/general.he.json";
 import type { LanguageData, SupportedLang } from "../types/language";
 
 const en = enRaw as LanguageData;
