@@ -10,19 +10,17 @@ import {
 import { useTheme } from "@mui/material/styles";
 import { useLanguage } from "../context/LanguageContext";
 
-import skills from "../data/skills.json";
-
 import SkillItem from "./skills/SkillItem";
 import type { FilterCategory } from "../types/skill";
 
 const Skills = () => {
   const theme = useTheme();
-  const { data } = useLanguage();
+  const { data, skillsData } = useLanguage();
   const isRtl = data.direction === "rtl";
 
   const [filters, setFilters] = useState<string[]>([]);
 
-  const skillsArray = skills.skills;
+  const skillsArray = skillsData.skills;
 
   const [filteredSkills, setFilteredSkills] = useState(skillsArray);
 
@@ -39,10 +37,10 @@ const Skills = () => {
         setFilteredSkills(skillsArray);
       } else {
         const selectedTags = filters.flatMap(
-          (category) => skills.filters[category as FilterCategory] || []
+          (category) => skillsData.filters[category as FilterCategory] || []
         );
-        const newFilteredSkills = skillsArray.filter((skill) =>
-          skill.types.some((type) => selectedTags.includes(type))
+        const newFilteredSkills = skillsArray.filter((skill: any) =>
+          skill.types.some((type: any) => selectedTags.includes(type))
         );
         setFilteredSkills(newFilteredSkills);
       }
@@ -120,7 +118,7 @@ const Skills = () => {
                   },
                 }}
                 >
-                {Object.entries(skills.filters).map(([category, _tags]) => (
+                {Object.entries(skillsData.filters).map(([category, _tags]) => (
                   <ToggleButton
                   key={category}
                   value={category}
@@ -159,7 +157,7 @@ const Skills = () => {
                 alignItems: "flex-start",
               }}
             >
-              {filteredSkills.map((skill) => (
+              {filteredSkills.map((skill: any) => (
                 <SkillItem key={skill.label} skill={skill} />
               ))}
             </Box>

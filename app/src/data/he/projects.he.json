@@ -1,0 +1,345 @@
+{
+  "title": "פרויקטים",
+  "projects": [
+    {
+      "id": 1,
+      "title": "Good News",
+      "shortDesc": "הישאר מעודכן עם סיכומי חדשות המבוססים על בינה מלאכותית.",
+      "description": "שירות אשר סורק כתבות חדשות ממקורות שונים, מסכם אותן בעזרת בינה מלאכותית, ושולח את הסיכומים למשתמשים דרך בוט טלגרם. נבנה באמצעות Node.js, Express, MongoDB ומשלב את Gemini לצורך סיכום התוכן.",
+      "date": "2025-07",
+      "image": {
+        "name": "good-news-logo",
+        "ext": "jpg",
+        "alt": "לוגו Good News"
+      },
+      "gallery": [
+        {
+          "name": "good-news-arch",
+          "ext": "jpg",
+          "alt": "ארכיטקטורת המערכת של Good News"
+        },
+        {
+          "name": "good-news-chat",
+          "ext": "jpg",
+          "alt": "שיחת Slack פנימית של Good News"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/GoodNews"
+        },
+        {
+          "label": "ערוץ טלגרם - אנגלית",
+          "url": "https://t.me/goodnews_eng"
+        },
+        {
+          "label": "ערוץ טלגרם - עברית",
+          "url": "https://t.me/goodnews_il"
+        }
+      ],
+      "categories": [
+        "פיתוח אתרים",
+        "Node.js",
+        "React",
+        "Express",
+        "MongoDB",
+        "הנדסת פרומפטים",
+        "אינטגרציית API"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Smart Chat",
+      "shortDesc": "פלטפורמת צ'אט מבוססת בינה מלאכותית המשולבת עם מספר שירותי AI.",
+      "description": "Smart Chat היא פלטפורמת שיחה חכמה המשלבת תגובות ממספר שירותי בינה מלאכותית, ומספקת אינטראקציות מותאמות ואיכותיות בזמן אמת. נבנתה בארכיטקטורה חזקה של Node.js, ומשלבת SDKs שונים, ניהול הערכות רב-פלטפורמיות ותמיכה בשיחות דינמיות. פותחה כחלק מפרויקט הגמר בתואר בהנדסת תוכנה.",
+      "date": "2025-06",
+      "image": {
+        "name": "smart-chat-logo",
+        "ext": "jpg",
+        "alt": "לוגו Smart Chat"
+      },
+      "gallery": [
+        {
+          "name": "smart-chat-team",
+          "ext": "jpg",
+          "alt": "צוות Smart Chat"
+        },
+        {
+          "name": "smart-chat-presentation",
+          "ext": "JPG",
+          "alt": "מצגת Smart Chat"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub - צד שרת",
+          "url": "https://github.com/asafzaf/SmartChat"
+        },
+        {
+          "label": "GitHub - צד לקוח",
+          "url": "https://github.com/asafzaf/SmartChatFront"
+        }
+      ],
+      "categories": [
+        "פיתוח אתרים",
+        "Node.js",
+        "React",
+        "Express",
+        "MongoDB",
+        "הנדסת פרומפטים",
+        "אינטגרציית API"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Cookie",
+      "shortDesc": "ניהול קניות ומוצרים עם חברים או משפחה בצורה פשוטה ומהנה.",
+      "description": "אפליקציה לנייד המסייעת למשפחות וחברים לנהל יחד רשימות קניות ומוצרים. ניתן למיין לפי מחלקות, לשמור היסטוריית רכישות ולעקוב אחר מוצרים. נבנתה באמצעות React-Native, Node.js, Express ו-MongoDB.",
+      "date": "2025-01",
+      "image": {
+        "name": "cookie-icon",
+        "ext": "png",
+        "alt": "אייקון Cookie"
+      },
+      "gallery": [
+        {
+          "name": "cookie-home",
+          "ext": "jpg",
+          "alt": "מסך הבית של Cookie"
+        },
+        {
+          "name": "cookie-handle",
+          "ext": "jpg",
+          "alt": "מסך ניהול ברשימות Cookie"
+        },
+        {
+          "name": "cookie-buy-items",
+          "ext": "jpg",
+          "alt": "מסך רכישת מוצרים Cookie"
+        },
+        {
+          "name": "cookie-home-heb",
+          "ext": "jpg",
+          "alt": "מסך הבית בעברית של Cookie"
+        }
+      ],
+      "links": [
+        {
+          "label": "GitHub - צד שרת",
+          "url": "https://github.com/asafzaf/Cookie_back"
+        },
+        {
+          "label": "GitHub - צד לקוח",
+          "url": "https://github.com/asafzaf/cookie"
+        },
+        {
+          "label": "GitHub - פאנל ניהול",
+          "url": "https://github.com/asafzaf/cookie-admin-app"
+        }
+      ],
+      "categories": [
+        "פיתוח מובייל",
+        "iOS",
+        "Android",
+        "React Native",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Wiki-Song",
+      "shortDesc": "כאשר מיקרו-שירותים נפגשים עם מוזיקה.",
+      "description": "פרויקט ליצירת סביבת פיתוח מקומית לניהול שרתים וסקרייפינג של נתונים באמצעות Docker Compose עבור Data Pipeline. הסביבה כוללת מספר שירותים הפועלים יחד לסריקת נתונים מאתר, עיבודם ואחסונם במסד נתונים PostgreSQL.",
+      "date": "2024-12",
+      "image": {
+        "name": "wiki-song",
+        "ext": "png",
+        "alt": "Wiki-Song"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/wiki-song"
+        }
+      ],
+      "categories": [
+        "פיתוח אתרים",
+        "Python",
+        "SQL",
+        "Selenium",
+        "Web Scraper"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Web SQLI Attack",
+      "shortDesc": "אתר פשוט להדגמת מתקפת SQL Injection.",
+      "description": "פרויקט שנה ג' בקורס אבטחת מידע. אתר וכלי Python שמדגימים מתקפת SQL Injection וכיצד ניתן למנוע אותה. נבנה באמצעות HTML, JavaScript, CSS ו-Python.",
+      "date": "2024-22",
+      "image": {
+        "name": "web-attack",
+        "ext": "png",
+        "alt": "Web SQLI Attack"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/websqliattack"
+        }
+      ],
+      "categories": [
+        "פיתוח אתרים",
+        "Python",
+        "SQL",
+        "Selenium",
+        "Web Scraper"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Fixit",
+      "shortDesc": "אפליקציה למיפוי בעיות ופרצות בתחום הבנייה — בעבודה, בבית הספר או בבית.",
+      "description": "תרגול מצוין לפיתוח מובייל: אפליקציית React Native עם שרת Express המחובר ל-MongoDB. מאפשרת תיעוד וניהול בעיות בתחום הבנייה.",
+      "date": "2024-03",
+      "image": {
+        "name": "fixit-logo-1",
+        "ext": "jpg",
+        "alt": "לוגו Fixit"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub - צד לקוח",
+          "url": "https://github.com/asafzaf/Fixit"
+        },
+        {
+          "label": "GitHub - צד שרת",
+          "url": "https://github.com/asafzaf/fixit-server "
+        }
+      ],
+      "categories": [
+        "React Native",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Donation App",
+      "shortDesc": "אפליקציה לניהול תרומות.",
+      "description": "תרגול מעשי לפיתוח Full-Stack ותיעוד באמצעות Postman. כולל שרת Express המחובר ל-MongoDB ויישום צד לקוח ב-React.",
+      "date": "2024-02",
+      "image": {
+        "name": "donation-box",
+        "ext": "jpg",
+        "alt": "תיבת תרומות"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub - צד שרת",
+          "url": "https://github.com/asafzaf/Donations-Express"
+        },
+        {
+          "label": "GitHub - צד לקוח",
+          "url": "https://github.com/asafzaf/Donations-App"
+        },
+        {
+          "label": "תיעוד Postman",
+          "url": "https://documenter.getpostman.com/view/31102943/2s9Yyzbx4j"
+        }
+      ],
+      "categories": [
+        "פיתוח אתרים",
+        "Node.js",
+        "React",
+        "MongoDB",
+        "Express",
+        "Postman"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Medigment",
+      "shortDesc": "דרך פשוטה לניהול תרופות בשגרת היום שלך.",
+      "description": "פרויקט גמר בקורס Web & Cloud. אפליקציה לניהול תרופות ומעקב אחר אספקתן. כללה תכנון מסמכי SRS ו-SDD, שרטוט תרשימים ובניית האפליקציה ב-PHP ו-JavaScript על פי עיצוב מקורי.",
+      "date": "2023-07",
+      "image": {
+        "name": "medigment",
+        "ext": "jpg",
+        "alt": "מסך Medigment"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "אתר",
+          "url": "http://se.shenkar.ac.il/students/2022-2023/web1/dev_204/"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/Medigment"
+        }
+      ],
+      "categories": ["פיתוח אתרים", "PHP", "JavaScript", "MySQL"]
+    },
+    {
+      "id": 9,
+      "title": "Book Store",
+      "shortDesc": "אפליקציה לחיפוש וסינון ספרים.",
+      "description": "אפליקציית ספרים המאפשרת סינון וחיפוש ספרים וקריאת תיאורים עליהם. פותחה במסגרת קורס Web & Cloud.",
+      "date": "2023-06",
+      "image": {
+        "name": "bookstore",
+        "ext": "jpg",
+        "alt": "מסך Book Store"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "אתר",
+          "url": "http://se.shenkar.ac.il/students/2022-2023/web1/dev_93/exercises/ex5/index.php"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/BooksSite"
+        }
+      ],
+      "categories": ["פיתוח אתרים", "PHP", "JavaScript", "MySQL"]
+    },
+    {
+      "id": 10,
+      "title": "Meals App",
+      "shortDesc": "אפליקציית מתכונים לארוחות הטובות ביותר.",
+      "description": "אפליקציית מתכונים שפותחה ב-Flutter למכשירי iOS ו-Android (נייטיב), כחלק מקורס Udemy בנושא Flutter ו-Dart.",
+      "date": "2023-03",
+      "image": {
+        "name": "mealsapp",
+        "ext": "jpg",
+        "alt": "מסך Meals App"
+      },
+      "gallery": [],
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/asafzaf/Meals-app"
+        }
+      ],
+      "categories": ["פיתוח מובייל", "Flutter", "Dart"]
+    }
+  ],
+  "savedWords": {
+    "date": "תאריך",
+    "categories": "קטגוריות",
+    "links": "לינקים",
+    "close": "סגירה",
+    "noLinks": "אין לינקים זמינים.",
+    "gallery": "גלריה",
+    "noGallery": "אין תמונות זמינות."
+  }
+}

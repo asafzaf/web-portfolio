@@ -9,5 +9,6 @@ export interface ProjectCardProps {
 
 export interface ProjectModalProps {
   project: Project | null;
+  savedWords: Record<string, string>;
   onClose: () => void;
 }
