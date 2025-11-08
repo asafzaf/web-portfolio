@@ -73,9 +73,19 @@
       "types": ["language", "backend"]
     },
     {
+      "label": "Go (Golang)",
+      "avatar": "go-lang",
+      "types": ["language", "backend"]
+    },
+    {
       "label": "GitHub",
       "avatar": "github",
       "types": ["version control"]
+    },
+    {
+      "label": "Cursor AI",
+      "avatar": "cursor-ai",
+      "types": ["tool", "automation", "ai", "ide"]
     },
     {
       "label": "Linux",
@@ -161,6 +171,16 @@
       "label": "Jira",
       "avatar": "jira",
       "types": ["project management"]
+    },
+    {
+      "label": "Lua",
+      "avatar": "lua-lang",
+      "types": ["language"]
+    },
+    {
+      "label": "Roblox Studio",
+      "avatar": "roblox-studio",
+      "types": ["game development", "ide", "tool"]
     },
     {
       "label": "Figma",
