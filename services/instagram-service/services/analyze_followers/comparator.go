@@ -1,4 +1,4 @@
-package main
+package analyze_followers
 
 // compareFollowers compares two follower lists and returns:
 // - newFollowers: followers in list2 but not in list1

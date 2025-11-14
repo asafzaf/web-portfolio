@@ -2,36 +2,33 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"net/http"
+
+	"github.com/go-chi/chi/v5"
+
+	"asafz/instagram-service/routes"
 )
 
+func recoveryMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		defer func() {
+			if err := recover(); err != nil {
+				fmt.Printf("Recovered from panic: %v\n", err)
+				http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			}
+		}()
+		next.ServeHTTP(w, r)
+	})
+}
+
 func main() {
+	r := chi.NewRouter()
+	r.Use(recoveryMiddleware)
+	routes.RegisterAnalyzeRoutes(r)
 	fmt.Println("Instagram Follower Analysis Service")
-
-	// Read follower data from JSON files
-	followers1, err := readFollowers("followers_0.json")
+	fmt.Println("Server is running on port 8088")
+	err := http.ListenAndServe(":8088", r)
 	if err != nil {
-		log.Fatalf("Failed to read followers_0.json: %v", err)
-	}
-
-	followers2, err := readFollowers("followers_1.json")
-	if err != nil {
-		log.Fatalf("Failed to read followers_1.json: %v", err)
-	}
-
-	fmt.Printf("Followers 1 count: %d\n", len(followers1))
-	fmt.Printf("Followers 2 count: %d\n", len(followers2))
-
-	// Compare followers
-	newFollowers, unfollowers := compareFollowers(followers1, followers2)
-
-	fmt.Printf("\nNew followers: %d\n", len(newFollowers))
-	for _, follower := range newFollowers {
-		fmt.Printf("  - %s (%s)\n", follower.Username, follower.ProfileURL)
-	}
-
-	fmt.Printf("\nUnfollowers: %d\n", len(unfollowers))
-	for _, follower := range unfollowers {
-		fmt.Printf("  - %s (%s)\n", follower.Username, follower.ProfileURL)
+		fmt.Printf("Failed to start server: %v\n", err)
 	}
 }

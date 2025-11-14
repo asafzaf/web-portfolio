@@ -1,4 +1,9 @@
-package main
+package analyze_followers
+
+type InputFiles struct {
+	File1 []FollowerEntry `json:"file1"`
+	File2 []FollowerEntry `json:"file2"`
+}
 
 type FollowerResponse struct {
 	NewFollowers     []Follower `json:"new_followers"`
