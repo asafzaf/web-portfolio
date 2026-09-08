@@ -8,6 +8,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
+        <Route path="invenstory" element={<LandingPage />} />
+        <Route path="InvenStory" element={<LandingPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

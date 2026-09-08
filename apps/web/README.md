@@ -2,7 +2,8 @@
 
 Static landing page for the Invenstory app. Hebrew-first, no backend.
 
-Live: [https://asafzaf.github.io/InvenStory/](https://asafzaf.github.io/InvenStory/)
+Live: [https://asafzaf.github.io/web-portfolio/](https://asafzaf.github.io/web-portfolio/)  
+Alias: [https://asafzaf.github.io/web-portfolio/invenstory](https://asafzaf.github.io/web-portfolio/invenstory)
 
 This is marketing only. Household invites stay on `/get-app` of the API (`?code=…`, TestFlight, deep link).
 
@@ -15,7 +16,7 @@ npm install
 npm run web
 ```
 
-Opens [http://localhost:5173/InvenStory/](http://localhost:5173/InvenStory/). Vite `base` and the React router basename are `/InvenStory` so GitHub Pages paths match.
+Opens [http://localhost:5173/web-portfolio/](http://localhost:5173/web-portfolio/). Vite `base` and the React router basename are `/web-portfolio` so they match this GitHub repo’s Pages URL (`asafzaf.github.io/web-portfolio/`).
 
 ```bash
 npm run web:build
