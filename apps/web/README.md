@@ -35,6 +35,8 @@ Change TestFlight / Play links on Render. You do not need to rebuild this site u
 
 1. Repo **Settings → Pages → Build and deployment → Source**: GitHub Actions.
 2. Push to `main` under `apps/web/**`, or run **Actions → Deploy web to GitHub Pages → Run workflow**.
-3. The workflow builds `apps/web` and deploys `dist`. Unknown paths use `public/404.html` so later routes (e.g. `/privacy`) can be React routes without a host rewrite.
+3. The workflow builds `apps/web` and deploys `dist`. Unknown paths (including `/invenstory`) use `public/404.html` to return to `/web-portfolio/` and restore the path in the React router.
+
+Open [https://asafzaf.github.io/web-portfolio/](https://asafzaf.github.io/web-portfolio/) after deploy. Do not keep a tab on `...?/invenstory` — that was the old fallback URL and may still show a cached page that requests `/InvenStory/assets/`.
 
 If this repo already serves another Pages site from the `gh-pages` branch, switch the Pages source to GitHub Actions only when you intend this site to be the one at the Pages URL.

@@ -15,22 +15,15 @@
     <link rel="apple-touch-icon" href="./icon.png" />
     <title>Invenstory — הבית שלך, מסודר</title>
     <script>
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(
-            null,
-            "",
-            l.pathname.slice(0, -1) + decoded + l.hash,
-          );
-        }
-      })(window.location);
+      (function () {
+        try {
+          var redirect = sessionStorage.getItem("invenstory-redirect");
+          if (redirect) {
+            sessionStorage.removeItem("invenstory-redirect");
+            history.replaceState(null, "", redirect);
+          }
+        } catch (_e) {}
+      })();
     </script>
   </head>
   <body>
