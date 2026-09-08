@@ -14,17 +14,6 @@
     <link rel="icon" type="image/png" href="./icon.png" />
     <link rel="apple-touch-icon" href="./icon.png" />
     <title>Invenstory — הבית שלך, מסודר</title>
-    <script>
-      (function () {
-        try {
-          var redirect = sessionStorage.getItem("invenstory-redirect");
-          if (redirect) {
-            sessionStorage.removeItem("invenstory-redirect");
-            history.replaceState(null, "", redirect);
-          }
-        } catch (_e) {}
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>

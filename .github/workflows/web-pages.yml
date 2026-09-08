@@ -4,8 +4,12 @@ on:
   push:
     branches: [main]
     paths:
+      - "app/**"
       - "apps/web/**"
+      - "package.json"
+      - "package-lock.json"
       - ".github/workflows/web-pages.yml"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -20,17 +24,34 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VITE_BACKEND_URL: ${{ secrets.BACKEND_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
-      - run: npm run build --workspace=@invenstory/web
+
+      - name: Install and build portfolio
+        working-directory: app
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install and build Invenstory
+        run: |
+          npm ci
+          npm run web:build
+
+      - name: Nest Invenstory at /invenstory
+        run: |
+          mkdir -p app/dist/invenstory
+          cp -a apps/web/dist/. app/dist/invenstory/
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/web/dist
+          path: app/dist
 
   deploy:
     needs: build

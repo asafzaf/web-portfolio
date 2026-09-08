@@ -25,13 +25,27 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build project
         run: npm run build
+
+      - name: Install Invenstory dependencies
+        working-directory: .
+        run: npm ci
+
+      - name: Build Invenstory
+        working-directory: .
+        run: npm run web:build
+
+      - name: Nest Invenstory at /invenstory
+        working-directory: .
+        run: |
+          mkdir -p app/dist/invenstory
+          cp -a apps/web/dist/. app/dist/invenstory/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

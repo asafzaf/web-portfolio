@@ -6,6 +6,8 @@ export default defineConfig({
   base: "/web-portfolio/",
   plugins: [react()],
   server: {
+    port: 5173,
+    open: "/web-portfolio/",
     watch: {
       usePolling: true,
     },

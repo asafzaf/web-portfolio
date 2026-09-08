@@ -2,8 +2,9 @@
 
 Static landing page for the Invenstory app. Hebrew-first, no backend.
 
-Live: [https://asafzaf.github.io/web-portfolio/](https://asafzaf.github.io/web-portfolio/)  
-Alias: [https://asafzaf.github.io/web-portfolio/invenstory](https://asafzaf.github.io/web-portfolio/invenstory)
+Live: [https://asafzaf.github.io/web-portfolio/invenstory/](https://asafzaf.github.io/web-portfolio/invenstory/)
+
+The personal portfolio stays at [https://asafzaf.github.io/web-portfolio/](https://asafzaf.github.io/web-portfolio/). Deploy copies this app into `app/dist/invenstory/`.
 
 This is marketing only. Household invites stay on `/get-app` of the API (`?code=…`, TestFlight, deep link).
 
@@ -16,7 +17,15 @@ npm install
 npm run web
 ```
 
-Opens [http://localhost:5173/web-portfolio/](http://localhost:5173/web-portfolio/). Vite `base` and the React router basename are `/web-portfolio` so they match this GitHub repo’s Pages URL (`asafzaf.github.io/web-portfolio/`).
+Opens the original portfolio at [http://localhost:5173/web-portfolio/](http://localhost:5173/web-portfolio/).
+
+The Invenstory landing is a separate Vite app:
+
+```bash
+npm run web:invenstory
+```
+
+That opens [http://localhost:5174/web-portfolio/invenstory/](http://localhost:5174/web-portfolio/invenstory/). It does not replace the portfolio homepage.
 
 ```bash
 npm run web:build
@@ -33,10 +42,9 @@ Change TestFlight / Play links on Render. You do not need to rebuild this site u
 
 ## GitHub Pages
 
-1. Repo **Settings → Pages → Build and deployment → Source**: GitHub Actions.
-2. Push to `main` under `apps/web/**`, or run **Actions → Deploy web to GitHub Pages → Run workflow**.
-3. The workflow builds `apps/web` and deploys `dist`. Unknown paths (including `/invenstory`) use `public/404.html` to return to `/web-portfolio/` and restore the path in the React router.
+Push to `main` (or run **Actions → Deploy web to GitHub Pages**). The workflow builds the portfolio and Invenstory, then publishes:
 
-Open [https://asafzaf.github.io/web-portfolio/](https://asafzaf.github.io/web-portfolio/) after deploy. Do not keep a tab on `...?/invenstory` — that was the old fallback URL and may still show a cached page that requests `/InvenStory/assets/`.
-
-If this repo already serves another Pages site from the `gh-pages` branch, switch the Pages source to GitHub Actions only when you intend this site to be the one at the Pages URL.
+| URL | Site |
+| --- | --- |
+| `/web-portfolio/` | Portfolio |
+| `/web-portfolio/invenstory/` | Invenstory |
