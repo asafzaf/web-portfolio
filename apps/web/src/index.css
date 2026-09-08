@@ -1,0 +1,80 @@
+:root {
+  --brand-primary: #d97b4f;
+  --brand-primary-dark: #b85e32;
+  --brand-sage: #5c8b6e;
+  --brand-sage-dark: #3e6b50;
+  --bg: #faf8f5;
+  --paper: #ffffff;
+  --text: #26211d;
+  --muted: #7d6e62;
+  --line: #e5ddd3;
+  --shadow: 0 8px 28px rgba(38, 33, 29, 0.07);
+  --radius: 16px;
+  --header-h: 68px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 90% 46% at 50% -8%, #f3e4d6 0%, transparent 62%);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

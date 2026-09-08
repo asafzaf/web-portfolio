@@ -1,0 +1,9 @@
+{
+  "name": "web-portfolio",
+  "private": true,
+  "workspaces": ["apps/web"],
+  "scripts": {
+    "web": "npm run dev --workspace=@invenstory/web",
+    "web:build": "npm run build --workspace=@invenstory/web"
+  }
+}

@@ -1,0 +1,145 @@
+.wrap,
+.start {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wrap {
+  align-items: center;
+}
+
+.early {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eef4f0;
+  color: var(--brand-sage-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.start {
+  align-items: flex-start;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.wrap .row {
+  justify-content: center;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  min-height: 52px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.16s ease;
+}
+
+.icon {
+  display: inline-flex;
+}
+
+.labelWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+  gap: 2px;
+}
+
+.hint {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.primary {
+  background: var(--brand-primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(184, 94, 50, 0.22);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--brand-primary-dark);
+}
+
+.secondary {
+  background: var(--paper);
+  color: var(--brand-sage-dark);
+  border-color: var(--brand-sage);
+}
+
+.secondary:hover:not(:disabled) {
+  background: #eef4f0;
+}
+
+.primary:disabled,
+.secondary:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.primary:disabled {
+  background: color-mix(in srgb, var(--brand-primary) 55%, var(--line));
+  color: #fff;
+}
+
+.secondary:disabled {
+  background: var(--bg);
+  color: var(--muted);
+  border-color: var(--line);
+}
+
+.badge {
+  margin-inline-start: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--muted);
+}
+
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  max-width: 38em;
+  line-height: 1.55;
+}
+
+.wrap .note {
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .primary,
+  .secondary {
+    flex: 1 1 100%;
+  }
+}
