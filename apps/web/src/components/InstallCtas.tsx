@@ -33,6 +33,7 @@ export function InstallCtas({ align = "center" }: Props) {
           href={androidInstallUrl}
           className={styles.secondary}
           label={t.installAndroid}
+          hint={t.installAndroidHint}
           unavailable={t.installUnavailable}
           comingSoon={t.comingSoon}
           icon={<AndroidMark />}

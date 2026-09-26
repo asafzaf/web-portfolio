@@ -6,8 +6,9 @@ export const installConfigUrl = `${apiOrigin}/api/legal/links`;
 
 export const fallbackIosInstallUrl = "https://testflight.apple.com/join/2BaBF9d8";
 
-/** Empty disables the Android button until the API (or this fallback) has a Play URL. */
-export const fallbackAndroidInstallUrl = "";
+/** Used when the API is down or returns an empty Android URL. */
+export const fallbackAndroidInstallUrl =
+  "https://play.google.com/store/apps/details?id=com.invenstory.app.staging";
 
 export const fallbackPrivacyUrl = `${apiOrigin}/privacy`;
 export const fallbackTermsUrl = `${apiOrigin}/terms`;

@@ -36,9 +36,9 @@ npm run preview --workspace=@invenstory/web
 
 The site loads live URLs from the API (`GET /api/legal/links` on the staging host in `src/config/install.ts`) — same config the app and `/get-app` use (`IOS_INSTALL_URL`, `ANDROID_INSTALL_URL`, privacy, terms).
 
-If the API is unreachable, it falls back to the values in that file. An empty Android URL keeps the Android button visible and disabled.
+If the API is unreachable, or it returns an empty Android URL, the site uses the fallbacks in that file. A Play Store URL there turns the Android button into a link.
 
-Change TestFlight / Play links on Render. You do not need to rebuild this site unless the API host itself changes.
+A non-empty `ANDROID_INSTALL_URL` on Render overrides the Play fallback. You do not need to rebuild this site unless the API host itself changes.
 
 ## GitHub Pages
 

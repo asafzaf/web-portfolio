@@ -39,7 +39,7 @@ function httpsUrl(value: unknown): string {
 function fromServer(data: Record<string, unknown>): InstallConfig {
   return {
     iosInstallUrl: httpsUrl(data.iosInstallUrl) || fallbacks.iosInstallUrl,
-    androidInstallUrl: httpsUrl(data.androidInstallUrl),
+    androidInstallUrl: httpsUrl(data.androidInstallUrl) || fallbacks.androidInstallUrl,
     privacyUrl: httpsUrl(data.privacyPolicyUrl) || fallbacks.privacyUrl,
     termsUrl: httpsUrl(data.termsOfUseUrl) || fallbacks.termsUrl,
   };
